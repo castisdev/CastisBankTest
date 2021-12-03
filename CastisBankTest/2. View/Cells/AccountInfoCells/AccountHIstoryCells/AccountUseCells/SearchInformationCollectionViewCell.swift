@@ -9,4 +9,8 @@ import UIKit
 
 class SearchInformationCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var afterSettingSearchInfoButton: UIButton!
+    
+    let cellIdentifier = "searchInfoCell"
 }

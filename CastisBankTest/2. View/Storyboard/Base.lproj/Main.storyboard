@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomePageViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,14 +29,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="accountInfoCell" id="JfY-tm-4D9" customClass="AccountInfoCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="accountInfoCell" reuseIdentifier="accountInfoCell" id="JfY-tm-4D9" customClass="AccountInfoCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.5" y="0.0" width="413" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vso-d5-lMT">
                                             <rect key="frame" x="0.0" y="0.0" width="413" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="계좌 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgm-UD-RI6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="계좌 랄랄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgm-UD-RI6">
                                                     <rect key="frame" x="36" y="34" width="64" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -82,8 +82,16 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="413" height="220"/>
+                                        <connections>
+                                            <outlet property="accountBalance" destination="2yD-1V-1Nk" id="Ma9-u4-OCq"/>
+                                            <outlet property="accountNameLabel" destination="zgm-UD-RI6" id="taa-4o-gEz"/>
+                                            <outlet property="accountNumber" destination="JiI-bo-Uvl" id="znv-Gd-cc6"/>
+                                            <outlet property="mainAccountStarImageView" destination="hfE-0Y-gJ9" id="fIM-Ed-LcP"/>
+                                            <outlet property="transferButton" destination="ge0-H4-AfE" id="ajw-I5-vqt"/>
+                                            <outlet property="useInformationOfAccount" destination="PmS-P2-seB" id="0rF-7c-gKz"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TyA-lC-vt5">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editCell" id="TyA-lC-vt5" customClass="EditAccountOrderCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.5" y="230" width="413" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b9q-nc-zcR">
@@ -100,6 +108,7 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="editAccountOrderLabel" destination="AuQ-aW-7nf" id="y6u-Rm-twn"/>
                                             <segue destination="6mv-v3-uk9" kind="show" id="mR7-EQ-VoV"/>
                                         </connections>
                                     </collectionViewCell>
@@ -110,6 +119,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="EqG-Cr-GyJ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ZnC-8x-5d4" id="bYt-qS-uPg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,7 +130,7 @@
         <!--이체-->
         <scene sceneID="q6w-G1-saw">
             <objects>
-                <viewController id="HJb-Oc-Qpz" sceneMemberID="viewController">
+                <viewController id="HJb-Oc-Qpz" customClass="SetRecieverViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k72-i9-pOg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,7 +152,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="63" id="vMV-AE-TpO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transferedHistoryCell" rowHeight="63" id="vMV-AE-TpO" customClass="TransferHistoryTableViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vMV-AE-TpO" id="I1z-XY-OSW">
@@ -164,6 +176,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="receiveredAccountNameLabel" destination="k9p-gd-zbz" id="PPD-OP-KX6"/>
+                                            <outlet property="receiveredAccountNumberLabel" destination="huS-q4-khJ" id="8x1-Vo-MBW"/>
                                             <segue destination="kGF-fg-fyt" kind="show" id="0ge-ta-XZg"/>
                                         </connections>
                                     </tableViewCell>
@@ -191,7 +205,7 @@
         <!--이체 받을 계좌 이름-->
         <scene sceneID="MR3-IC-70I">
             <objects>
-                <viewController id="kGF-fg-fyt" sceneMemberID="viewController">
+                <viewController id="kGF-fg-fyt" customClass="SetSendingAmountViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wqw-uH-Pka">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="2283" y="-342"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Information View Controller-->
         <scene sceneID="Z9J-gL-IT3">
             <objects>
-                <viewController id="LAN-ZD-ChW" sceneMemberID="viewController">
+                <viewController id="LAN-ZD-ChW" customClass="SetInformationViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="duY-TU-EDz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,7 +286,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="158" id="bBU-Za-Vjq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="setSearchCell" rowHeight="158" id="bBU-Za-Vjq" customClass="SetSearchInformationCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bBU-Za-Vjq" id="31U-Ej-er5">
@@ -296,6 +310,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="choiceSegmentControl" destination="omT-G6-YJu" id="IjO-sX-COg"/>
+                                            <outlet property="searchStandardNameLabel" destination="TQ1-Of-Xfu" id="Ty7-2M-bLx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -311,7 +329,7 @@
         <!--화면 편집-->
         <scene sceneID="0wH-gV-hWN">
             <objects>
-                <viewController id="6mv-v3-uk9" sceneMemberID="viewController">
+                <viewController id="6mv-v3-uk9" customClass="EditAccountOrderViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QpF-nW-yUW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,7 +339,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XKt-Gw-i80">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="changeOrderCell" id="XKt-Gw-i80" customClass="ChangeAccountOrderTableViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XKt-Gw-i80" id="G3j-tw-1MZ">
@@ -356,6 +374,12 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="accountBalanceLabel" destination="KOC-g2-NAe" id="wMn-cJ-AVi"/>
+                                            <outlet property="accountNameLabel" destination="Huh-xJ-3Nx" id="pwA-0O-6hC"/>
+                                            <outlet property="changingOrderButton" destination="qel-YG-zkr" id="m0q-4e-lma"/>
+                                            <outlet property="mainAccountStarButton" destination="OAm-Ke-XUo" id="CS3-Ac-GJu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -374,7 +398,7 @@
         <!--계좌 이름-->
         <scene sceneID="que-vM-aJG">
             <objects>
-                <viewController id="w8V-qc-al4" sceneMemberID="viewController">
+                <viewController id="w8V-qc-al4" customClass="AccountUseViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WHe-rd-PFh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -390,7 +414,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uAu-0L-YeX">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="selectedAccountCell" id="uAu-0L-YeX" customClass="SelectedAccountInfoCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QB3-av-Avl">
@@ -423,8 +447,13 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="224"/>
+                                        <connections>
+                                            <outlet property="accountBalanceLabel" destination="xA4-7G-tUj" id="Un7-Im-7nE"/>
+                                            <outlet property="accountNubmerLabel" destination="T2s-vz-Bqo" id="Ink-OF-Nir"/>
+                                            <outlet property="transferButton" destination="kZP-5H-xUT" id="0Mq-HS-bZf"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TAm-N3-raA">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchInfoCell" id="TAm-N3-raA" customClass="SearchInformationCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234" width="414" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wZv-rb-LiA">
@@ -443,8 +472,11 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="61"/>
+                                        <connections>
+                                            <outlet property="afterSettingSearchInfoButton" destination="8si-4k-e4S" id="4xv-2G-hcl"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="roG-kr-ulR">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="transferHistoryCell" id="roG-kr-ulR" customClass="TransferHistoryCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="305" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R1f-q1-0Lb">
@@ -483,6 +515,10 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="82"/>
                                         <connections>
+                                            <outlet property="afterTransferAccountBalanceLabel" destination="LBe-h1-4jI" id="YQy-2s-3ae"/>
+                                            <outlet property="transferDateLabel" destination="lmo-g6-g4q" id="Cyq-2A-uPa"/>
+                                            <outlet property="transferedAccountNameLabel" destination="BEk-RP-pMW" id="kCY-vc-4nN"/>
+                                            <outlet property="transferedAmountLabel" destination="AN2-Ki-cls" id="roW-qv-3mw"/>
                                             <segue destination="g9E-fo-OQP" kind="show" id="pMs-x9-bIL"/>
                                         </connections>
                                     </collectionViewCell>
@@ -493,15 +529,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="계좌 이름" id="1XC-5A-d2K"/>
+                    <connections>
+                        <outlet property="collectionView" destination="BIA-Dm-znA" id="F7Q-q7-SfG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypz-gH-AzN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1393" y="428"/>
         </scene>
-        <!--View Controller-->
+        <!--Use Detail View Controller-->
         <scene sceneID="brw-Hm-Dao">
             <objects>
-                <viewController id="g9E-fo-OQP" sceneMemberID="viewController">
+                <viewController id="g9E-fo-OQP" customClass="UseDetailViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M9U-Zj-gkC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -530,7 +569,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bMz-dg-DfF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailInfoCell" id="bMz-dg-DfF" customClass="DetailTransferInfoTableViewCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bMz-dg-DfF" id="x66-uY-SfN">
@@ -553,6 +592,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="transactionDetailInfoLabel" destination="Nsm-pa-PUD" id="BJS-Dw-1Hm"/>
+                                            <outlet property="transactionInfoLabel" destination="bRd-0I-C92" id="XN5-vx-zay"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -587,7 +630,7 @@
         <!--이체 받을 계좌 이름-->
         <scene sceneID="ATx-Oh-uA9">
             <objects>
-                <viewController id="kht-o4-LRS" sceneMemberID="viewController">
+                <viewController id="kht-o4-LRS" customClass="SetSendingMemoViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bNv-yW-D6Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -668,10 +711,10 @@
             </objects>
             <point key="canvasLocation" x="3042.0289855072465" y="-342.1875"/>
         </scene>
-        <!--View Controller-->
+        <!--Seek Transfer Consent View Controller-->
         <scene sceneID="zpI-9v-tQY">
             <objects>
-                <viewController id="YRO-Hd-X6n" sceneMemberID="viewController">
+                <viewController id="YRO-Hd-X6n" customClass="SeekTransferConsentViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ro-z6-k01">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -714,10 +757,10 @@
             </objects>
             <point key="canvasLocation" x="3776.811594202899" y="-342.1875"/>
         </scene>
-        <!--View Controller-->
+        <!--Put Transfer Password View Controller-->
         <scene sceneID="jmE-cR-SQe">
             <objects>
-                <viewController id="mde-U9-s1b" sceneMemberID="viewController">
+                <viewController id="mde-U9-s1b" customClass="PutTransferPasswordViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTm-gR-gnU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -739,10 +782,10 @@
             </objects>
             <point key="canvasLocation" x="4509" y="-342"/>
         </scene>
-        <!--View Controller-->
+        <!--Transfer Success View Controller-->
         <scene sceneID="prS-EW-snW">
             <objects>
-                <viewController id="hRn-ew-Apy" sceneMemberID="viewController">
+                <viewController id="hRn-ew-Apy" customClass="TransferSuccessViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="63x-ho-hgJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
