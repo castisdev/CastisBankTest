@@ -24,7 +24,7 @@ class SelectedAccountInfoCollectionViewCell: UICollectionViewCell {
         
         uikitFuncs.labelSettings(label: accountNubmerLabel, title: "앞에서 받아온 계좌번호", size: 15, color: .black)
         uikitFuncs.labelSettings(label: accountBalanceLabel, title: "앞에서 받아온 계좌 잔액", size: 20, color: .black)
-        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 15)
+        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 15, color: .black)
     }
     
     func setConstraints(){
@@ -40,7 +40,7 @@ class SelectedAccountInfoCollectionViewCell: UICollectionViewCell {
             accountBalanceLabel.topAnchor.constraint(equalTo: accountNubmerLabel.bottomAnchor, constant: 20),
             
             transferButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            transferButton.topAnchor.constraint(equalTo: accountBalanceLabel.bottomAnchor, constant: 50),
+            transferButton.topAnchor.constraint(equalTo: accountBalanceLabel.bottomAnchor, constant: 30),
             transferButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             transferButton.heightAnchor.constraint(equalToConstant: 45)
         ])

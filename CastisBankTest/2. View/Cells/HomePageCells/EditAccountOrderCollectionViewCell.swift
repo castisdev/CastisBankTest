@@ -13,15 +13,15 @@ class EditAccountOrderCollectionViewCell: UICollectionViewCell {
     
     let cellIdentifier = "editCell"
     
+    let uikitFuncs = UIKitFuncs()
+    
     func cellSettings(){
         
-        labelSettings(label: editAccountOrderLabel, text: "화면 편집", color: .darkGray, size: 15)
+//        self.backgroundColor = .yellow
+//
+        uikitFuncs.cellSizeSetting(widthPadding: 40, heightRatio: 3)
         
-        func labelSettings(label: UILabel, text: String, color: UIColor, size: CGFloat){
-            label.text = text
-            label.tintColor = color
-            label.font = UIFont.systemFont(ofSize: size)
-        }
+        uikitFuncs.labelSettings(label: editAccountOrderLabel, title: "화면 편집", size: 15,color: .darkGray)
     }
     
     func setConstraints(){

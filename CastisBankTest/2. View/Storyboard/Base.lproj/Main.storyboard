@@ -76,6 +76,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="계좌이용내역"/>
                                                     <connections>
+                                                        <action selector="pressUseButton:" destination="JfY-tm-4D9" eventType="touchUpInside" id="ORB-TS-2KF"/>
                                                         <segue destination="w8V-qc-al4" kind="show" id="F6N-47-9Sj"/>
                                                     </connections>
                                                 </button>
@@ -88,7 +89,7 @@
                                             <outlet property="accountNumber" destination="JiI-bo-Uvl" id="znv-Gd-cc6"/>
                                             <outlet property="mainAccountStarImageView" destination="hfE-0Y-gJ9" id="fIM-Ed-LcP"/>
                                             <outlet property="transferButton" destination="ge0-H4-AfE" id="ajw-I5-vqt"/>
-                                            <outlet property="useInformationOfAccount" destination="PmS-P2-seB" id="0rF-7c-gKz"/>
+                                            <outlet property="useInformationOfAccountButton" destination="PmS-P2-seB" id="0rF-7c-gKz"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editCell" id="TyA-lC-vt5" customClass="EditAccountOrderCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">

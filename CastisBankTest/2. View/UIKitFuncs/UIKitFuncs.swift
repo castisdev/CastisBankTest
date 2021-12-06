@@ -18,11 +18,12 @@ class UIKitFuncs {
     }
     
     //버튼 일괄 세팅
-    func buttonSettings(button: UIButton, title: String, fontSize: CGFloat) {
-        button.titleLabel?.text = title
-        button.titleLabel?.textAlignment = .center
-        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-        button.titleLabel?.textColor = .black
+    func buttonSettings(button: UIButton, title: String, fontSize: CGFloat, color: UIColor) {
+//        button.titleLabel?.tintColor = color
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(color, for: .normal)
+        button.contentHorizontalAlignment = .center
+        button.contentVerticalAlignment = .center
     }
     
     //별 모양 세팅
@@ -36,6 +37,12 @@ class UIKitFuncs {
         } else {
             imageView.image = UIImage(systemName: offImage)
         }
+    }
+    
+    //cell size
+    func cellSizeSetting(widthPadding: CGFloat, heightRatio: CGFloat) -> CGSize{
         
+        let halfWidth = UIScreen.main.bounds.width
+        return CGSize(width: halfWidth - widthPadding, height: halfWidth / heightRatio)
     }
 }
