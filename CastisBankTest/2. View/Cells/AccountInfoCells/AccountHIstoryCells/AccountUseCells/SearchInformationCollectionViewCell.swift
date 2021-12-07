@@ -21,7 +21,7 @@ class SearchInformationCollectionViewCell: UICollectionViewCell {
         self.layer.borderWidth = 0.2
         
         let searchInfo = "\(month) / \(type) / \(order)"
-        uikitfuncs.buttonSettings(button: afterSettingSearchInfoButton, title: searchInfo, fontSize: 20, color: .black)
+        uikitfuncs.buttonSettings(button: afterSettingSearchInfoButton, title: searchInfo, fontSize: 20, tintColor: .black)
     }
     
     func setConstraints(){

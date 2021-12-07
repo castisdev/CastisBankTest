@@ -18,10 +18,10 @@ class UIKitFuncs {
     }
     
     //버튼 일괄 세팅
-    func buttonSettings(button: UIButton, title: String, fontSize: CGFloat, color: UIColor) {
+    func buttonSettings(button: UIButton, title: String, fontSize: CGFloat, tintColor: UIColor) {
 //        button.titleLabel?.tintColor = color
         button.setTitle(title, for: .normal)
-        button.setTitleColor(color, for: .normal)
+        button.setTitleColor(tintColor, for: .normal)
         button.contentHorizontalAlignment = .center
         button.contentVerticalAlignment = .center
     }
@@ -42,7 +42,9 @@ class UIKitFuncs {
     //segment 세팅
     func segmentSetting(segment: UISegmentedControl, items: [String]){
         
-        let segment = UISegmentedControl(items: items)
+//        let segment = UISegmentedControl(items: items)
+        
+        //remove default segments
         segment.removeAllSegments()
         
         for i in 0...items.count - 1 {

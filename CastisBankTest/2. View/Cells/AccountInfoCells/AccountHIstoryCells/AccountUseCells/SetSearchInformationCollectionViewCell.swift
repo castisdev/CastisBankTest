@@ -19,8 +19,9 @@ class SetSearchInformationCollectionViewCell: UITableViewCell {
     
     func cellSettings(index: Int){
         
-        uikitFuncs.labelSettings(label: searchStandardNameLabel, title: fakeModel[index].searchStandard, size: 15, color: .black)
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
         
+        uikitFuncs.labelSettings(label: searchStandardNameLabel, title: fakeModel[index].searchStandard, size: 15, color: .black)
         uikitFuncs.segmentSetting(segment: choiceSegmentControl, items: fakeModel[index].standards)
         
     }
@@ -30,7 +31,7 @@ class SetSearchInformationCollectionViewCell: UITableViewCell {
         choiceSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            searchStandardNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            searchStandardNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             searchStandardNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 //            
             choiceSegmentControl.topAnchor.constraint(equalTo: searchStandardNameLabel.bottomAnchor, constant: 10),

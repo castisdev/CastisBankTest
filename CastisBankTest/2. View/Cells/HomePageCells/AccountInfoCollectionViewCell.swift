@@ -31,6 +31,7 @@ class AccountInfoCollectionViewCell: UICollectionViewCell {
     public func cellSettings(index: Int) {
         
         self.layer.cornerRadius = 10
+        self.isSelected = false
         
         //set label text
         uikitFuncs.labelSettings(label: accountNameLabel, title: accountModel.mainCellInformation[index].accountName, size: 15, color: .black)
@@ -38,8 +39,8 @@ class AccountInfoCollectionViewCell: UICollectionViewCell {
         uikitFuncs.labelSettings(label: accountBalance, title: accountModel.mainCellInformation[index].accountBalance, size: 22, color: .black)
         
         //set button title
-        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 15, color: .black)
-        uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 15, color: .black)
+        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 15, tintColor: .black)
+        uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 15, tintColor: .black)
         
         //set cell color from colorchip
         self.backgroundColor = accountModel.mainCellInformation[index].cellBackgroundColor

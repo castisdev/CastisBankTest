@@ -24,16 +24,19 @@ class SetInformationViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.frame = view.bounds
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-//            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-//            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//        ])
-
-        // Do any additional setup after loading the view.
+        tableView.frame = tableView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        tableView.separatorStyle = .none
+        
+        //view size
+//        self.view.clipsToBounds = true
+    }
+    
+    private func setViewConstraint(){
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            view.heightAnchor.constraint(equalToConstant: 300)
+        ])
     }
     
     
@@ -62,9 +65,9 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.section {
         case 0:
-            return halfWidth / 3
+            return halfWidth / 4
         case 1:
-            return halfWidth / 5
+            return halfWidth / 4
         default:
             return 0
         }
@@ -96,5 +99,5 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
     
     
     
-    
 }
+
