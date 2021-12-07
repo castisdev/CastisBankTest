@@ -16,7 +16,9 @@ class SetInformationViewController: UIViewController {
     
     let setInfoCell = SetSearchInformationCollectionViewCell()
     let confirmCell = SetSearchCheckTableViewCell()
-
+    
+    var receivedInfo = ["1개월","전체","최신순"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,13 +33,22 @@ class SetInformationViewController: UIViewController {
 //        self.view.clipsToBounds = true
     }
     
-    private func setViewConstraint(){
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: 300)
-        ])
-    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        guard let accountUseViewController = segue.destination as? AccountUseViewController else {
+//            return print("segue error")
+//        }
+//
+//        guard let cell: SetSearchInformationCollectionViewCell = sender as? SetSearchInformationCollectionViewCell else {
+//            return print("sender error")
+//        }
+//        accountUseViewController.selectedMonth = fakeModels[0].standards[cell.choiceSegmentControl.selectedSegmentIndex]
+//        accountUseViewController.selectedType = receivedInfo[1]
+//        accountUseViewController.selectedOrder = receivedInfo[2]
+//        print(accountUseViewController.selectedType)
+//
+//    }
     
     
 }
@@ -85,7 +96,7 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.section {
         case 0:
-            cell.cellSettings(index: indexPath.row)
+            cell.cellSettings(index: indexPath.row, selected: receivedInfo)
             cell.setConstraints()
             return cell
         case 1:
@@ -96,8 +107,11 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
             return cell
         }
     }
-    
-    
+  
+    @IBAction func backToInfo(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
 

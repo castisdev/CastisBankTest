@@ -100,4 +100,21 @@ public struct AccountModel {
     ]
 
 }
+//
+//class MonthIndex(month: String){ () -> Int in
+//    
+//    switch(month){
+//    case "1개월":
+//        return 0
+//    case "3개월":
+//        return 1
+//    case "지난달":
+//        return 2
+//    case "직접설정":
+//        return 3
+//    default:
+//        return 0
+//    }
+//    
+//}
 

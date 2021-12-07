@@ -324,10 +324,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOB-kT-b1z">
-                                                    <rect key="frame" x="174" y="34" width="67" height="31"/>
+                                                    <rect key="frame" x="0.0" y="34" width="67" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <connections>
+                                                        <action selector="backToInfo:" destination="LAN-ZD-ChW" eventType="touchUpInside" id="XWL-uu-hxL"/>
+                                                        <action selector="selectSegment:" destination="JTq-Ir-CxR" eventType="touchUpInside" id="K7M-lF-Vac"/>
+                                                        <action selector="set:" destination="JTq-Ir-CxR" eventType="touchUpInside" id="htX-F1-4C7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -341,13 +346,15 @@
                         <viewLayoutGuide key="safeArea" id="9lS-ap-JYc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZDP-3v-SoK"/>
                     <connections>
                         <outlet property="tableView" destination="UbZ-fY-Zmr" id="oJ1-7o-uQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKQ-7s-1CL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JTq-Ir-CxR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2282.608695652174" y="427.90178571428572"/>
+            <point key="canvasLocation" x="2157" y="428"/>
         </scene>
         <!--화면 편집-->
         <scene sceneID="0wH-gV-hWN">
@@ -369,19 +376,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAm-Ke-XUo">
-                                                    <rect key="frame" x="23" y="6" width="47" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="계좌 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huh-xJ-3Nx">
-                                                    <rect key="frame" x="65" y="11" width="64" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qel-YG-zkr">
                                                     <rect key="frame" x="359" y="6" width="45" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -395,13 +389,25 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRB-qw-lBE">
+                                                    <rect key="frame" x="174" y="-7.5" width="65" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="계좌 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huh-xJ-3Nx">
+                                                    <rect key="frame" x="92" y="11" width="64" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="accountBalanceLabel" destination="KOC-g2-NAe" id="wMn-cJ-AVi"/>
                                             <outlet property="accountNameLabel" destination="Huh-xJ-3Nx" id="pwA-0O-6hC"/>
                                             <outlet property="changingOrderButton" destination="qel-YG-zkr" id="m0q-4e-lma"/>
-                                            <outlet property="mainAccountStarButton" destination="OAm-Ke-XUo" id="CS3-Ac-GJu"/>
+                                            <outlet property="exitButton" destination="4wK-Db-IsA" id="hSE-cp-OBc"/>
+                                            <outlet property="mainAccountStarImageView" destination="eRB-qw-lBE" id="wL3-ox-IYt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -411,12 +417,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="화면 편집" id="e9x-8s-smp">
-                        <barButtonItem key="leftBarButtonItem" title="X" id="4wK-Db-IsA"/>
+                        <barButtonItem key="leftBarButtonItem" title="X" id="4wK-Db-IsA">
+                            <connections>
+                                <action selector="pushExitBarButton:" destination="6mv-v3-uk9" id="8sf-cV-plS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="bD8-En-OTE" id="baU-rR-0Ya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9b-e4-DvA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="825"/>
+            <point key="canvasLocation" x="534.78260869565224" y="825"/>
         </scene>
         <!--계좌 이름-->
         <scene sceneID="que-vM-aJG">
@@ -484,12 +497,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8si-4k-e4S">
-                                                    <rect key="frame" x="267" y="15" width="139" height="31"/>
+                                                    <rect key="frame" x="244" y="15" width="139" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="1개월 . 전체 . 최신순"/>
                                                     <connections>
-                                                        <segue destination="LAN-ZD-ChW" kind="presentation" id="vYd-7s-c2m"/>
+                                                        <segue destination="LAN-ZD-ChW" kind="modal" id="lcJ-1w-Sen"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -838,7 +851,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NPn-cY-VsQ"/>
+        <segue reference="vYG-o1-Wki"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="line.3.horizontal" catalog="system" width="128" height="64"/>

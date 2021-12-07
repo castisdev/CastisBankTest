@@ -22,6 +22,7 @@ class SearchInformationCollectionViewCell: UICollectionViewCell {
         
         let searchInfo = "\(month) / \(type) / \(order)"
         uikitfuncs.buttonSettings(button: afterSettingSearchInfoButton, title: searchInfo, fontSize: 20, tintColor: .black)
+        
     }
     
     func setConstraints(){

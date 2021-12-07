@@ -22,6 +22,10 @@ class AccountUseViewController: UIViewController {
     let fakeModel = AccountModel().usedInformation
     let uikitFuncs = UIKitFuncs()
     
+    var selectedMonth = "1개월"
+    var selectedType = "전체"
+    var selectedOrder = "최신순"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +38,7 @@ class AccountUseViewController: UIViewController {
         setNavigation()
 
         // Do any additional setup after loading the view.
+        collectionView.reloadData()
     }
     
     func setNavigation(){
@@ -47,6 +52,15 @@ class AccountUseViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.boldSystemFont(ofSize: 20),
         ]
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let setInfoViewController = segue.destination as? SetInformationViewController else {
+            return print("segue error")
+        }
+        
+        setInfoViewController.receivedInfo = [selectedMonth, selectedType, selectedOrder]
         
     }
     
@@ -92,7 +106,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             cell.setConstraints()
             return cell
         case 1:
-            searchCell.cellSettings(month: "1개월", type: "전체", order: "최신순")
+            searchCell.cellSettings(month: selectedMonth, type: selectedType, order: selectedOrder)
             searchCell.setConstraints()
             return searchCell
         case 2:
@@ -103,6 +117,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             return cell
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         switch(indexPath.section){

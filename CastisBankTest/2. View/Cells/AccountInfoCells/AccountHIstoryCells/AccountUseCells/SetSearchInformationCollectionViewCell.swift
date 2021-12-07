@@ -17,13 +17,15 @@ class SetSearchInformationCollectionViewCell: UITableViewCell {
     let uikitFuncs = UIKitFuncs()
     let fakeModel = AccountModel().searchInfo
     
-    func cellSettings(index: Int){
+    func cellSettings(index: Int, selected: [String]){
         
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         
         uikitFuncs.labelSettings(label: searchStandardNameLabel, title: fakeModel[index].searchStandard, size: 15, color: .black)
         uikitFuncs.segmentSetting(segment: choiceSegmentControl, items: fakeModel[index].standards)
         
+        let selectedIndex = fakeModel[index].standards.firstIndex(of: selected[index])
+        choiceSegmentControl.selectedSegmentIndex = selectedIndex ?? 0
     }
     
     func setConstraints() {
@@ -41,5 +43,16 @@ class SetSearchInformationCollectionViewCell: UITableViewCell {
             
             self.trailingAnchor.constraint(equalTo: choiceSegmentControl.trailingAnchor, constant: 10)
         ])
+    }
+    
+    func isSegmentChanged(index: Int) -> [String]{
+        
+        var sending: [String] = ["", "", ""]
+        
+        let changedIndex = choiceSegmentControl.selectedSegmentIndex
+        sending[index] = fakeModel[index].standards[changedIndex]
+        
+        return sending
+        
     }
 }
