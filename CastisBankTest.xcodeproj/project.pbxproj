@@ -39,6 +39,7 @@
 		3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A62759D4AB00F7478E /* Colorchip.swift */; };
 		3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A82759D51A00F7478E /* AccountModel.swift */; };
 		3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */; };
+		3CBDEF6C275E00C70014308A /* SetSearchCheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDEF6B275E00C70014308A /* SetSearchCheckTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		3CA8E2A62759D4AB00F7478E /* Colorchip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorchip.swift; sourceTree = "<group>"; };
 		3CA8E2A82759D51A00F7478E /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitFuncs.swift; sourceTree = "<group>"; };
+		3CBDEF6B275E00C70014308A /* SetSearchCheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSearchCheckTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 				3C95E563275897590007B483 /* SearchInformationCollectionViewCell.swift */,
 				3C95E561275897340007B483 /* TransferHistoryCollectionViewCell.swift */,
 				3C95E55F275897230007B483 /* SetSearchInformationCollectionViewCell.swift */,
+				3CBDEF6B275E00C70014308A /* SetSearchCheckTableViewCell.swift */,
 			);
 			path = AccountUseCells;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				3C95E55E275896F50007B483 /* SelectedAccountInfoCollectionViewCell.swift in Sources */,
 				3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */,
 				3C95E54A275883130007B483 /* SetSendingMemoViewController.swift in Sources */,
+				3CBDEF6C275E00C70014308A /* SetSearchCheckTableViewCell.swift in Sources */,
 				3C95E506275856340007B483 /* AppDelegate.swift in Sources */,
 				3C95E542275882BC0007B483 /* SetInformationViewController.swift in Sources */,
 				3C95E55B275896B50007B483 /* ChangeAccountOrderTableViewCell.swift in Sources */,

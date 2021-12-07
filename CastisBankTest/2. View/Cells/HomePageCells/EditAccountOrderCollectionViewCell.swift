@@ -19,7 +19,7 @@ class EditAccountOrderCollectionViewCell: UICollectionViewCell {
         
 //        self.backgroundColor = .yellow
 //
-        uikitFuncs.cellSizeSetting(widthPadding: 40, heightRatio: 3)
+//        uikitFuncs.cellSizeSetting(widthPadding: 40, heightRatio: 3)
         
         uikitFuncs.labelSettings(label: editAccountOrderLabel, title: "화면 편집", size: 15,color: .darkGray)
     }

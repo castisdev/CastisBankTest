@@ -39,6 +39,20 @@ class UIKitFuncs {
         }
     }
     
+    //segment 세팅
+    func segmentSetting(segment: UISegmentedControl, items: [String]){
+        
+        let segment = UISegmentedControl(items: items)
+        segment.removeAllSegments()
+        
+        for i in 0...items.count - 1 {
+            segment.insertSegment(withTitle: items[i], at: i, animated: true)
+        }
+        
+        
+    }
+    
+    
     //cell size
     func cellSizeSetting(widthPadding: CGFloat, heightRatio: CGFloat) -> CGSize{
         

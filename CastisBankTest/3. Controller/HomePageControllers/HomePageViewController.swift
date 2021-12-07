@@ -37,7 +37,7 @@ class HomePageViewController: UIViewController {
         
         setNavigation()
         
-        collectionView.reloadData()
+//        collectionView.reloadData()
     }
     
     func setNavigation(){
@@ -84,7 +84,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             return UICollectionViewCell()
         }
         
-        //마지막 셀은 edit.. 이거 좀 고쳐야 할듯 ㅠㅠ
+        //마지막 셀은 edit.. 이거 좀 고쳐야 할듯 ㅠㅠ => section으로 바꿈.
         //배열 순서대로 하니까, 셀이 reusable 이기 때문에 자꾸 바뀌는 듯..! 아니네.
         switch(indexPath.section){
         case 0:
