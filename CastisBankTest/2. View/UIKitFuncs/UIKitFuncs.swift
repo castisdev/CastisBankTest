@@ -26,7 +26,7 @@ class UIKitFuncs {
         button.contentVerticalAlignment = .center
     }
     
-//    //별 모양 세팅
+//    //별 모양 세팅 (mainstatus 일일히 지정하기)
 //    func starSetting(imageView: UIImageView, color: UIColor, size: CGFloat, index: Int){
 //        imageView.tintColor = color
 //        imageView.frame.size = CGSize(width: size, height: size)
