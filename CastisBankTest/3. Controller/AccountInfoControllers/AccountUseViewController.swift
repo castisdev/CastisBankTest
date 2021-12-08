@@ -9,14 +9,14 @@ import UIKit
 
 class AccountUseViewController: UIViewController {
     
-    
     //내비게이션 컬러 바꾸기
-
+    //MARK: - declare instances
     @IBOutlet weak var collectionView: UICollectionView!
     
     let selectedAccountInfoCell = SelectedAccountInfoCollectionViewCell()
     let searchInfoCell = SearchInformationCollectionViewCell()
     let historyCell = TransferHistoryCollectionViewCell()
+    let setInfoViewController = SetInformationViewController()
     
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
@@ -26,8 +26,11 @@ class AccountUseViewController: UIViewController {
     var selectedType = "전체"
     var selectedOrder = "최신순"
     
+    //MARK: - VC life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+//        setInfoViewController.delegate = self
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -36,11 +39,11 @@ class AccountUseViewController: UIViewController {
         
         setFlowLayout(view: collectionView)
         setNavigation()
-
-        // Do any additional setup after loading the view.
-        collectionView.reloadData()
+        
     }
     
+    //MARK: - navigation settings
+    //navigation bar setting
     func setNavigation(){
         self.title = "이전 계좌 이름"
         self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -55,23 +58,25 @@ class AccountUseViewController: UIViewController {
         
     }
     
+    //prepare information before present next vc that is modal
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let setInfoViewController = segue.destination as? SetInformationViewController else {
             return print("segue error")
         }
-        
         setInfoViewController.receivedInfo = [selectedMonth, selectedType, selectedOrder]
-        
+        setInfoViewController.delegate = self
     }
-    
 }
 
+//MARK: - about cell
 extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    //number of section
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
     
+    //number of cells in each section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         switch(section){
@@ -86,6 +91,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         }
     }
     
+    //setting cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedAccountInfoCell.cellIdentifier, for: indexPath) as? SelectedAccountInfoCollectionViewCell else {
@@ -106,6 +112,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             cell.setConstraints()
             return cell
         case 1:
+            print("setting cell")
             searchCell.cellSettings(month: selectedMonth, type: selectedType, order: selectedOrder)
             searchCell.setConstraints()
             return searchCell
@@ -118,6 +125,8 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         }
     }
     
+    
+    //cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         switch(indexPath.section){
@@ -132,6 +141,11 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    //cell inset
     func setFlowLayout(view: UICollectionView){
         
           //flowLayout
@@ -141,5 +155,19 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         
           view.collectionViewLayout = flowLayout
       }
+
  
+}
+
+//MARK: - use custom protocol
+extension AccountUseViewController: SendUpDateDelegate {
+    func sendUpdate(selectedData: [String]) {
+        
+        print(selectedData)
+        self.selectedMonth = selectedData[0]
+        self.selectedType = selectedData[1]
+        self.selectedOrder = selectedData[2]
+        
+        self.collectionView.reloadData()
+    }
 }

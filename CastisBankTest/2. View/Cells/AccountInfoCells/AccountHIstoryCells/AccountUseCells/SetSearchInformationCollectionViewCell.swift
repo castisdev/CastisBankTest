@@ -26,6 +26,7 @@ class SetSearchInformationCollectionViewCell: UITableViewCell {
         
         let selectedIndex = fakeModel[index].standards.firstIndex(of: selected[index])
         choiceSegmentControl.selectedSegmentIndex = selectedIndex ?? 0
+        
     }
     
     func setConstraints() {

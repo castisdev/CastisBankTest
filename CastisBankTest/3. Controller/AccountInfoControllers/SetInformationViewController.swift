@@ -7,6 +7,11 @@
 
 import UIKit
 
+//for receiving data from setInformationViewController.swift delegate
+protocol SendUpDateDelegate: AnyObject {
+    func sendUpdate(selectedData: [String])
+}
+
 class SetInformationViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +23,7 @@ class SetInformationViewController: UIViewController {
     let confirmCell = SetSearchCheckTableViewCell()
     
     var receivedInfo = ["1개월","전체","최신순"]
+    var delegate: SendUpDateDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +37,10 @@ class SetInformationViewController: UIViewController {
         
         //view size
 //        self.view.clipsToBounds = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("view will disappear")
     }
     
     
@@ -110,7 +120,14 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
   
     @IBAction func backToInfo(_ sender: Any) {
         
+        let test = receivedInfo
+        
+        delegate?.sendUpdate(selectedData: test)
+        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func segmentClicked(_ sender: Any) {
     }
     
 }
