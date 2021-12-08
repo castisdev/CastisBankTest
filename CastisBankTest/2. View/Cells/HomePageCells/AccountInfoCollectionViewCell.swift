@@ -46,8 +46,7 @@ class AccountInfoCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = accountModel.mainCellInformation[index].cellBackgroundColor
         
         //set star image status(Fill or not) => maybe by order...?
-        let cellStatus = accountModel.mainCellInformation[index].mainStatus
-        uikitFuncs.starSetting(imageView: mainAccountStarImageView, onImage: "star.fill", offImage: "star", color: .black, size: 1, cellStatus: cellStatus)
+        uikitFuncs.starSetting(imageView: mainAccountStarImageView, color: .black, size: 1, index: index)
     }
     
     

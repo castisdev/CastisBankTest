@@ -389,10 +389,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRB-qw-lBE">
-                                                    <rect key="frame" x="174" y="-7.5" width="65" height="57"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="계좌 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huh-xJ-3Nx">
                                                     <rect key="frame" x="92" y="11" width="64" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -400,12 +396,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRB-qw-lBE">
+                                                    <rect key="frame" x="20" y="-7" width="65" height="57"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="accountBalanceLabel" destination="KOC-g2-NAe" id="wMn-cJ-AVi"/>
                                             <outlet property="accountNameLabel" destination="Huh-xJ-3Nx" id="pwA-0O-6hC"/>
-                                            <outlet property="changingOrderButton" destination="qel-YG-zkr" id="m0q-4e-lma"/>
                                             <outlet property="exitButton" destination="4wK-Db-IsA" id="hSE-cp-OBc"/>
                                             <outlet property="mainAccountStarImageView" destination="eRB-qw-lBE" id="wL3-ox-IYt"/>
                                         </connections>

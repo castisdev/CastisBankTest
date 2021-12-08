@@ -15,7 +15,7 @@ class HomePageViewController: UIViewController {
     let accountInfoCell = AccountInfoCollectionViewCell()
     let editAccountCell = EditAccountOrderCollectionViewCell()
     
-    let fakeModel = AccountModel().mainCellInformation
+    var fakeModel = AccountModel().mainCellInformation
     let fakeUser = AccountModel().userInformation
     
     let uikitFuncs = UIKitFuncs()

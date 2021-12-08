@@ -26,16 +26,29 @@ class UIKitFuncs {
         button.contentVerticalAlignment = .center
     }
     
+//    //별 모양 세팅
+//    func starSetting(imageView: UIImageView, color: UIColor, size: CGFloat, index: Int){
+//        imageView.tintColor = color
+//        imageView.frame.size = CGSize(width: size, height: size)
+//        imageView.contentMode = .scaleToFill
+//        
+//        if (index == 0) {
+//            imageView.image = UIImage(systemName: "star.fill")
+//        } else {
+//            imageView.image = UIImage(systemName: "star")
+//        }
+//    }
+    
     //별 모양 세팅
-    func starSetting(imageView: UIImageView, onImage: String, offImage: String, color: UIColor, size: CGFloat, cellStatus: Bool){
+    func starSetting(imageView: UIImageView, color: UIColor, size: CGFloat, index: Int){
         imageView.tintColor = color
         imageView.frame.size = CGSize(width: size, height: size)
         imageView.contentMode = .scaleToFill
-        
-        if (cellStatus == true) {
-            imageView.image = UIImage(systemName: onImage)
+
+        if (index == 0) {
+            imageView.image = UIImage(systemName: "star.fill")
         } else {
-            imageView.image = UIImage(systemName: offImage)
+            imageView.image = UIImage(systemName: "star")
         }
     }
     
