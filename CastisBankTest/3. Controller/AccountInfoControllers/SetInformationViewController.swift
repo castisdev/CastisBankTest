@@ -14,6 +14,7 @@ protocol SendUpDateDelegate: AnyObject {
 
 class SetInformationViewController: UIViewController {
     
+    //MARK: - declare instances
     @IBOutlet weak var tableView: UITableView!
     
     let fakeModels = AccountModel().searchInfo
@@ -22,9 +23,11 @@ class SetInformationViewController: UIViewController {
     let setInfoCell = SetSearchInformationCollectionViewCell()
     let confirmCell = SetSearchCheckTableViewCell()
     
+    //default value
     var receivedInfo = ["1개월","전체","최신순"]
     var delegate: SendUpDateDelegate?
     
+    //MARK: - VC life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,33 +45,17 @@ class SetInformationViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         print("view will disappear")
     }
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        guard let accountUseViewController = segue.destination as? AccountUseViewController else {
-//            return print("segue error")
-//        }
-//
-//        guard let cell: SetSearchInformationCollectionViewCell = sender as? SetSearchInformationCollectionViewCell else {
-//            return print("sender error")
-//        }
-//        accountUseViewController.selectedMonth = fakeModels[0].standards[cell.choiceSegmentControl.selectedSegmentIndex]
-//        accountUseViewController.selectedType = receivedInfo[1]
-//        accountUseViewController.selectedOrder = receivedInfo[2]
-//        print(accountUseViewController.selectedType)
-//
-//    }
-    
-    
 }
 
+//MARK: - about cell
 extension SetInformationViewController: UITableViewDelegate, UITableViewDataSource{
     
+    //number of section
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
+    //number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -80,6 +67,7 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    //height of row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let halfWidth = UIScreen.main.bounds.width
@@ -94,7 +82,7 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    
+    // cell setting
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: setInfoCell.cellIdentifier) as? SetSearchInformationCollectionViewCell else {
             return UITableViewCell()
@@ -104,10 +92,18 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
             return UITableViewCell()
         }
         
+//        func segmentValueChanged(_ sender: UISegmentedControl){
+//
+//        }
+        
         switch indexPath.section {
         case 0:
             cell.cellSettings(index: indexPath.row, selected: receivedInfo)
             cell.setConstraints()
+            
+            //when segment value changed
+            cell.choiceSegmentControl.addTarget(self, action: #selector(segmentValueChanged(_:)), for: .valueChanged)
+            cell.choiceSegmentControl.tag = indexPath.row
             return cell
         case 1:
             confirmCell.cellSettings()
@@ -118,16 +114,17 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
   
+    //check button action(with segment's changed value
     @IBAction func backToInfo(_ sender: Any) {
         
-        let test = receivedInfo
-        
-        delegate?.sendUpdate(selectedData: test)
+        delegate?.sendUpdate(selectedData: receivedInfo)
         
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func segmentClicked(_ sender: Any) {
+    //act when sement value changed
+    @objc func segmentValueChanged(_ sender: UISegmentedControl){
+        self.receivedInfo[sender.tag] = fakeModels[sender.tag].standards[sender.selectedSegmentIndex]
     }
     
 }

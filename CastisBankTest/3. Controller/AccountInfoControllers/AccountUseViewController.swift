@@ -9,22 +9,19 @@ import UIKit
 
 class AccountUseViewController: UIViewController {
     
-    //내비게이션 컬러 바꾸기
     //MARK: - declare instances
     @IBOutlet weak var collectionView: UICollectionView!
     
     let selectedAccountInfoCell = SelectedAccountInfoCollectionViewCell()
     let searchInfoCell = SearchInformationCollectionViewCell()
     let historyCell = TransferHistoryCollectionViewCell()
-    let setInfoViewController = SetInformationViewController()
     
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
     let uikitFuncs = UIKitFuncs()
-    
-    var selectedMonth = "1개월"
-    var selectedType = "전체"
-    var selectedOrder = "최신순"
+
+    //default value
+    var selectedInfo = ["1개월", "전체", "최신순"]
     
     //MARK: - VC life cycles
     override func viewDidLoad() {
@@ -63,7 +60,7 @@ class AccountUseViewController: UIViewController {
         guard let setInfoViewController = segue.destination as? SetInformationViewController else {
             return print("segue error")
         }
-        setInfoViewController.receivedInfo = [selectedMonth, selectedType, selectedOrder]
+        setInfoViewController.receivedInfo = selectedInfo
         setInfoViewController.delegate = self
     }
 }
@@ -113,7 +110,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             return cell
         case 1:
             print("setting cell")
-            searchCell.cellSettings(month: selectedMonth, type: selectedType, order: selectedOrder)
+            searchCell.cellSettings(month: selectedInfo[0], type: selectedInfo[1], order: selectedInfo[2])
             searchCell.setConstraints()
             return searchCell
         case 2:
@@ -141,10 +138,6 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
     //cell inset
     func setFlowLayout(view: UICollectionView){
         
@@ -164,9 +157,10 @@ extension AccountUseViewController: SendUpDateDelegate {
     func sendUpdate(selectedData: [String]) {
         
         print(selectedData)
-        self.selectedMonth = selectedData[0]
-        self.selectedType = selectedData[1]
-        self.selectedOrder = selectedData[2]
+        
+        for s in 0...2{
+            self.selectedInfo[s] = selectedData[s]
+        }
         
         self.collectionView.reloadData()
     }

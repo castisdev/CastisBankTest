@@ -301,9 +301,6 @@
                                                         <segment title="First"/>
                                                         <segment title="Second"/>
                                                     </segments>
-                                                    <connections>
-                                                        <action selector="segmentClicked:" destination="LAN-ZD-ChW" eventType="valueChanged" id="kcY-os-Kkt"/>
-                                                    </connections>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="조회기간 등" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ1-Of-Xfu">
                                                     <rect key="frame" x="168" y="33" width="78" height="21"/>
@@ -332,7 +329,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                     <connections>
-                                                        <action selector="backToInfo:" destination="LAN-ZD-ChW" eventType="touchUpInside" id="XWL-uu-hxL"/>
+                                                        <action selector="backToInfo:" destination="LAN-ZD-ChW" eventType="touchUpInside" id="17p-rk-t7F"/>
                                                         <action selector="selectSegment:" destination="JTq-Ir-CxR" eventType="touchUpInside" id="K7M-lF-Vac"/>
                                                         <action selector="set:" destination="JTq-Ir-CxR" eventType="touchUpInside" id="htX-F1-4C7"/>
                                                     </connections>

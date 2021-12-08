@@ -36,6 +36,7 @@
 		3C95E562275897340007B483 /* TransferHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E561275897340007B483 /* TransferHistoryCollectionViewCell.swift */; };
 		3C95E564275897590007B483 /* SearchInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E563275897590007B483 /* SearchInformationCollectionViewCell.swift */; };
 		3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */; };
+		3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B17A7276073CB006F8517 /* ControlEnums.swift */; };
 		3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A62759D4AB00F7478E /* Colorchip.swift */; };
 		3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A82759D51A00F7478E /* AccountModel.swift */; };
 		3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */; };
@@ -93,6 +94,7 @@
 		3C95E561275897340007B483 /* TransferHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C95E563275897590007B483 /* SearchInformationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInformationCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransferInfoTableViewCell.swift; sourceTree = "<group>"; };
+		3C9B17A7276073CB006F8517 /* ControlEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEnums.swift; sourceTree = "<group>"; };
 		3CA8E2A62759D4AB00F7478E /* Colorchip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorchip.swift; sourceTree = "<group>"; };
 		3CA8E2A82759D51A00F7478E /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitFuncs.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				3CA8E2AA2759D51F00F7478E /* Fake Model */,
 				3CA8E2A62759D4AB00F7478E /* Colorchip.swift */,
+				3C9B17A7276073CB006F8517 /* ControlEnums.swift */,
 			);
 			path = "1. Model";
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				3C95E55E275896F50007B483 /* SelectedAccountInfoCollectionViewCell.swift in Sources */,
 				3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */,
 				3C95E54A275883130007B483 /* SetSendingMemoViewController.swift in Sources */,
+				3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */,
 				3CBDEF6C275E00C70014308A /* SetSearchCheckTableViewCell.swift in Sources */,
 				3C95E506275856340007B483 /* AppDelegate.swift in Sources */,
 				3C95E542275882BC0007B483 /* SetInformationViewController.swift in Sources */,
