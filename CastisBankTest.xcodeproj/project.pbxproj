@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C2447AC2761E57A001D2215 /* AccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2447AB2761E57A001D2215 /* AccountList.swift */; };
+		3C2447AF2761E5EE001D2215 /* AccountListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2447AE2761E5EE001D2215 /* AccountListModel.swift */; };
 		3C95E506275856340007B483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E505275856340007B483 /* AppDelegate.swift */; };
 		3C95E508275856340007B483 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E507275856340007B483 /* SceneDelegate.swift */; };
 		3C95E50A275856340007B483 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E509275856340007B483 /* ViewController.swift */; };
@@ -27,20 +29,20 @@
 		3C95E54C2758833D0007B483 /* SeekTransferConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E54B2758833D0007B483 /* SeekTransferConsentViewController.swift */; };
 		3C95E54E275883580007B483 /* PutTransferPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E54D275883580007B483 /* PutTransferPasswordViewController.swift */; };
 		3C95E550275883670007B483 /* TransferSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E54F275883670007B483 /* TransferSuccessViewController.swift */; };
-		3C95E555275895F10007B483 /* AccountInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E554275895F10007B483 /* AccountInfoCollectionViewCell.swift */; };
-		3C95E557275896060007B483 /* EditAccountOrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E556275896060007B483 /* EditAccountOrderCollectionViewCell.swift */; };
+		3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E554275895F10007B483 /*  MainAccountCell.swift */; };
+		3C95E557275896060007B483 /* EditOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E556275896060007B483 /* EditOrderCell.swift */; };
 		3C95E559275896810007B483 /* TransferedHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E558275896810007B483 /* TransferedHistoryTableViewCell.swift */; };
-		3C95E55B275896B50007B483 /* ChangeAccountOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55A275896B50007B483 /* ChangeAccountOrderTableViewCell.swift */; };
-		3C95E55E275896F50007B483 /* SelectedAccountInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55D275896F50007B483 /* SelectedAccountInfoCollectionViewCell.swift */; };
-		3C95E560275897230007B483 /* SetSearchInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55F275897230007B483 /* SetSearchInformationCollectionViewCell.swift */; };
-		3C95E562275897340007B483 /* TransferHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E561275897340007B483 /* TransferHistoryCollectionViewCell.swift */; };
-		3C95E564275897590007B483 /* SearchInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E563275897590007B483 /* SearchInformationCollectionViewCell.swift */; };
+		3C95E55B275896B50007B483 /* SetOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55A275896B50007B483 /* SetOrderCell.swift */; };
+		3C95E55E275896F50007B483 /* SelectedInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55D275896F50007B483 /* SelectedInfoCell.swift */; };
+		3C95E560275897230007B483 /* SetFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55F275897230007B483 /* SetFilterCell.swift */; };
+		3C95E562275897340007B483 /* TransferHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E561275897340007B483 /* TransferHistoryCell.swift */; };
+		3C95E564275897590007B483 /* SelectedFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E563275897590007B483 /* SelectedFilterCell.swift */; };
 		3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */; };
 		3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B17A7276073CB006F8517 /* ControlEnums.swift */; };
 		3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A62759D4AB00F7478E /* Colorchip.swift */; };
 		3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A82759D51A00F7478E /* AccountModel.swift */; };
 		3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */; };
-		3CBDEF6C275E00C70014308A /* SetSearchCheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDEF6B275E00C70014308A /* SetSearchCheckTableViewCell.swift */; };
+		3CBDEF6C275E00C70014308A /* ApplyFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDEF6B275E00C70014308A /* ApplyFilterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C2447AB2761E57A001D2215 /* AccountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountList.swift; sourceTree = "<group>"; };
+		3C2447AE2761E5EE001D2215 /* AccountListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListModel.swift; sourceTree = "<group>"; };
 		3C95E502275856340007B483 /* CastisBankTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastisBankTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C95E505275856340007B483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C95E507275856340007B483 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,20 +89,20 @@
 		3C95E54B2758833D0007B483 /* SeekTransferConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekTransferConsentViewController.swift; sourceTree = "<group>"; };
 		3C95E54D275883580007B483 /* PutTransferPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutTransferPasswordViewController.swift; sourceTree = "<group>"; };
 		3C95E54F275883670007B483 /* TransferSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSuccessViewController.swift; sourceTree = "<group>"; };
-		3C95E554275895F10007B483 /* AccountInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoCollectionViewCell.swift; sourceTree = "<group>"; };
-		3C95E556275896060007B483 /* EditAccountOrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountOrderCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C95E554275895F10007B483 /*  MainAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " MainAccountCell.swift"; sourceTree = "<group>"; };
+		3C95E556275896060007B483 /* EditOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderCell.swift; sourceTree = "<group>"; };
 		3C95E558275896810007B483 /* TransferedHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferedHistoryTableViewCell.swift; sourceTree = "<group>"; };
-		3C95E55A275896B50007B483 /* ChangeAccountOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAccountOrderTableViewCell.swift; sourceTree = "<group>"; };
-		3C95E55D275896F50007B483 /* SelectedAccountInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAccountInfoCollectionViewCell.swift; sourceTree = "<group>"; };
-		3C95E55F275897230007B483 /* SetSearchInformationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSearchInformationCollectionViewCell.swift; sourceTree = "<group>"; };
-		3C95E561275897340007B483 /* TransferHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		3C95E563275897590007B483 /* SearchInformationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInformationCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C95E55A275896B50007B483 /* SetOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetOrderCell.swift; sourceTree = "<group>"; };
+		3C95E55D275896F50007B483 /* SelectedInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedInfoCell.swift; sourceTree = "<group>"; };
+		3C95E55F275897230007B483 /* SetFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFilterCell.swift; sourceTree = "<group>"; };
+		3C95E561275897340007B483 /* TransferHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferHistoryCell.swift; sourceTree = "<group>"; };
+		3C95E563275897590007B483 /* SelectedFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFilterCell.swift; sourceTree = "<group>"; };
 		3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransferInfoTableViewCell.swift; sourceTree = "<group>"; };
 		3C9B17A7276073CB006F8517 /* ControlEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEnums.swift; sourceTree = "<group>"; };
 		3CA8E2A62759D4AB00F7478E /* Colorchip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorchip.swift; sourceTree = "<group>"; };
 		3CA8E2A82759D51A00F7478E /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitFuncs.swift; sourceTree = "<group>"; };
-		3CBDEF6B275E00C70014308A /* SetSearchCheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSearchCheckTableViewCell.swift; sourceTree = "<group>"; };
+		3CBDEF6B275E00C70014308A /* ApplyFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C2447AD2761E5DC001D2215 /* AccountList */ = {
+			isa = PBXGroup;
+			children = (
+				3C2447AB2761E57A001D2215 /* AccountList.swift */,
+				3C2447AE2761E5EE001D2215 /* AccountListModel.swift */,
+			);
+			path = AccountList;
+			sourceTree = "<group>";
+		};
 		3C95E4F9275856340007B483 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +195,7 @@
 		3C95E5352758814C0007B483 /* 1. Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C2447AD2761E5DC001D2215 /* AccountList */,
 				3CA8E2AA2759D51F00F7478E /* Fake Model */,
 				3CA8E2A62759D4AB00F7478E /* Colorchip.swift */,
 				3C9B17A7276073CB006F8517 /* ControlEnums.swift */,
@@ -244,8 +258,8 @@
 		3C95E5512758954F0007B483 /* HomePageCells */ = {
 			isa = PBXGroup;
 			children = (
-				3C95E554275895F10007B483 /* AccountInfoCollectionViewCell.swift */,
-				3C95E556275896060007B483 /* EditAccountOrderCollectionViewCell.swift */,
+				3C95E554275895F10007B483 /*  MainAccountCell.swift */,
+				3C95E556275896060007B483 /* EditOrderCell.swift */,
 			);
 			path = HomePageCells;
 			sourceTree = "<group>";
@@ -262,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				3C95E55C275896C60007B483 /* AccountHIstoryCells */,
-				3C95E55A275896B50007B483 /* ChangeAccountOrderTableViewCell.swift */,
 			);
 			path = AccountInfoCells;
 			sourceTree = "<group>";
@@ -271,7 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				3C95E5682758B4660007B483 /* AccountUseCells */,
-				3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */,
+				3C95F409276196F400856A54 /* EditOrderCells */,
+				3C95F407276196CA00856A54 /* setFilterCells */,
+				3C95F408276196E300856A54 /* DetailCells */,
 			);
 			path = AccountHIstoryCells;
 			sourceTree = "<group>";
@@ -279,13 +294,36 @@
 		3C95E5682758B4660007B483 /* AccountUseCells */ = {
 			isa = PBXGroup;
 			children = (
-				3C95E55D275896F50007B483 /* SelectedAccountInfoCollectionViewCell.swift */,
-				3C95E563275897590007B483 /* SearchInformationCollectionViewCell.swift */,
-				3C95E561275897340007B483 /* TransferHistoryCollectionViewCell.swift */,
-				3C95E55F275897230007B483 /* SetSearchInformationCollectionViewCell.swift */,
-				3CBDEF6B275E00C70014308A /* SetSearchCheckTableViewCell.swift */,
+				3C95E55D275896F50007B483 /* SelectedInfoCell.swift */,
+				3C95E563275897590007B483 /* SelectedFilterCell.swift */,
+				3C95E561275897340007B483 /* TransferHistoryCell.swift */,
 			);
 			path = AccountUseCells;
+			sourceTree = "<group>";
+		};
+		3C95F407276196CA00856A54 /* setFilterCells */ = {
+			isa = PBXGroup;
+			children = (
+				3C95E55F275897230007B483 /* SetFilterCell.swift */,
+				3CBDEF6B275E00C70014308A /* ApplyFilterCell.swift */,
+			);
+			path = setFilterCells;
+			sourceTree = "<group>";
+		};
+		3C95F408276196E300856A54 /* DetailCells */ = {
+			isa = PBXGroup;
+			children = (
+				3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */,
+			);
+			path = DetailCells;
+			sourceTree = "<group>";
+		};
+		3C95F409276196F400856A54 /* EditOrderCells */ = {
+			isa = PBXGroup;
+			children = (
+				3C95E55A275896B50007B483 /* SetOrderCell.swift */,
+			);
+			path = EditOrderCells;
 			sourceTree = "<group>";
 		};
 		3CA8E2AA2759D51F00F7478E /* Fake Model */ = {
@@ -458,28 +496,30 @@
 				3C95E53C275882060007B483 /* HomePageViewController.swift in Sources */,
 				3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */,
 				3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */,
-				3C95E555275895F10007B483 /* AccountInfoCollectionViewCell.swift in Sources */,
-				3C95E562275897340007B483 /* TransferHistoryCollectionViewCell.swift in Sources */,
-				3C95E564275897590007B483 /* SearchInformationCollectionViewCell.swift in Sources */,
+				3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */,
+				3C95E562275897340007B483 /* TransferHistoryCell.swift in Sources */,
+				3C95E564275897590007B483 /* SelectedFilterCell.swift in Sources */,
+				3C2447AC2761E57A001D2215 /* AccountList.swift in Sources */,
 				3C95E50A275856340007B483 /* ViewController.swift in Sources */,
 				3C95E54E275883580007B483 /* PutTransferPasswordViewController.swift in Sources */,
 				3C95E548275883020007B483 /* SetSendingAmountViewController.swift in Sources */,
 				3C95E540275882500007B483 /* AccountUseViewController.swift in Sources */,
 				3C95E53E275882240007B483 /* EditAccountOrderViewController.swift in Sources */,
-				3C95E557275896060007B483 /* EditAccountOrderCollectionViewCell.swift in Sources */,
+				3C95E557275896060007B483 /* EditOrderCell.swift in Sources */,
 				3C95E559275896810007B483 /* TransferedHistoryTableViewCell.swift in Sources */,
-				3C95E55E275896F50007B483 /* SelectedAccountInfoCollectionViewCell.swift in Sources */,
+				3C95E55E275896F50007B483 /* SelectedInfoCell.swift in Sources */,
 				3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */,
 				3C95E54A275883130007B483 /* SetSendingMemoViewController.swift in Sources */,
 				3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */,
-				3CBDEF6C275E00C70014308A /* SetSearchCheckTableViewCell.swift in Sources */,
+				3CBDEF6C275E00C70014308A /* ApplyFilterCell.swift in Sources */,
 				3C95E506275856340007B483 /* AppDelegate.swift in Sources */,
 				3C95E542275882BC0007B483 /* SetInformationViewController.swift in Sources */,
-				3C95E55B275896B50007B483 /* ChangeAccountOrderTableViewCell.swift in Sources */,
+				3C2447AF2761E5EE001D2215 /* AccountListModel.swift in Sources */,
+				3C95E55B275896B50007B483 /* SetOrderCell.swift in Sources */,
 				3C95E508275856340007B483 /* SceneDelegate.swift in Sources */,
 				3C95E544275882D40007B483 /* UseDetailViewController.swift in Sources */,
 				3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */,
-				3C95E560275897230007B483 /* SetSearchInformationCollectionViewCell.swift in Sources */,
+				3C95E560275897230007B483 /* SetFilterCell.swift in Sources */,
 				3C95E546275882EA0007B483 /* SetRecieverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

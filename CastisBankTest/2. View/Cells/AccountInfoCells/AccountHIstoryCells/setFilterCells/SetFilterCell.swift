@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SetSearchInformationCollectionViewCell: UITableViewCell {
+class SetFilterCell: UITableViewCell {
     
     @IBOutlet weak var searchStandardNameLabel: UILabel!
     @IBOutlet weak var choiceSegmentControl: UISegmentedControl!

@@ -14,7 +14,7 @@ class EditAccountOrderViewController: UIViewController {
     
     var fakeModel = AccountModel().mainCellInformation
     
-    let editCell = ChangeAccountOrderTableViewCell()
+    let editCell = SetOrderCell()
     
     
     //MARK: - VC life cycle
@@ -24,14 +24,22 @@ class EditAccountOrderViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableViewSettings()
+    }
+    
+    private func tableViewSettings(){
+        //inset
         tableView.frame = view.bounds
-        //for edit the order of the cell
-        tableView.setEditing(true, animated: false)
-        
         tableView.frame = tableView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         tableView.separatorStyle = .singleLine
         
-        // Do any additional setup after loading the view.
+        //enable scroll
+        tableView.isScrollEnabled = false
+        
+        //for editing cell order
+        tableView.setEditing(true, animated:false)
+        
+        
     }
 
 }
@@ -52,7 +60,7 @@ extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSo
     
     //cell setting
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: editCell.cellIdentifier) as? ChangeAccountOrderTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: editCell.cellIdentifier) as? SetOrderCell else {
             return UITableViewCell()
         }
         

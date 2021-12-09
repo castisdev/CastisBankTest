@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SelectedAccountInfoCollectionViewCell: UICollectionViewCell {
+class SelectedInfoCell: UICollectionViewCell {
     
     @IBOutlet weak var accountNubmerLabel: UILabel!
     @IBOutlet weak var accountBalanceLabel: UILabel!

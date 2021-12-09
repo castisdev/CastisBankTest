@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangeAccountOrderTableViewCell: UITableViewCell {
+class SetOrderCell: UITableViewCell {
 
     @IBOutlet weak var mainAccountStarImageView: UIImageView!
     @IBOutlet weak var accountNameLabel: UILabel!
@@ -21,7 +21,6 @@ class ChangeAccountOrderTableViewCell: UITableViewCell {
     let uikitFunc = UIKitFuncs()
     let fakeModel = AccountModel().mainCellInformation
     
-    var mainStatus = false
     
     func cellSettings(index: Int){
         uikitFunc.labelSettings(label: accountNameLabel, title: fakeModel[index].accountName, size: 15, color: .black)
@@ -51,5 +50,9 @@ class ChangeAccountOrderTableViewCell: UITableViewCell {
             
             self.trailingAnchor.constraint(equalTo:accountBalanceLabel.trailingAnchor, constant: 55)
         ])
+    }
+    
+    func isOrderChanged(list: [AccountModel]){
+        
     }
 }

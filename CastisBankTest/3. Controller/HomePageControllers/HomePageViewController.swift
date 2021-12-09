@@ -12,8 +12,8 @@ class HomePageViewController: UIViewController {
     //connect collection view with storyboard
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let accountInfoCell = AccountInfoCollectionViewCell()
-    let editAccountCell = EditAccountOrderCollectionViewCell()
+    let accountInfoCell = MainAccountCell()
+    let editAccountCell = EditOrderCell()
     
     var fakeModel = AccountModel().mainCellInformation
     let fakeUser = AccountModel().userInformation
@@ -44,16 +44,32 @@ class HomePageViewController: UIViewController {
         self.title = fakeUser.userName
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.isTranslucent = true
-        
+
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             .font: UIFont.boldSystemFont(ofSize: 20),
             .foregroundColor: UIColor.black,
         ]
-        
+
         self.navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont.boldSystemFont(ofSize: 20),
             .foregroundColor: UIColor.black,
         ]
+        
+//        let label = UILabel()
+//            
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//            
+//        label.text = fakeUser.userName
+//        label.backgroundColor = .green
+//        label.textAlignment = .left
+//            
+//        navigationItem.titleView = label
+//            
+//        if let navigationBar = navigationController?.navigationBar {
+//            NSLayoutConstraint.activate([
+//                 label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -60)
+//            ])
+//        }
     }
 }
 
@@ -76,11 +92,11 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: accountInfoCell.cellIdentifier, for: indexPath) as? AccountInfoCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: accountInfoCell.cellIdentifier, for: indexPath) as? MainAccountCell else {
             return UICollectionViewCell()
         }
         
-        guard let editCell = collectionView.dequeueReusableCell(withReuseIdentifier: editAccountCell.cellIdentifier, for: indexPath) as? EditAccountOrderCollectionViewCell else {
+        guard let editCell = collectionView.dequeueReusableCell(withReuseIdentifier: editAccountCell.cellIdentifier, for: indexPath) as? EditOrderCell else {
             return UICollectionViewCell()
         }
         
@@ -105,9 +121,9 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         
         switch(indexPath.section){
         case 0:
-            return uikitFuncs.cellSizeSetting(widthPadding: 40, heightRatio: 2)
+            return uikitFuncs.cellSizeSetting(widthPadding: 45, heightRatio: 2.3)
         case 1:
-            return uikitFuncs.cellSizeSetting(widthPadding: 40, heightRatio: 3)
+            return uikitFuncs.cellSizeSetting(widthPadding: 45, heightRatio: 3)
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -134,7 +150,8 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
         //flowLayout
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumLineSpacing = 15
+        
         flowLayout.minimumInteritemSpacing = 20
 
         view.collectionViewLayout = flowLayout

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountInfoCollectionViewCell: UICollectionViewCell {
+class MainAccountCell: UICollectionViewCell {
     
     @IBOutlet weak var accountNameLabel: UILabel!
     @IBOutlet weak var accountNumber: UILabel!
@@ -39,16 +39,16 @@ class AccountInfoCollectionViewCell: UICollectionViewCell {
         uikitFuncs.labelSettings(label: accountBalance, title: accountModel.mainCellInformation[index].accountBalance, size: 22, color: .black)
         
         //set button title
-        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 15, tintColor: .black)
-        uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 15, tintColor: .black)
+        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 10, tintColor: .black)
+        uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 10, tintColor: .black)
         
         //set cell color from colorchip
         self.backgroundColor = accountModel.mainCellInformation[index].cellBackgroundColor
         
         //set star image status(Fill or not) => maybe by order...?
-        uikitFuncs.starSetting(imageView: mainAccountStarImageView, color: .black, size: 1, index: index)
+        uikitFuncs.starSetting(imageView: mainAccountStarImageView, color: .black, size: 100, index: index)
     }
-    
+
     
     public func setConstraints() {
         
@@ -61,21 +61,23 @@ class AccountInfoCollectionViewCell: UICollectionViewCell {
         useInformationOfAccountButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            accountNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
-            accountNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            accountNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            accountNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
 
             accountNumber.topAnchor.constraint(equalTo: accountNameLabel.bottomAnchor, constant: 5),
-            accountNumber.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            accountNumber.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
 
-            mainAccountStarImageView.leadingAnchor.constraint(equalTo: accountNameLabel.trailingAnchor, constant: 5),
-            mainAccountStarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
+            mainAccountStarImageView.leadingAnchor.constraint(equalTo: accountNameLabel.trailingAnchor, constant: 3),
+            mainAccountStarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 22),
+            mainAccountStarImageView.heightAnchor.constraint(equalToConstant: 15),
+            mainAccountStarImageView.widthAnchor.constraint(equalToConstant: 15),
 
             accountBalance.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             accountBalance.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
             transferButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
             transferButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            transferButton.topAnchor.constraint(equalTo: accountBalance.bottomAnchor, constant: 20),
+            transferButton.topAnchor.constraint(equalTo: accountBalance.bottomAnchor, constant: 10),
 
             useInformationOfAccountButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
             useInformationOfAccountButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
@@ -87,9 +89,4 @@ class AccountInfoCollectionViewCell: UICollectionViewCell {
 
         ])
     }
-    
-    @IBAction func pressUseButton(_ sender: Any) {
-        
-    }
-    
 }

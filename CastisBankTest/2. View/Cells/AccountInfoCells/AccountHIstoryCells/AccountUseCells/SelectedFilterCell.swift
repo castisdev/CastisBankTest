@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchInformationCollectionViewCell: UICollectionViewCell {
+class SelectedFilterCell: UICollectionViewCell {
     
     
     @IBOutlet weak var afterSettingSearchInfoButton: UIButton!

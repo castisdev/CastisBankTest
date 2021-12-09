@@ -29,7 +29,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="accountInfoCell" reuseIdentifier="accountInfoCell" id="JfY-tm-4D9" customClass="AccountInfoCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="accountInfoCell" reuseIdentifier="accountInfoCell" id="JfY-tm-4D9" customClass="MainAccountCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.5" y="0.0" width="413" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vso-d5-lMT">
@@ -76,8 +76,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="계좌이용내역"/>
                                                     <connections>
-                                                        <action selector="pressUseButton:" destination="JfY-tm-4D9" eventType="touchUpInside" id="ORB-TS-2KF"/>
-                                                        <segue destination="w8V-qc-al4" kind="show" id="F6N-47-9Sj"/>
+                                                        <segue destination="w8V-qc-al4" kind="show" id="BtU-Qb-2aw"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -92,7 +91,7 @@
                                             <outlet property="useInformationOfAccountButton" destination="PmS-P2-seB" id="0rF-7c-gKz"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editCell" id="TyA-lC-vt5" customClass="EditAccountOrderCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="editCell" id="TyA-lC-vt5" customClass="EditOrderCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.5" y="230" width="413" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b9q-nc-zcR">
@@ -287,7 +286,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="setSearchCell" rowHeight="158" id="bBU-Za-Vjq" customClass="SetSearchInformationCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="setSearchCell" rowHeight="158" id="bBU-Za-Vjq" customClass="SetFilterCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bBU-Za-Vjq" id="31U-Ej-er5">
@@ -316,7 +315,7 @@
                                             <outlet property="searchStandardNameLabel" destination="TQ1-Of-Xfu" id="Ty7-2M-bLx"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="confirmCell" rowHeight="99" id="Cty-wW-6oZ" customClass="SetSearchCheckTableViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="confirmCell" rowHeight="99" id="Cty-wW-6oZ" customClass="ApplyFilterCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="202.5" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cty-wW-6oZ" id="j8h-zz-DI8">
@@ -337,7 +336,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="confirmButton" destination="aOB-kT-b1z" id="wmM-dW-XRY"/>
+                                            <outlet property="applyFilterButton" destination="aOB-kT-b1z" id="3He-aT-MLp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -369,19 +368,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="changeOrderCell" id="XKt-Gw-i80" customClass="ChangeAccountOrderTableViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="changeOrderCell" id="XKt-Gw-i80" customClass="SetOrderCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XKt-Gw-i80" id="G3j-tw-1MZ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qel-YG-zkr">
-                                                    <rect key="frame" x="359" y="6" width="45" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOC-g2-NAe">
                                                     <rect key="frame" x="321" y="11" width="30" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -449,7 +442,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="selectedAccountCell" id="uAu-0L-YeX" customClass="SelectedAccountInfoCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="selectedAccountCell" id="uAu-0L-YeX" customClass="SelectedInfoCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QB3-av-Avl">
@@ -483,12 +476,12 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="224"/>
                                         <connections>
-                                            <outlet property="accountBalanceLabel" destination="xA4-7G-tUj" id="Un7-Im-7nE"/>
-                                            <outlet property="accountNubmerLabel" destination="T2s-vz-Bqo" id="Ink-OF-Nir"/>
-                                            <outlet property="transferButton" destination="kZP-5H-xUT" id="0Mq-HS-bZf"/>
+                                            <outlet property="accountBalanceLabel" destination="xA4-7G-tUj" id="9Ho-pr-vpj"/>
+                                            <outlet property="accountNubmerLabel" destination="T2s-vz-Bqo" id="TBY-dh-8y6"/>
+                                            <outlet property="transferButton" destination="kZP-5H-xUT" id="6hn-NK-Q3i"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchInfoCell" id="TAm-N3-raA" customClass="SearchInformationCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchInfoCell" id="TAm-N3-raA" customClass="SelectedFilterCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234" width="414" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wZv-rb-LiA">
@@ -508,10 +501,10 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="61"/>
                                         <connections>
-                                            <outlet property="afterSettingSearchInfoButton" destination="8si-4k-e4S" id="4xv-2G-hcl"/>
+                                            <outlet property="afterSettingSearchInfoButton" destination="8si-4k-e4S" id="zvY-i1-NOp"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="transferHistoryCell" id="roG-kr-ulR" customClass="TransferHistoryCollectionViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="transferHistoryCell" id="roG-kr-ulR" customClass="TransferHistoryCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="305" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R1f-q1-0Lb">
@@ -853,7 +846,6 @@
         <segue reference="vYG-o1-Wki"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">

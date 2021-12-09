@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditAccountOrderCollectionViewCell: UICollectionViewCell {
+class EditOrderCell: UICollectionViewCell {
     
     @IBOutlet weak var editAccountOrderLabel: UILabel!
     

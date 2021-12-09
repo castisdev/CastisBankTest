@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TransferHistoryCollectionViewCell: UICollectionViewCell {
+class TransferHistoryCell: UICollectionViewCell {
     
     @IBOutlet weak var transferDateLabel: UILabel!
     @IBOutlet weak var transferedAccountNameLabel: UILabel!

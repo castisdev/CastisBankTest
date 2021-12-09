@@ -12,9 +12,9 @@ class AccountUseViewController: UIViewController {
     //MARK: - declare instances
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let selectedAccountInfoCell = SelectedAccountInfoCollectionViewCell()
-    let searchInfoCell = SearchInformationCollectionViewCell()
-    let historyCell = TransferHistoryCollectionViewCell()
+    let selectedAccountInfoCell = SelectedInfoCell()
+    let searchInfoCell = SelectedFilterCell()
+    let historyCell = TransferHistoryCell()
     
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
@@ -91,15 +91,15 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
     //setting cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedAccountInfoCell.cellIdentifier, for: indexPath) as? SelectedAccountInfoCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: selectedAccountInfoCell.cellIdentifier, for: indexPath) as? SelectedInfoCell else {
             return UICollectionViewCell()
         }
         
-        guard let searchCell = collectionView.dequeueReusableCell(withReuseIdentifier: searchInfoCell.cellIdentifier, for: indexPath) as? SearchInformationCollectionViewCell else {
+        guard let searchCell = collectionView.dequeueReusableCell(withReuseIdentifier: searchInfoCell.cellIdentifier, for: indexPath) as? SelectedFilterCell else {
             return UICollectionViewCell()
         }
         
-        guard let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: historyCell.cellIdentifier, for: indexPath) as? TransferHistoryCollectionViewCell else {
+        guard let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: historyCell.cellIdentifier, for: indexPath) as? TransferHistoryCell else {
             return UICollectionViewCell()
         }
         

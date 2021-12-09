@@ -20,8 +20,8 @@ class SetInformationViewController: UIViewController {
     let fakeModels = AccountModel().searchInfo
     let uikitFuncs = UIKitFuncs()
     
-    let setInfoCell = SetSearchInformationCollectionViewCell()
-    let confirmCell = SetSearchCheckTableViewCell()
+    let setInfoCell = SetFilterCell()
+    let confirmCell = ApplyFilterCell()
     
     //default value
     var receivedInfo = ["1개월","전체","최신순"]
@@ -84,11 +84,11 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
     
     // cell setting
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: setInfoCell.cellIdentifier) as? SetSearchInformationCollectionViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: setInfoCell.cellIdentifier) as? SetFilterCell else {
             return UITableViewCell()
         }
         
-        guard let confirmCell = tableView.dequeueReusableCell(withIdentifier: confirmCell.cellIdentifier) as? SetSearchCheckTableViewCell else {
+        guard let confirmCell = tableView.dequeueReusableCell(withIdentifier: confirmCell.cellIdentifier) as? ApplyFilterCell else {
             return UITableViewCell()
         }
         
