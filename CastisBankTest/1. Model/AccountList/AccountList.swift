@@ -7,15 +7,11 @@
 
 import Foundation
 
+//참조 : https://app.quicktype.io (자동으로 json을 codable로 바꿔줌)
 struct AccountList: Codable {
-    var id: String?
-    var type: String?
-    var branchName: String?
-    var name: String?
-    var currency: String?
-    var password: String?
-    var balance: Double?
-    var createDate: Int?
+    var id, type, branchName, name: String
+    var currency, password: String
+    var balance, createDate: Int
 }
 
 //참조 : https://velog.io/@altmshfkgudtjr/Swift로-API-Request를-전송하기
@@ -53,6 +49,8 @@ func requestAccountList() {
             print("Error: JSON Data Parsing failed")
             return
         }
+        
+        print(output.id)
         
     }.resume()
 }

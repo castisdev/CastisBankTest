@@ -74,7 +74,7 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.section {
         case 0:
-            return halfWidth / 4
+            return halfWidth / 3
         case 1:
             return halfWidth / 4
         default:

@@ -119,12 +119,7 @@
                         <viewLayoutGuide key="safeArea" id="sEM-dU-8A8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EqG-Cr-GyJ" customClass="HomePageNavgationItem" customModule="CastisBankTest" customModuleProvider="target">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="YRe-by-bGL"/>
-                        <connections>
-                            <outlet property="myInfoBarButton" destination="YRe-by-bGL" id="3au-bD-g1P"/>
-                        </connections>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="EqG-Cr-GyJ"/>
                     <connections>
                         <outlet property="collectionView" destination="ZnC-8x-5d4" id="bYt-qS-uPg"/>
                     </connections>
@@ -557,11 +552,11 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dgF-kd-QMP">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="dgF-kd-QMP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="auW-Dk-WNu">
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="footer" id="auW-Dk-WNu">
                                     <rect key="frame" x="0.0" y="437" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>

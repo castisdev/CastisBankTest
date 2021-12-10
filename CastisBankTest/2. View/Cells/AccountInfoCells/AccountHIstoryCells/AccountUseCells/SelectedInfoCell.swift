@@ -37,11 +37,11 @@ class SelectedInfoCell: UICollectionViewCell {
             accountNubmerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
             
             accountBalanceLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            accountBalanceLabel.topAnchor.constraint(equalTo: accountNubmerLabel.bottomAnchor, constant: 20),
+            accountBalanceLabel.topAnchor.constraint(equalTo: accountNubmerLabel.bottomAnchor, constant: 10),
             
             transferButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            transferButton.topAnchor.constraint(equalTo: accountBalanceLabel.bottomAnchor, constant: 30),
-            transferButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            transferButton.topAnchor.constraint(equalTo: accountBalanceLabel.bottomAnchor, constant: 20),
+            transferButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             transferButton.heightAnchor.constraint(equalToConstant: 45)
         ])
     }

@@ -19,7 +19,6 @@ class HomePageViewController: UIViewController {
     let fakeUser = AccountModel().userInformation
     
     let uikitFuncs = UIKitFuncs()
-    let navigation = HomePageNavgationItem()
     
     var selectedAccountInfo = ["name", "number", "balance"]
     
@@ -38,19 +37,41 @@ class HomePageViewController: UIViewController {
         // Do any additional setup after loading the view.
         setFlowLayout(view: collectionView)
         
-        navigation.navigationSettings()
-        navigation.setConstraints(navigationBar: navigationController!.navigationBar)
-        
+        setNavigation()
 //        collectionView.reloadData()
+        
+//        requestAccountList()
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let accountUseViewController = segue.destination as? AccountUseViewController else {
             return print("segue error from: Home Page => Account Use")
         }
-        print("view will prepare")
+//        print("view will prepare")
         accountUseViewController.accountInfo = selectedAccountInfo
+    }
+    
+    func setNavigation(){
+
+        let label = UILabel()
+                   
+        //for setting label constraints
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        //label custom(color: for recognize)
+        label.text = fakeUser.userName
+//        label.backgroundColor = .green
+        label.textAlignment = .left
+      
+        //insert customed label to navigation title
+        navigationItem.titleView = label
+     
+        //set the contraints of label
+        if let navigationBar = navigationController?.navigationBar {
+            NSLayoutConstraint.activate([
+                label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -60)
+            ])
+        }
     }
 }
 
@@ -105,7 +126,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         
         switch(indexPath.section){
         case 0:
-            return uikitFuncs.cellSizeSetting(widthPadding: 45, heightRatio: 2.3)
+            return uikitFuncs.cellSizeSetting(widthPadding: 40, heightRatio: 2.3)
         case 1:
             return uikitFuncs.cellSizeSetting(widthPadding: 45, heightRatio: 3)
         default:
@@ -143,7 +164,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     @IBAction func buttonPressed(_ sender: UIButton){
         
-        print("button pressed")
+//        print("button pressed")
 
         self.selectedAccountInfo[0] = fakeModel[sender.tag].accountName
         self.selectedAccountInfo[1] = fakeModel[sender.tag].accountNum

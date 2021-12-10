@@ -16,6 +16,8 @@ class AccountUseViewController: UIViewController {
     let searchInfoCell = SelectedFilterCell()
     let historyCell = TransferHistoryCell()
     
+    let headerIdentifier = "header"
+    let footerIdentifier = "footer"
     
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
@@ -32,7 +34,7 @@ class AccountUseViewController: UIViewController {
         super.viewDidLoad()
 //
 //        setInfoViewController.delegate = self
-        collectionView.backgroundColor = colorchip.kakaoYello
+//        collectionView.backgroundColor = colorchip.kakaoYello
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -154,13 +156,26 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
           flowLayout.minimumInteritemSpacing = 20
         
           view.collectionViewLayout = flowLayout
-      }
+    }
     
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        <#code#>
-//    }
-
- 
+    
+    //이것도 안됨.
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind{
+        case UICollectionView.elementKindSectionHeader :
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
+            headerView.backgroundColor = colorchip.kakaoYello
+            return headerView
+        case UICollectionView.elementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath)
+            footerView.backgroundColor = colorchip.kakaoKhaki
+            return footerView
+        default:
+            return UICollectionReusableView()
+    
+        }
+    }
 }
 
 //MARK: - use custom protocol
