@@ -10,9 +10,9 @@ import UIKit
 class MainAccountCell: UICollectionViewCell {
     
     @IBOutlet weak var accountNameLabel: UILabel!
-    @IBOutlet weak var accountNumber: UILabel!
+    @IBOutlet weak var accountNumberLabel: UILabel!
     @IBOutlet weak var mainAccountStarImageView: UIImageView!
-    @IBOutlet weak var accountBalance: UILabel!
+    @IBOutlet weak var accountBalanceLabel: UILabel!
     
     @IBOutlet weak var transferButton: UIButton!
     @IBOutlet weak var useInformationOfAccountButton: UIButton!
@@ -35,8 +35,8 @@ class MainAccountCell: UICollectionViewCell {
         
         //set label text
         uikitFuncs.labelSettings(label: accountNameLabel, title: accountModel.mainCellInformation[index].accountName, size: 15, color: .black)
-        uikitFuncs.labelSettings(label: accountNumber, title: accountModel.mainCellInformation[index].accountNum, size: 10, color: .darkGray)
-        uikitFuncs.labelSettings(label: accountBalance, title: accountModel.mainCellInformation[index].accountBalance, size: 22, color: .black)
+        uikitFuncs.labelSettings(label: accountNumberLabel, title: accountModel.mainCellInformation[index].accountNum, size: 10, color: .darkGray)
+        uikitFuncs.labelSettings(label: accountBalanceLabel, title: accountModel.mainCellInformation[index].accountBalance, size: 22, color: .black)
         
         //set button title
         uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 10, tintColor: .black)
@@ -53,9 +53,9 @@ class MainAccountCell: UICollectionViewCell {
     public func setConstraints() {
         
         accountNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        accountNumber.translatesAutoresizingMaskIntoConstraints = false
+        accountNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         mainAccountStarImageView.translatesAutoresizingMaskIntoConstraints = false
-        accountBalance.translatesAutoresizingMaskIntoConstraints = false
+        accountBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         transferButton.translatesAutoresizingMaskIntoConstraints = false
         useInformationOfAccountButton.translatesAutoresizingMaskIntoConstraints = false
@@ -64,20 +64,20 @@ class MainAccountCell: UICollectionViewCell {
             accountNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             accountNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
 
-            accountNumber.topAnchor.constraint(equalTo: accountNameLabel.bottomAnchor, constant: 5),
-            accountNumber.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            accountNumberLabel.topAnchor.constraint(equalTo: accountNameLabel.bottomAnchor, constant: 5),
+            accountNumberLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
 
             mainAccountStarImageView.leadingAnchor.constraint(equalTo: accountNameLabel.trailingAnchor, constant: 3),
             mainAccountStarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 22),
             mainAccountStarImageView.heightAnchor.constraint(equalToConstant: 15),
             mainAccountStarImageView.widthAnchor.constraint(equalToConstant: 15),
 
-            accountBalance.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            accountBalance.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            accountBalanceLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            accountBalanceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
             transferButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
             transferButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            transferButton.topAnchor.constraint(equalTo: accountBalance.bottomAnchor, constant: 10),
+            transferButton.topAnchor.constraint(equalTo: accountBalanceLabel.bottomAnchor, constant: 10),
 
             useInformationOfAccountButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
             useInformationOfAccountButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),

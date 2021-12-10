@@ -22,7 +22,7 @@ class TransferHistoryCell: UICollectionViewCell {
     func cellSettings(index: Int) {
         
         self.layer.borderWidth = 0.2
-
+        self.backgroundColor = .white
         
         uikitFuncs.labelSettings(label: transferDateLabel, title: fakeUsedData[index].usedDate, size: 15, color: .black)
         uikitFuncs.labelSettings(label: transferedAccountNameLabel, title: fakeUsedData[index].receivedAccount, size: 15, color: .black)

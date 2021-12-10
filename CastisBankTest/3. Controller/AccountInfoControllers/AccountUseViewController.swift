@@ -16,18 +16,23 @@ class AccountUseViewController: UIViewController {
     let searchInfoCell = SelectedFilterCell()
     let historyCell = TransferHistoryCell()
     
+    
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
     let uikitFuncs = UIKitFuncs()
 
-    //default value
+    //filter: default value
     var selectedInfo = ["1개월", "전체", "최신순"]
+    
+    //accountName
+    var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
     
     //MARK: - VC life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 //
 //        setInfoViewController.delegate = self
+        collectionView.backgroundColor = colorchip.kakaoYello
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -36,13 +41,15 @@ class AccountUseViewController: UIViewController {
         
         setFlowLayout(view: collectionView)
         setNavigation()
-        
     }
     
     //MARK: - navigation settings
-    //navigation bar setting
+    //navigation bar settingㄷ
     func setNavigation(){
-        self.title = "이전 계좌 이름"
+        self.title = accountInfo[0]
+//        navigationController?.navigationBar.backgroundColor = colorchip.kakaoYello
+//        navigationController?.navigationBar.barTintColor = colorchip.kakaoYello
+        
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.isTranslucent = true
         
@@ -105,7 +112,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         
         switch(indexPath.section){
         case 0:
-            cell.cellSettings()
+            cell.cellSettings(number: accountInfo[1], balance: accountInfo[2])
             cell.setConstraints()
             return cell
         case 1:
@@ -148,6 +155,10 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         
           view.collectionViewLayout = flowLayout
       }
+    
+//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        <#code#>
+//    }
 
  
 }
@@ -162,6 +173,8 @@ extension AccountUseViewController: SendUpDateDelegate {
             self.selectedInfo[s] = selectedData[s]
         }
         
+        print(selectedInfo)
         self.collectionView.reloadData()
     }
 }
+

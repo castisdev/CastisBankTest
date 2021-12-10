@@ -19,6 +19,7 @@ class SelectedFilterCell: UICollectionViewCell {
     func cellSettings(month: String, type: String, order: String){
         
         self.layer.borderWidth = 0.2
+        self.backgroundColor = .white
         
         let searchInfo = "\(month) / \(type) / \(order)"
         uikitfuncs.buttonSettings(button: afterSettingSearchInfoButton, title: searchInfo, fontSize: 20, tintColor: .black)

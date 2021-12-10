@@ -76,6 +76,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="계좌이용내역"/>
                                                     <connections>
+                                                        <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bsu-Re-xUP"/>
                                                         <segue destination="w8V-qc-al4" kind="show" id="BtU-Qb-2aw"/>
                                                     </connections>
                                                 </button>
@@ -83,9 +84,9 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="413" height="220"/>
                                         <connections>
-                                            <outlet property="accountBalance" destination="2yD-1V-1Nk" id="Ma9-u4-OCq"/>
+                                            <outlet property="accountBalanceLabel" destination="2yD-1V-1Nk" id="Ma9-u4-OCq"/>
                                             <outlet property="accountNameLabel" destination="zgm-UD-RI6" id="taa-4o-gEz"/>
-                                            <outlet property="accountNumber" destination="JiI-bo-Uvl" id="znv-Gd-cc6"/>
+                                            <outlet property="accountNumberLabel" destination="JiI-bo-Uvl" id="znv-Gd-cc6"/>
                                             <outlet property="mainAccountStarImageView" destination="hfE-0Y-gJ9" id="fIM-Ed-LcP"/>
                                             <outlet property="transferButton" destination="ge0-H4-AfE" id="ajw-I5-vqt"/>
                                             <outlet property="useInformationOfAccountButton" destination="PmS-P2-seB" id="0rF-7c-gKz"/>
@@ -115,10 +116,15 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="sEM-dU-8A8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EqG-Cr-GyJ"/>
+                    <navigationItem key="navigationItem" id="EqG-Cr-GyJ" customClass="HomePageNavgationItem" customModule="CastisBankTest" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="YRe-by-bGL"/>
+                        <connections>
+                            <outlet property="myInfoBarButton" destination="YRe-by-bGL" id="3au-bD-g1P"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ZnC-8x-5d4" id="bYt-qS-uPg"/>
                     </connections>
@@ -184,7 +190,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="0qi-xd-vX5"/>
+                        <viewLayoutGuide key="safeArea" id="5x2-iy-Nqx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="이체" id="h6w-dp-6pD">
@@ -252,7 +258,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="i6P-LT-wLl"/>
+                        <viewLayoutGuide key="safeArea" id="4gE-Ec-zE2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="이체 받을 계좌 이름" id="wvS-MM-mO6">
@@ -342,7 +348,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="9lS-ap-JYc"/>
+                        <viewLayoutGuide key="safeArea" id="RUv-4D-yO9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZDP-3v-SoK"/>
@@ -405,7 +411,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="9Dm-YI-zyy"/>
+                        <viewLayoutGuide key="safeArea" id="clC-Cz-HII"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="화면 편집" id="e9x-8s-smp">
@@ -437,13 +443,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Aba-cN-2VI">
                                     <size key="itemSize" width="414" height="224"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="selectedAccountCell" id="uAu-0L-YeX" customClass="SelectedInfoCell" customModule="CastisBankTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QB3-av-Avl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
@@ -482,7 +488,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchInfoCell" id="TAm-N3-raA" customClass="SelectedFilterCell" customModule="CastisBankTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="234" width="414" height="61"/>
+                                        <rect key="frame" x="0.0" y="284" width="414" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wZv-rb-LiA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
@@ -505,7 +511,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="transferHistoryCell" id="roG-kr-ulR" customClass="TransferHistoryCell" customModule="CastisBankTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="305" width="414" height="82"/>
+                                        <rect key="frame" x="0.0" y="355" width="414" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R1f-q1-0Lb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
@@ -551,9 +557,17 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dgF-kd-QMP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="auW-Dk-WNu">
+                                    <rect key="frame" x="0.0" y="437" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="NGb-Os-Mor"/>
+                        <viewLayoutGuide key="safeArea" id="1us-6z-83D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="계좌 이름" id="1XC-5A-d2K"/>
@@ -628,7 +642,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="8PR-4B-I3B"/>
+                        <viewLayoutGuide key="safeArea" id="E6Q-vS-yrP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="8kP-CI-9JL"/>
@@ -710,7 +724,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="0Y9-jR-gZb"/>
+                        <viewLayoutGuide key="safeArea" id="Rnb-nZ-VMq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="이체 받을 계좌 이름" id="kJy-Hv-1gl">
@@ -777,7 +791,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="dbf-Pr-0YI"/>
+                        <viewLayoutGuide key="safeArea" id="3Zg-M4-64M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -801,7 +815,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="xvb-QL-tCg"/>
+                        <viewLayoutGuide key="safeArea" id="1Ej-5w-jAC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hx1-ze-2jl"/>
@@ -833,7 +847,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="QTS-nf-Zbu"/>
+                        <viewLayoutGuide key="safeArea" id="2FM-rd-gPK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -843,7 +857,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vYG-o1-Wki"/>
+        <segue reference="NPn-cY-VsQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

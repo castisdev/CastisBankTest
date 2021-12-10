@@ -19,6 +19,9 @@ class HomePageViewController: UIViewController {
     let fakeUser = AccountModel().userInformation
     
     let uikitFuncs = UIKitFuncs()
+    let navigation = HomePageNavgationItem()
+    
+    var selectedAccountInfo = ["name", "number", "balance"]
     
     
     override func viewDidLoad() {
@@ -35,41 +38,19 @@ class HomePageViewController: UIViewController {
         // Do any additional setup after loading the view.
         setFlowLayout(view: collectionView)
         
-        setNavigation()
+        navigation.navigationSettings()
+        navigation.setConstraints(navigationBar: navigationController!.navigationBar)
         
 //        collectionView.reloadData()
     }
     
-    func setNavigation(){
-        self.title = fakeUser.userName
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.isTranslucent = true
-
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
-            .font: UIFont.boldSystemFont(ofSize: 20),
-            .foregroundColor: UIColor.black,
-        ]
-
-        self.navigationController?.navigationBar.titleTextAttributes = [
-            .font: UIFont.boldSystemFont(ofSize: 20),
-            .foregroundColor: UIColor.black,
-        ]
-        
-//        let label = UILabel()
-//            
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//            
-//        label.text = fakeUser.userName
-//        label.backgroundColor = .green
-//        label.textAlignment = .left
-//            
-//        navigationItem.titleView = label
-//            
-//        if let navigationBar = navigationController?.navigationBar {
-//            NSLayoutConstraint.activate([
-//                 label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -60)
-//            ])
-//        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let accountUseViewController = segue.destination as? AccountUseViewController else {
+            return print("segue error from: Home Page => Account Use")
+        }
+        print("view will prepare")
+        accountUseViewController.accountInfo = selectedAccountInfo
     }
 }
 
@@ -105,6 +86,9 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         switch(indexPath.section){
         case 0:
             cell.cellSettings(index: indexPath.row)
+            
+            //tag for sending information
+            cell.useInformationOfAccountButton.tag = indexPath.row
             cell.setConstraints()
             
             return cell
@@ -155,5 +139,15 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         flowLayout.minimumInteritemSpacing = 20
 
         view.collectionViewLayout = flowLayout
+    }
+    
+    @IBAction func buttonPressed(_ sender: UIButton){
+        
+        print("button pressed")
+
+        self.selectedAccountInfo[0] = fakeModel[sender.tag].accountName
+        self.selectedAccountInfo[1] = fakeModel[sender.tag].accountNum
+        self.selectedAccountInfo[2] = fakeModel[sender.tag].accountBalance
+        
     }
 }
