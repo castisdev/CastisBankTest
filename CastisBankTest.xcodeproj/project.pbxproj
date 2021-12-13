@@ -45,6 +45,7 @@
 		3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A82759D51A00F7478E /* AccountModel.swift */; };
 		3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */; };
 		3CBDEF6C275E00C70014308A /* ApplyFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDEF6B275E00C70014308A /* ApplyFilterCell.swift */; };
+		3CDF96CA27673A0000928066 /* DecodedAccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDF96C927673A0000928066 /* DecodedAccountList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		3CA8E2A82759D51A00F7478E /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitFuncs.swift; sourceTree = "<group>"; };
 		3CBDEF6B275E00C70014308A /* ApplyFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilterCell.swift; sourceTree = "<group>"; };
+		3CDF96C927673A0000928066 /* DecodedAccountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodedAccountList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				3C2447AB2761E57A001D2215 /* AccountList.swift */,
 				3C2447AE2761E5EE001D2215 /* AccountListModel.swift */,
+				3CDF96C927673A0000928066 /* DecodedAccountList.swift */,
 			);
 			path = AccountList;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */,
 				3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */,
 				3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */,
+				3CDF96CA27673A0000928066 /* DecodedAccountList.swift in Sources */,
 				3C95E562275897340007B483 /* TransferHistoryCell.swift in Sources */,
 				3C95E564275897590007B483 /* SelectedFilterCell.swift in Sources */,
 				3C2447AC2761E57A001D2215 /* AccountList.swift in Sources */,

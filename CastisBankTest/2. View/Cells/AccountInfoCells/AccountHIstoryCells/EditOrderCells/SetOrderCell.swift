@@ -20,11 +20,12 @@ class SetOrderCell: UITableViewCell {
     
     let uikitFunc = UIKitFuncs()
     let fakeModel = AccountModel().mainCellInformation
+    let detailFuncs = DetailFuncs()
     
     
-    func cellSettings(index: Int){
-        uikitFunc.labelSettings(label: accountNameLabel, title: fakeModel[index].accountName, size: 15, color: .black)
-        uikitFunc.labelSettings(label: accountBalanceLabel, title: fakeModel[index].accountBalance, size: 15, color: .black)
+    func cellSettings(index: Int, accountList: [AccountList]){
+        uikitFunc.labelSettings(label: accountNameLabel, title: accountList[index].name, size: 15, color: .black)
+        uikitFunc.labelSettings(label: accountBalanceLabel, title: detailFuncs.makeMoneyAmountEasy(amount: accountList[index].balance), size: 15, color: .black)
 //        uikitFunc.buttonSettings(button: changingOrderButton, title: "", fontSize: 15, tintColor: .systemBlue)
 
         uikitFunc.starSetting(imageView: mainAccountStarImageView, color: .black, size: 15, index: index)

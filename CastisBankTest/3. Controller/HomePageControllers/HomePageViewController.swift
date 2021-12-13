@@ -15,7 +15,7 @@ class HomePageViewController: UIViewController {
     let accountInfoCell = MainAccountCell()
     let editAccountCell = EditOrderCell()
 
-    let userName = "test1"
+    let userName = "test2"
     
     let uikitFuncs = UIKitFuncs()
     var accountList = [AccountList]()
@@ -23,6 +23,9 @@ class HomePageViewController: UIViewController {
     let detailFuncs = DetailFuncs()
     
     var selectedAccountInfo = ["name", "number", "balance"]
+    
+    let toHistorySegueIdentifier = "accountUseSegue"
+    let toEditOrderSegueIdentifier = "editAccountSegue"
     
     
     override func viewDidLoad() {
@@ -50,12 +53,26 @@ class HomePageViewController: UIViewController {
         print("retrived account List(View did load) : ", accountList)
     }
     
+    
+    //devide segue prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let accountUseViewController = segue.destination as? AccountUseViewController else {
-            return print("segue error from: Home Page => Account Use")
+        
+        if segue.identifier == toEditOrderSegueIdentifier {
+            
+            guard let editAccountOrderViewController = segue.destination as? EditAccountOrderViewController else {
+                return print("segue error from: Home Page => Edit Order Page")
+            }
+            
+            editAccountOrderViewController.receivedAccountList = accountList
+            
+        } else if segue.identifier == toHistorySegueIdentifier {
+            
+            guard let accountUseViewController = segue.destination as? AccountUseViewController else {
+                return print("segue error from: Home Page => Account Use")
+            }
+            
+            accountUseViewController.accountInfo = selectedAccountInfo
         }
-//        print("view will prepare")
-        accountUseViewController.accountInfo = selectedAccountInfo
     }
     
     func setNavigation(){
@@ -189,6 +206,4 @@ extension HomePageViewController: AccountListModelProtocol {
         
         collectionView.reloadData()
     }
-    
-    
 }

@@ -15,6 +15,8 @@ class EditAccountOrderViewController: UIViewController {
     var fakeModel = AccountModel().mainCellInformation
     
     let editCell = SetOrderCell()
+    let accountListModel = AccountListModel()
+    var receivedAccountList = [AccountList]()
     
     
     //MARK: - VC life cycle
@@ -25,6 +27,9 @@ class EditAccountOrderViewController: UIViewController {
         tableView.dataSource = self
         
         tableViewSettings()
+//
+//        accountListModel.delegate = self
+//        accountListModel.getAccountList(user: "test1")
     }
     
     private func tableViewSettings(){
@@ -55,7 +60,7 @@ extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSo
     
     //number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fakeModel.count
+        return receivedAccountList.count
     }
     
     //cell setting
@@ -64,7 +69,7 @@ extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSo
             return UITableViewCell()
         }
         
-        cell.cellSettings(index: indexPath.row)
+        cell.cellSettings(index: indexPath.row, accountList: receivedAccountList)
         cell.setConstraints()
         return cell
     }
@@ -106,3 +111,4 @@ extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSo
     
     
 }
+

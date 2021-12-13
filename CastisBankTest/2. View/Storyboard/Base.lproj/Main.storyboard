@@ -77,7 +77,7 @@
                                                     <buttonConfiguration key="configuration" style="plain" title="계좌이용내역"/>
                                                     <connections>
                                                         <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bsu-Re-xUP"/>
-                                                        <segue destination="w8V-qc-al4" kind="show" id="BtU-Qb-2aw"/>
+                                                        <segue destination="w8V-qc-al4" kind="show" identifier="accountUseSegue" id="BtU-Qb-2aw"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -110,7 +110,7 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="editAccountOrderLabel" destination="AuQ-aW-7nf" id="y6u-Rm-twn"/>
-                                            <segue destination="6mv-v3-uk9" kind="show" id="mR7-EQ-VoV"/>
+                                            <segue destination="6mv-v3-uk9" kind="show" identifier="editAccountSegue" id="mR7-EQ-VoV"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
