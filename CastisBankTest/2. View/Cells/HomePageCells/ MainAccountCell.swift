@@ -30,7 +30,7 @@ class MainAccountCell: UICollectionViewCell {
     //set cell settings func
     public func cellSettings(index: Int) {
         
-//        requestAccountList()
+        
         
         self.layer.cornerRadius = 10
         self.isSelected = false

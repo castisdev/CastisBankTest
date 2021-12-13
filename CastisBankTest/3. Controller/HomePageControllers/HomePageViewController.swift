@@ -40,7 +40,7 @@ class HomePageViewController: UIViewController {
         setNavigation()
 //        collectionView.reloadData()
         
-//        requestAccountList()
+        requestAccountList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
