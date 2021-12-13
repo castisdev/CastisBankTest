@@ -14,6 +14,7 @@ class AccountListModel{
     
     var delegate: AccountListModelProtocol?
     
+    //url 로 정보 얻어오는 함수
     func getAccountList(user: String) {
         
         //1. url 인스턴스 생성 (nil 검사)
@@ -49,7 +50,6 @@ class AccountListModel{
         }
         
         dataTask.resume()
-        
-        
     }
+
 }

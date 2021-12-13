@@ -13,3 +13,4 @@ struct AccountList: Codable {
     var currency, password: String
     var balance, createDate: Int
 }
+

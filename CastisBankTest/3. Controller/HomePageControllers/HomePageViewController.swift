@@ -20,6 +20,7 @@ class HomePageViewController: UIViewController {
     let uikitFuncs = UIKitFuncs()
     var accountList = [AccountList]()
     var accountModel = AccountListModel()
+    let detailFuncs = DetailFuncs()
     
     var selectedAccountInfo = ["name", "number", "balance"]
     
@@ -175,7 +176,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
         self.selectedAccountInfo[0] = accountList[sender.tag].name
         self.selectedAccountInfo[1] = accountList[sender.tag].id
-        self.selectedAccountInfo[2] = String(accountList[sender.tag].balance)
+        self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         
     }
 }
