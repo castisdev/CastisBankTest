@@ -61,9 +61,13 @@ public struct SearchInfo{
     }
 }
 
+let accountModel = requestAccountList()
+
 public struct AccountModel {
     
     let mainCellInformation: [AccountSpecs] = [
+        
+        AccountSpecs(accountName: AccountModel, accountNum: "1234-5678", accountBalance: "123,456원", cellBackgroundColor: colorchip.kakaoYello),
         AccountSpecs(accountName: "탁제원 주계좌", accountNum: "1234-5678", accountBalance: "123,456원", cellBackgroundColor: colorchip.kakaoYello),
         AccountSpecs(accountName: "탁제원 2계좌", accountNum: "123434-121468", accountBalance: "56원", cellBackgroundColor: colorchip.kakaoPinkBeige),
         AccountSpecs(accountName: "탁제원 3계좌", accountNum: "9701-7472", accountBalance: "12,345,020원", cellBackgroundColor: colorchip.kakaoKhaki),

@@ -60,11 +60,11 @@ func requestAccountList() {
         
         do {
             let account: [AccountList] = try decoder.decode([AccountList].self, from: data)
-            print(account)
+            print("파싱 :", account)
+            print(account[0].id)
         } catch {
             print("parsing error")
         }
-        
         
     }.resume()
     
