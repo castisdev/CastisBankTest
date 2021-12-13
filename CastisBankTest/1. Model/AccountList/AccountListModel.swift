@@ -14,10 +14,10 @@ class AccountListModel{
     
     var delegate: AccountListModelProtocol?
     
-    func getAccountList() {
+    func getAccountList(user: String) {
         
         //1. url 인스턴스 생성 (nil 검사)
-        let urlString = "http://172.16.48.201/cbank/api/v1/accounts/test1"
+        let urlString = "http://172.16.48.201/cbank/api/v1/accounts/\(user)"
         let url = URL(string: urlString)
         
         guard url != nil else {
@@ -36,7 +36,7 @@ class AccountListModel{
                 
                 do {
                     let accountList = try decoder.decode([AccountList].self, from: data!)
-                    print(accountList)
+//                    print(accountList)
                     DispatchQueue.main.sync {
                         self.delegate?.AccountListRetrieved(accounts: accountList)
                     }

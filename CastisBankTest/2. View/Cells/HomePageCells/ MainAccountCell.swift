@@ -19,8 +19,8 @@ class MainAccountCell: UICollectionViewCell {
     
     let cellIdentifier = "accountInfoCell"
     
-    let accountModel = AccountModel()
     let uikitFuncs = UIKitFuncs()
+    var accountToDisplay = [AccountList]()
     
     let cellSize = [
         "widthPadding": 40.0,
@@ -28,24 +28,26 @@ class MainAccountCell: UICollectionViewCell {
     ]
     
     //set cell settings func
-    public func cellSettings(index: Int) {
+    public func cellSettings(index: Int, accountList: [AccountList]) {
         
+        accountToDisplay = accountList
         
+//        print("AccountToDisplay :: " ,accountToDisplay )
         
         self.layer.cornerRadius = 10
         self.isSelected = false
         
         //set label text
-        uikitFuncs.labelSettings(label: accountNameLabel, title: accountModel.mainCellInformation[index].accountName, size: 15, color: .black)
-        uikitFuncs.labelSettings(label: accountNumberLabel, title: accountModel.mainCellInformation[index].accountNum, size: 10, color: .darkGray)
-        uikitFuncs.labelSettings(label: accountBalanceLabel, title: accountModel.mainCellInformation[index].accountBalance, size: 22, color: .black)
+        uikitFuncs.labelSettings(label: accountNameLabel, title: accountToDisplay[index].name, size: 15, color: .black)
+        uikitFuncs.labelSettings(label: accountNumberLabel, title: accountToDisplay[index].id, size: 10, color: .darkGray)
+        uikitFuncs.labelSettings(label: accountBalanceLabel, title: String(accountToDisplay[index].balance), size: 22, color: .black)
         
         //set button title
         uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 10, tintColor: .black)
         uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 10, tintColor: .black)
         
         //set cell color from colorchip
-        self.backgroundColor = accountModel.mainCellInformation[index].cellBackgroundColor
+        self.backgroundColor = colorchip.kakaoYello
         
         //set star image status(Fill or not) => maybe by order...?
         uikitFuncs.starSetting(imageView: mainAccountStarImageView, color: .black, size: 100, index: index)
@@ -92,3 +94,4 @@ class MainAccountCell: UICollectionViewCell {
         ])
     }
 }
+

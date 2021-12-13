@@ -66,6 +66,7 @@ public struct SearchInfo{
 
 public struct AccountModel {
     
+    
     let mainCellInformation: [AccountSpecs] = [
         
 //        AccountSpecs(accountName: AccountModel, accountNum: "1234-5678", accountBalance: "123,456원", cellBackgroundColor: colorchip.kakaoYello),

@@ -7,24 +7,19 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController, AccountListModelProtocol {
-    func AccountListRetrieved(accounts: [AccountList]) {
-        print("retrieved")
-        print(accounts[0].id)
-    }
-    
+class HomePageViewController: UIViewController {
     
     //connect collection view with storyboard
     @IBOutlet weak var collectionView: UICollectionView!
     
     let accountInfoCell = MainAccountCell()
     let editAccountCell = EditOrderCell()
-    
-    var fakeModel = AccountModel().mainCellInformation
-    let fakeUser = AccountModel().userInformation
+
+    let userName = "test1"
     
     let uikitFuncs = UIKitFuncs()
-    let accountToDisplay = AccountListModel()
+    var accountList = [AccountList]()
+    var accountModel = AccountListModel()
     
     var selectedAccountInfo = ["name", "number", "balance"]
     
@@ -47,9 +42,11 @@ class HomePageViewController: UIViewController, AccountListModelProtocol {
 //        collectionView.reloadData()
         
 //        requestAccountList()
-        accountToDisplay.delegate = self
-        accountToDisplay.getAccountList()
-        print(accountList.count)
+        
+        accountModel.delegate = self
+        accountModel.getAccountList(user: userName)
+        
+        print("retrived account List(View did load) : ", accountList)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,7 +65,7 @@ class HomePageViewController: UIViewController, AccountListModelProtocol {
         label.translatesAutoresizingMaskIntoConstraints = false
         
         //label custom(color: for recognize)
-        label.text = fakeUser.userName
+        label.text = userName
 //        label.backgroundColor = .green
         label.textAlignment = .left
       
@@ -93,7 +90,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(section){
         case 0:
-            return fakeModel.count
+            return accountList.count
         case 1:
             return 1
         default:
@@ -115,7 +112,8 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         //배열 순서대로 하니까, 셀이 reusable 이기 때문에 자꾸 바뀌는 듯..! 아니네.
         switch(indexPath.section){
         case 0:
-            cell.cellSettings(index: indexPath.row)
+            print("cell made account list : ", accountList)
+            cell.cellSettings(index: indexPath.row, accountList: accountList)
             
             //tag for sending information
             cell.useInformationOfAccountButton.tag = indexPath.row
@@ -175,9 +173,21 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         
 //        print("button pressed")
 
-        self.selectedAccountInfo[0] = fakeModel[sender.tag].accountName
-        self.selectedAccountInfo[1] = fakeModel[sender.tag].accountNum
-        self.selectedAccountInfo[2] = fakeModel[sender.tag].accountBalance
+        self.selectedAccountInfo[0] = accountList[sender.tag].name
+        self.selectedAccountInfo[1] = accountList[sender.tag].id
+        self.selectedAccountInfo[2] = String(accountList[sender.tag].balance)
         
     }
+}
+
+extension HomePageViewController: AccountListModelProtocol {
+    func AccountListRetrieved(accounts: [AccountList]) {
+        print("accounts retrieved from account list model!")
+        print("retrieved accounts:", accounts)
+        self.accountList = accounts
+        
+        collectionView.reloadData()
+    }
+    
+    
 }
