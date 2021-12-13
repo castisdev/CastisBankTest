@@ -7,7 +7,12 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController, AccountListModelProtocol {
+    func AccountListRetrieved(accounts: [AccountList]) {
+        print("retrieved")
+        print(accounts[0].id)
+    }
+    
     
     //connect collection view with storyboard
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,6 +24,7 @@ class HomePageViewController: UIViewController {
     let fakeUser = AccountModel().userInformation
     
     let uikitFuncs = UIKitFuncs()
+    let accountToDisplay = AccountListModel()
     
     var selectedAccountInfo = ["name", "number", "balance"]
     
@@ -40,7 +46,10 @@ class HomePageViewController: UIViewController {
         setNavigation()
 //        collectionView.reloadData()
         
-        requestAccountList()
+//        requestAccountList()
+        accountToDisplay.delegate = self
+        accountToDisplay.getAccountList()
+        print(accountList.count)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
