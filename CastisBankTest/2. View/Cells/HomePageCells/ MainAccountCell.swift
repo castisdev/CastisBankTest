@@ -37,10 +37,18 @@ class MainAccountCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.isSelected = false
         
+        // make balance easy to read (1,000,000won)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        let balance = numberFormatter.string(from: NSNumber(value: accountToDisplay[index].balance))
+        let balanceString = String(balance!) + "원"
+        print(balanceString)
+        
         //set label text
         uikitFuncs.labelSettings(label: accountNameLabel, title: accountToDisplay[index].name, size: 15, color: .black)
         uikitFuncs.labelSettings(label: accountNumberLabel, title: accountToDisplay[index].id, size: 10, color: .darkGray)
-        uikitFuncs.labelSettings(label: accountBalanceLabel, title: String(accountToDisplay[index].balance), size: 22, color: .black)
+        uikitFuncs.labelSettings(label: accountBalanceLabel, title: balanceString, size: 22, color: .black)
         
         //set button title
         uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 10, tintColor: .black)

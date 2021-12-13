@@ -25,10 +25,10 @@ class AccountListModel{
             return
         }
         
-        //2. urlSession 만들기 -
+        //2. urlSession 만들기 - 기본 요청을 위한 공유 세션
         let session = URLSession.shared
         
-        //3. dataTasK 만들기 -
+        //3. dataTasK 만들기 - decode (받아온 api 문서를 swift로)
         let dataTask = session.dataTask(with: url!){ (data, response, error) in
             
             if error == nil && data != nil {
