@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C059B5D27683359003FB4D0 /* OTPAsk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5C27683359003FB4D0 /* OTPAsk.swift */; };
+		3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5F276833ED003FB4D0 /* OTPResult.swift */; };
+		3C059B622768340C003FB4D0 /* OTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B612768340C003FB4D0 /* OTPModel.swift */; };
 		3C2249DF2767306D00DD10EE /* DetailFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2249DE2767306D00DD10EE /* DetailFuncs.swift */; };
 		3C2447AC2761E57A001D2215 /* AccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2447AB2761E57A001D2215 /* AccountList.swift */; };
 		3C2447AF2761E5EE001D2215 /* AccountListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2447AE2761E5EE001D2215 /* AccountListModel.swift */; };
@@ -66,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C059B5C27683359003FB4D0 /* OTPAsk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPAsk.swift; sourceTree = "<group>"; };
+		3C059B5F276833ED003FB4D0 /* OTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPResult.swift; sourceTree = "<group>"; };
+		3C059B612768340C003FB4D0 /* OTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModel.swift; sourceTree = "<group>"; };
 		3C2249DE2767306D00DD10EE /* DetailFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFuncs.swift; sourceTree = "<group>"; };
 		3C2447AB2761E57A001D2215 /* AccountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountList.swift; sourceTree = "<group>"; };
 		3C2447AE2761E5EE001D2215 /* AccountListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListModel.swift; sourceTree = "<group>"; };
@@ -136,6 +142,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C059B59276832AE003FB4D0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3C059B5A276832BC003FB4D0 /* OTP */,
+				3C2447AD2761E5DC001D2215 /* AccountList */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3C059B5A276832BC003FB4D0 /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				3C059B5C27683359003FB4D0 /* OTPAsk.swift */,
+				3C059B5F276833ED003FB4D0 /* OTPResult.swift */,
+				3C059B612768340C003FB4D0 /* OTPModel.swift */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
 		3C2249DB27672EF400DD10EE /* skills */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +244,8 @@
 		3C95E5352758814C0007B483 /* 1. Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C059B59276832AE003FB4D0 /* API */,
 				3C2249DB27672EF400DD10EE /* skills */,
-				3C2447AD2761E5DC001D2215 /* AccountList */,
 				3CA8E2AA2759D51F00F7478E /* Fake Model */,
 				3C9B17A7276073CB006F8517 /* ControlEnums.swift */,
 			);
@@ -533,12 +558,14 @@
 				3C95E53E275882240007B483 /* EditAccountOrderViewController.swift in Sources */,
 				3C95E557275896060007B483 /* EditOrderCell.swift in Sources */,
 				3C95E559275896810007B483 /* TransferedHistoryTableViewCell.swift in Sources */,
+				3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */,
 				3C95E55E275896F50007B483 /* SelectedInfoCell.swift in Sources */,
 				3C83FD532762E0B100B4DB30 /* HomePageNavgationItem.swift in Sources */,
 				3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */,
 				3C95E54A275883130007B483 /* SetSendingMemoViewController.swift in Sources */,
 				3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */,
 				3CBDEF6C275E00C70014308A /* ApplyFilterCell.swift in Sources */,
+				3C059B5D27683359003FB4D0 /* OTPAsk.swift in Sources */,
 				3C95E506275856340007B483 /* AppDelegate.swift in Sources */,
 				3C95E542275882BC0007B483 /* SetInformationViewController.swift in Sources */,
 				3C2447AF2761E5EE001D2215 /* AccountListModel.swift in Sources */,
@@ -547,6 +574,7 @@
 				3C95E544275882D40007B483 /* UseDetailViewController.swift in Sources */,
 				3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */,
 				3C95E560275897230007B483 /* SetFilterCell.swift in Sources */,
+				3C059B622768340C003FB4D0 /* OTPModel.swift in Sources */,
 				3C2249DF2767306D00DD10EE /* DetailFuncs.swift in Sources */,
 				3C95E546275882EA0007B483 /* SetRecieverViewController.swift in Sources */,
 			);
