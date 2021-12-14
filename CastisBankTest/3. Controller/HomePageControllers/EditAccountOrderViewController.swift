@@ -7,6 +7,11 @@
 
 import UIKit
 
+//MARK: - delegate for sending updated accounts' order
+protocol sendUpdateAccountOrderDelegate: AnyObject {
+    func sendUpdate(updatedOrderList: [AccountList])
+}
+
 class EditAccountOrderViewController: UIViewController {
     
     //MARK: - declare instances
@@ -19,6 +24,8 @@ class EditAccountOrderViewController: UIViewController {
     
     let uikitFuncs = UIKitFuncs()
     let colorChip = ColorChip()
+    
+    var delegate: sendUpdateAccountOrderDelegate?
     
     //MARK: - VC life cycle
     override func viewDidLoad() {
@@ -43,6 +50,7 @@ class EditAccountOrderViewController: UIViewController {
         homePageViewController.accountList = receivedAccountList
     }
     
+    //MARK: - tableView & button settings
     private func tableViewSettings(){
         //seperate line
         tableView.separatorStyle = .singleLine
@@ -79,21 +87,21 @@ class EditAccountOrderViewController: UIViewController {
 
 }
 
+//MARK: - cell settings
 extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSource{
     
-    //MARK: - cell settings
     
-    //number of section
+    //MARK: number of section
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    //number of rows in section
+    //MARK: number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return receivedAccountList.count
     }
     
-    //cell setting
+    //MARK: cell setting
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: editCell.cellIdentifier) as? SetOrderCell else {
             return UITableViewCell()
@@ -104,11 +112,11 @@ extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
+    // MARK: - editing the order of cells (by touch and drop)
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    // MARK: - editing the order of cells (by touch and drop)
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         var target: AccountList? = nil
         
@@ -134,12 +142,13 @@ extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSo
         return false
     }
     
-    //pop this view
+    //MARK: - pop actions
     @IBAction func pushExitBarButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func pushApplyButton(_ sender: Any) {
+        delegate?.sendUpdate(updatedOrderList: receivedAccountList)
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -9,29 +9,30 @@ import UIKit
 
 class HomePageViewController: UIViewController {
     
-    //connect collection view with storyboard
+    //MARK: declare instances
     @IBOutlet weak var collectionView: UICollectionView!
     
     let accountInfoCell = MainAccountCell()
     let editAccountCell = EditOrderCell()
-
-    let userName = "test2"
     
     let uikitFuncs = UIKitFuncs()
-    var accountList = [AccountList]()
-    var accountModel = AccountListModel()
     let detailFuncs = DetailFuncs()
     
+    //MARK: cell information (from server, from edit order VC)
+    let userName = "test2"
+    var accountList = [AccountList]()
+    var accountModel = AccountListModel()
+    
+    //MARK: selected cell info (to account history VC)
     var selectedAccountInfo = ["name", "number", "balance"]
     
+    //MARK: seperate segue by identifier (connected with storyboard)
     let toHistorySegueIdentifier = "accountUseSegue"
     let toEditOrderSegueIdentifier = "editAccountSegue"
     
-    
+    //MARK: - VC life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("viewDIdLoad")
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -39,22 +40,17 @@ class HomePageViewController: UIViewController {
         //collectionView size 설정
         collectionView.frame = view.bounds
 
-        // Do any additional setup after loading the view.
         setFlowLayout(view: collectionView)
-        
         setNavigation()
-//        collectionView.reloadData()
         
-//        requestAccountList()
-        
+        //MARK: receive cell information data from server(url)
         accountModel.delegate = self
         accountModel.getAccountList(user: userName)
         
-        print("retrived account List(View did load) : ", accountList)
     }
     
     
-    //devide segue prepare
+    //MARK: prepare devided by segue identifier
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == toEditOrderSegueIdentifier {
@@ -62,7 +58,7 @@ class HomePageViewController: UIViewController {
             guard let editAccountOrderViewController = segue.destination as? EditAccountOrderViewController else {
                 return print("segue error from: Home Page => Edit Order Page")
             }
-            
+            editAccountOrderViewController.delegate = self
             editAccountOrderViewController.receivedAccountList = accountList
             
         } else if segue.identifier == toHistorySegueIdentifier {
@@ -75,6 +71,7 @@ class HomePageViewController: UIViewController {
         }
     }
     
+    //MARK: custom navigation bar
     func setNavigation(){
 
         let label = UILabel()
@@ -99,6 +96,7 @@ class HomePageViewController: UIViewController {
     }
 }
 
+//MARK: - cell settings
 extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -187,9 +185,9 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         view.collectionViewLayout = flowLayout
     }
     
+    
+    //MARK: - segue actions
     @IBAction func buttonPressed(_ sender: UIButton){
-        
-//        print("button pressed")
 
         self.selectedAccountInfo[0] = accountList[sender.tag].name
         self.selectedAccountInfo[1] = accountList[sender.tag].id
@@ -198,12 +196,24 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
 }
 
-extension HomePageViewController: AccountListModelProtocol {
+//MARK: - delegate methods
+
+//MARK: from data which is from server(url)
+extension HomePageViewController: AccountListModelDelegate {
     func AccountListRetrieved(accounts: [AccountList]) {
-        print("accounts retrieved from account list model!")
-        print("retrieved accounts:", accounts)
+//        print("accounts retrieved from account list model!")
+//        print("retrieved accounts:", accounts)
         self.accountList = accounts
         
         collectionView.reloadData()
+    }
+}
+
+//MARK: from editing accounts' order VC
+extension HomePageViewController: sendUpdateAccountOrderDelegate {
+    func sendUpdate(updatedOrderList: [AccountList]) {
+        accountList = updatedOrderList
+        
+        self.collectionView.reloadData()
     }
 }

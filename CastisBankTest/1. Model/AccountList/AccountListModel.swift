@@ -6,13 +6,13 @@
 
 import Foundation
 
-protocol AccountListModelProtocol {
+protocol AccountListModelDelegate {
     func AccountListRetrieved(accounts: [AccountList])
 }
 
 class AccountListModel{
     
-    var delegate: AccountListModelProtocol?
+    var delegate: AccountListModelDelegate?
     
     //url 로 정보 얻어오는 함수
     func getAccountList(user: String) {
