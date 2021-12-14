@@ -33,6 +33,7 @@ class AccountListModel{
         let dataTask = session.dataTask(with: url!){ (data, response, error) in
             
             if error == nil && data != nil {
+
                 let decoder = JSONDecoder()
                 
                 do {

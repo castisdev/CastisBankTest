@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct OTPResult{
+struct OTPResult: Codable{
     var resultCode, resultMsg, now, otp: String
 }

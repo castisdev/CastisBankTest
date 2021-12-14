@@ -7,7 +7,8 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController{
+
     
     //MARK: declare instances
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,6 +23,9 @@ class HomePageViewController: UIViewController {
     let userName = "test2"
     var accountList = [AccountList]()
     var accountModel = AccountListModel()
+    
+    var otpModel = OTPModel()
+    var otpResult = [OTPResult]()
     
     //MARK: selected cell info (to account history VC)
     var selectedAccountInfo = ["name", "number", "balance"]
@@ -46,6 +50,8 @@ class HomePageViewController: UIViewController {
         //MARK: receive cell information data from server(url)
         accountModel.delegate = self
         accountModel.getAccountList(user: userName)
+        
+        otpModel.delegate = self
         
     }
     
@@ -193,6 +199,8 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         self.selectedAccountInfo[1] = accountList[sender.tag].id
         self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         
+        otpModel.getOTP(userID: "test1", companyID: "talkis_app")
+        print(otpResult)
     }
 }
 
@@ -215,5 +223,12 @@ extension HomePageViewController: sendUpdateAccountOrderDelegate {
         accountList = updatedOrderList
         
         self.collectionView.reloadData()
+    }
+}
+
+extension HomePageViewController: OTPModelDelegate{
+    func OTPRetrieved(otpResult: [OTPResult]) {
+        self.otpResult = otpResult
+        print(otpResult)
     }
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct OTPAsk{
-    var userID, companyID: String
+struct OTPBody: Codable{
+    var userId, companyId: String
 }
