@@ -7,8 +7,11 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController{
+protocol OTPSendingDelegate{
+    func OTPRetrieved(otp: String)
+}
 
+class HomePageViewController: UIViewController{
     
     //MARK: declare instances
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,12 +23,13 @@ class HomePageViewController: UIViewController{
     let detailFuncs = DetailFuncs()
     
     //MARK: cell information (from server, from edit order VC)
-    let userName = "test2"
+    let userName = "test1"
     var accountList = [AccountList]()
     var accountModel = AccountListModel()
     
     var otpModel = OTPModel()
-    var otpResult = [OTPResult]()
+    var otpResult: OTPResult?
+    var delegate: OTPSendingDelegate?
     
     //MARK: selected cell info (to account history VC)
     var selectedAccountInfo = ["name", "number", "balance"]
@@ -74,6 +78,7 @@ class HomePageViewController: UIViewController{
             }
             
             accountUseViewController.accountInfo = selectedAccountInfo
+            accountUseViewController.otpString = otpResult?.otp ?? "otp"
         }
     }
     
@@ -199,8 +204,8 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         self.selectedAccountInfo[1] = accountList[sender.tag].id
         self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         
-        otpModel.getOTP(userID: "test1", companyID: "talkis_app")
-        print(otpResult)
+        otpModel.getOTP(userId: "test1", companyId: "talkis_app")
+//        print(otpResult)
     }
 }
 
@@ -227,7 +232,7 @@ extension HomePageViewController: sendUpdateAccountOrderDelegate {
 }
 
 extension HomePageViewController: OTPModelDelegate{
-    func OTPRetrieved(otpResult: [OTPResult]) {
+    func OTPRetrieved(otpResult: OTPResult) {
         self.otpResult = otpResult
         print(otpResult)
     }

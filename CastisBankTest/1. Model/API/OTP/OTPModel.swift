@@ -8,16 +8,16 @@
 import Foundation
 
 protocol OTPModelDelegate{
-    func OTPRetrieved(otpResult: [OTPResult])
+    func OTPRetrieved(otpResult: OTPResult)
 }
 
 class OTPModel{
     
     var delegate: OTPModelDelegate?
     
-    func getOTP(userID: String, companyID: String){
+    func getOTP(userId: String, companyId: String){
         
-        let ask = OTPBody(userId: userID, companyId: companyID)
+        let ask = OTPBody(userId: userId, companyId: companyId)
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         guard let uploadData = try? encoder.encode(ask) else {
@@ -49,8 +49,9 @@ class OTPModel{
                 let decoder = JSONDecoder()
                 
                 do {
-                    let otpInfo = try decoder.decode([OTPResult].self, from: data!)
+                    let otpInfo = try decoder.decode(OTPResult.self, from: data!)
                     
+                    print(otpInfo)
                     DispatchQueue.main.sync {
                         self.delegate?.OTPRetrieved(otpResult: otpInfo)
                     }

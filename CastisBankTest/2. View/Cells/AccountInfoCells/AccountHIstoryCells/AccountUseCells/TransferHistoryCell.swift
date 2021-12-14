@@ -19,14 +19,20 @@ class TransferHistoryCell: UICollectionViewCell {
     let uikitFuncs = UIKitFuncs()
     let fakeUsedData = AccountModel().usedInformation
     
-    func cellSettings(index: Int) {
+    func cellSettings(index: Int, accountHistoryList: [AccountHistoryList]) {
         
         self.layer.borderWidth = 0.2
         self.backgroundColor = .white
         
-        uikitFuncs.labelSettings(label: transferDateLabel, title: fakeUsedData[index].usedDate, size: 15, color: .black)
-        uikitFuncs.labelSettings(label: transferedAccountNameLabel, title: fakeUsedData[index].receivedAccount, size: 15, color: .black)
-        uikitFuncs.labelSettings(label: transferedAmountLabel, title: fakeUsedData[index].usedMondy, size: 15, color: .black)
+        //날짜 레이블 바꾸기
+        let date = accountHistoryList[index].date
+        let dateArray = date.map {String($0)}
+        
+        let dateDisplay = Array(dateArray[5...9])
+        
+        uikitFuncs.labelSettings(label: transferDateLabel, title: dateDisplay[0], size: 15, color: .black)
+        uikitFuncs.labelSettings(label: transferedAccountNameLabel, title: accountHistoryList[index].recvName, size: 15, color: .black)
+        uikitFuncs.labelSettings(label: transferedAmountLabel, title: accountHistoryList[index].amount, size: 15, color: .black)
         uikitFuncs.labelSettings(label: afterTransferAccountBalanceLabel, title: fakeUsedData[index].balance, size: 13, color: .darkGray)
     }
     

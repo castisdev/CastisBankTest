@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct AccountHistoryBody{
-    
+struct AccountHistoryBody: Codable{
+    var userId, accountId, duration, otp: String
 }

@@ -22,12 +22,17 @@ class AccountUseViewController: UIViewController {
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
     let uikitFuncs = UIKitFuncs()
+    
+    var accountHistoryModel = AccountHistoryModel()
+    var accountHistoryList = [AccountHistoryList]()
 
     //filter: default value
     var selectedInfo = ["1개월", "전체", "최신순"]
     
     //accountName
     var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
+    
+    var otpString = "otp"
     
     //MARK: - VC life cycles
     override func viewDidLoad() {
@@ -43,6 +48,12 @@ class AccountUseViewController: UIViewController {
         
         setFlowLayout(view: collectionView)
         setNavigation()
+        
+        accountHistoryModel.delegate = self
+        print("this is received otp String : ", otpString)
+        accountHistoryModel.getAccountHistory(userId: "test1", accountId: accountInfo[1], duration: "1M", otp: otpString)
+        
+        print(accountHistoryList)
     }
     
     //MARK: - navigation settings
@@ -91,7 +102,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         case 1:
             return 1
         case 2:
-            return fakeModel.count
+            return accountHistoryList.count
         default:
             return 0
         }
@@ -123,7 +134,8 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             searchCell.setConstraints()
             return searchCell
         case 2:
-            historyCell.cellSettings(index: indexPath.row)
+            print("/////////////historyList//////////////////", accountHistoryList)
+            historyCell.cellSettings(index: indexPath.row, accountHistoryList: accountHistoryList)
             historyCell.setConstraints()
             return historyCell
         default:
@@ -192,4 +204,19 @@ extension AccountUseViewController: SendUpDateDelegate {
         self.collectionView.reloadData()
     }
 }
+
+
+extension AccountUseViewController: AccountHistoryDelegate{
+    func accountHistoryRetrieved(histories: [AccountHistoryList]) {
+        self.accountHistoryList = histories
+    }
+}
+
+//extension AccountUseViewController: OTPSendingDelegate{
+//    func OTPRetrieved(otp: String) {
+//        self.otpString = otp
+//
+//        collectionView.reloadData()
+//    }
+//}
 
