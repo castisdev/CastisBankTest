@@ -64,7 +64,7 @@ class EditAccountOrderViewController: UIViewController {
     
     private func buttonSettings(){
         uikitFuncs.buttonSettings(button: applyOrderButton, title: "확인", fontSize: 10, tintColor: .black)
-        applyOrderButton.backgroundColor = colorChip.kakaoYello
+        applyOrderButton.backgroundColor = colorChip.kakaoYello11
         applyOrderButton.layer.cornerRadius = 10
     }
     

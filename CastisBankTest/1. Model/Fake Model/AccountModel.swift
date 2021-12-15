@@ -70,11 +70,11 @@ public struct AccountModel {
     let mainCellInformation: [AccountSpecs] = [
         
 //        AccountSpecs(accountName: AccountModel, accountNum: "1234-5678", accountBalance: "123,456원", cellBackgroundColor: colorchip.kakaoYello),
-        AccountSpecs(accountName: "탁제원 주계좌", accountNum: "1234-5678", accountBalance: "123,456원", cellBackgroundColor: colorchip.kakaoYello),
-        AccountSpecs(accountName: "탁제원 2계좌", accountNum: "123434-121468", accountBalance: "56원", cellBackgroundColor: colorchip.kakaoPinkBeige),
-        AccountSpecs(accountName: "탁제원 3계좌", accountNum: "9701-7472", accountBalance: "12,345,020원", cellBackgroundColor: colorchip.kakaoKhaki),
-        AccountSpecs(accountName: "탁제원 4계좌", accountNum: "8282-3535", accountBalance: "20원", cellBackgroundColor: colorchip.kakaoBlueGray),
-        AccountSpecs(accountName: "탁제원 5계좌", accountNum: "444-4444", accountBalance: "5,020원", cellBackgroundColor: colorchip.kakaoMintGreen)
+        AccountSpecs(accountName: "탁제원 주계좌", accountNum: "1234-5678", accountBalance: "123,456원", cellBackgroundColor: colorchip.kakaoYello11),
+        AccountSpecs(accountName: "탁제원 2계좌", accountNum: "123434-121468", accountBalance: "56원", cellBackgroundColor: colorchip.kakaoPinkBeige73),
+        AccountSpecs(accountName: "탁제원 3계좌", accountNum: "9701-7472", accountBalance: "12,345,020원", cellBackgroundColor: colorchip.kakaoKhaki74),
+        AccountSpecs(accountName: "탁제원 4계좌", accountNum: "8282-3535", accountBalance: "20원", cellBackgroundColor: colorchip.kakaoBlueGray71),
+        AccountSpecs(accountName: "탁제원 5계좌", accountNum: "444-4444", accountBalance: "5,020원", cellBackgroundColor: colorchip.kakaoMintGreen63)
     ]
     
     let userInformation: User = User(userName: "탁제원")

@@ -551,12 +551,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="historyTypeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-RF-5Wo">
+                                                    <rect key="frame" x="86" y="46" width="130" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="82"/>
                                         <connections>
-                                            <outlet property="afterTransferAccountBalanceLabel" destination="LBe-h1-4jI" id="YQy-2s-3ae"/>
+                                            <outlet property="afterTransferAccountBalanceLabel" destination="LBe-h1-4jI" id="kJo-TK-Jjh"/>
                                             <outlet property="transferDateLabel" destination="lmo-g6-g4q" id="Cyq-2A-uPa"/>
+                                            <outlet property="transferTypeLabel" destination="EgC-RF-5Wo" id="3Yl-hm-a8I"/>
                                             <outlet property="transferedAccountNameLabel" destination="BEk-RP-pMW" id="kCY-vc-4nN"/>
                                             <outlet property="transferedAmountLabel" destination="AN2-Ki-cls" id="roW-qv-3mw"/>
                                             <segue destination="g9E-fo-OQP" kind="show" id="pMs-x9-bIL"/>
@@ -863,7 +871,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vYG-o1-Wki"/>
+        <segue reference="NPn-cY-VsQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

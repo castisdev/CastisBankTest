@@ -43,7 +43,7 @@ class MainAccountCell: UICollectionViewCell {
         uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 10, tintColor: .black)
         
         //set cell color from colorchip
-        self.backgroundColor = colorchip.kakaoYello
+        self.backgroundColor = colorchip.kakaoYello11
         
         //set star image status(Fill or not) => maybe by order...?
         uikitFuncs.starSetting(imageView: mainAccountStarImageView, color: .black, size: 100, index: index)

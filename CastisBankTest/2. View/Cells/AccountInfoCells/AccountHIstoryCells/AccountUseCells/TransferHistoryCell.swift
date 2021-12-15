@@ -13,12 +13,13 @@ class TransferHistoryCell: UICollectionViewCell {
     @IBOutlet weak var transferedAccountNameLabel: UILabel!
     @IBOutlet weak var transferedAmountLabel: UILabel!
     @IBOutlet weak var afterTransferAccountBalanceLabel: UILabel!
+    @IBOutlet weak var transferTypeLabel: UILabel!
     
     let cellIdentifier = "transferHistoryCell"
     
     let uikitFuncs = UIKitFuncs()
     let detailFuncs = DetailFuncs()
-    let fakeUsedData = AccountModel().usedInformation
+    let colorChip = ColorChip()
     let user = "test1"
     
     let historyModel = AccountHistoryModel()
@@ -33,17 +34,29 @@ class TransferHistoryCell: UICollectionViewCell {
         let amount = detailFuncs.makeStringDoubleToInt(string: accountHistoryList[index].amount)
         let balance = detailFuncs.makeStringDoubleToInt(string: accountHistoryList[index].balance)
         
+        //입금출금 구분
         if accountHistoryList[index].recvAccount == accountNum {
-            
-            uikitFuncs.labelSettings(label: transferedAmountLabel, title: "+" + detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: .red)
+            uikitFuncs.labelSettings(label: transferedAmountLabel, title: "+" + detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: .black)
         } else if accountHistoryList[index].sendAccount == accountNum {
-            
-            uikitFuncs.labelSettings(label: transferedAmountLabel, title: "-" + detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: .blue)
+            uikitFuncs.labelSettings(label: transferedAmountLabel, title: "-" + detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: .black)
         }
         
         uikitFuncs.labelSettings(label: transferDateLabel, title: date, size: 15, color: .black)
         uikitFuncs.labelSettings(label: transferedAccountNameLabel, title: accountHistoryList[index].recvName, size: 15, color: .black)
         uikitFuncs.labelSettings(label: afterTransferAccountBalanceLabel, title: detailFuncs.makeMoneyAmountEasy(amount: balance), size: 13, color: .darkGray)
+        
+        //타입 구분
+        switch(accountHistoryList[index].type){
+        case "Internal":
+            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#내부이체", size: 12, color: colorChip.kakaoDarkBlue42)
+        case "External":
+            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#외부이체", size: 12, color: colorChip.kakaoDarkBlue42)
+        case "salary":
+            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#급여이체", size: 12, color: colorChip.kakaoDarkBlue42)
+        default:
+            return uikitFuncs.labelSettings(label: transferTypeLabel, title: " ", size: 12, color: colorChip.kakaoDarkBlue42)
+        }
+        
     }
     
     func setConstraints(){
@@ -51,6 +64,7 @@ class TransferHistoryCell: UICollectionViewCell {
         transferedAccountNameLabel.translatesAutoresizingMaskIntoConstraints = false
         transferedAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         afterTransferAccountBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        transferTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             
@@ -59,6 +73,9 @@ class TransferHistoryCell: UICollectionViewCell {
             
             transferedAccountNameLabel.leadingAnchor.constraint(equalTo: transferDateLabel.trailingAnchor, constant: 20),
             transferedAccountNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            
+            transferTypeLabel.topAnchor.constraint(equalTo: transferedAccountNameLabel.bottomAnchor, constant: 10),
+            transferTypeLabel.leadingAnchor.constraint(equalTo: transferDateLabel.trailingAnchor, constant: 20),
             
             transferedAmountLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             self.trailingAnchor.constraint(equalTo: transferedAmountLabel.trailingAnchor, constant: 20),

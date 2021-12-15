@@ -20,7 +20,7 @@ class SelectedInfoCell: UICollectionViewCell {
     
     func cellSettings(number: String, balance: String) {
         
-        self.backgroundColor = colorChip.kakaoYello
+        self.backgroundColor = colorChip.kakaoYello11
         
         uikitFuncs.labelSettings(label: accountNubmerLabel, title: number, size: 15, color: .black)
         uikitFuncs.labelSettings(label: accountBalanceLabel, title: balance, size: 20, color: .black)

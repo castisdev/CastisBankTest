@@ -21,7 +21,7 @@ class ApplyFilterCell: UITableViewCell {
         
 //        self.layer.borderWidth =
         uikitFuncs.buttonSettings(button: applyFilterButton, title: "확인", fontSize: 15, tintColor: .black)
-        applyFilterButton.backgroundColor = colorChip.kakaoYello
+        applyFilterButton.backgroundColor = colorChip.kakaoYello11
         applyFilterButton.layer.cornerRadius = 10
     }
     

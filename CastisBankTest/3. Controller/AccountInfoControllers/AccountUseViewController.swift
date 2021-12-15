@@ -180,11 +180,11 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         switch kind{
         case UICollectionView.elementKindSectionHeader :
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
-            headerView.backgroundColor = colorchip.kakaoYello
+            headerView.backgroundColor = colorchip.kakaoYello11
             return headerView
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerIdentifier, for: indexPath)
-            footerView.backgroundColor = colorchip.kakaoKhaki
+            footerView.backgroundColor = colorchip.kakaoKhaki74
             return footerView
         default:
             return UICollectionReusableView()
@@ -211,8 +211,7 @@ extension AccountUseViewController: SendUpDateDelegate {
 
 extension AccountUseViewController: AccountHistoryDelegate{
     func accountHistoryRetrieved(histories: [AccountHistoryList]) {
-        
-        print("-------------------------")
+
         self.accountHistoryList = histories
         
         collectionView.reloadData()
@@ -226,14 +225,4 @@ extension AccountUseViewController: OTPModelDelegate {
         collectionView.reloadData()
     }
 }
-
-//extension AccountUseViewController: OTPSendingDelegate{
-//    func OTPRetrieved(otpResult: OTPResult) {
-//        self.receivedOTP = otpResult
-//        
-//        print("***** otp received *****", otpResult)
-//        self.collectionView.reloadData()
-//    }
-//    
-//}
 
