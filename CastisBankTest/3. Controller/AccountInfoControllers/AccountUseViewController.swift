@@ -25,6 +25,8 @@ class AccountUseViewController: UIViewController {
     
     var accountHistoryModel = AccountHistoryModel()
     var accountHistoryList = [AccountHistoryList]()
+    
+    var userInfo = "test1"
 
     //filter: default value
     var selectedInfo = ["1개월", "전체", "최신순"]
@@ -32,7 +34,8 @@ class AccountUseViewController: UIViewController {
     //accountName
     var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
     
-    var otpString = "otp"
+    var updateOPTResult: OTPResult!
+    let otpModel = OTPModel()
     
     //MARK: - VC life cycles
     override func viewDidLoad() {
@@ -49,11 +52,8 @@ class AccountUseViewController: UIViewController {
         setFlowLayout(view: collectionView)
         setNavigation()
         
-        accountHistoryModel.delegate = self
-        print("this is received otp String : ", otpString)
-        accountHistoryModel.getAccountHistory(userId: "test1", accountId: accountInfo[1], duration: "1M", otp: otpString)
-        
-        print(accountHistoryList)
+        otpModel.delegate = self
+        otpModel.getOTP(userId: userInfo, companyId: "talkis_app")
     }
     
     //MARK: - navigation settings
@@ -77,8 +77,9 @@ class AccountUseViewController: UIViewController {
     
     //prepare information before present next vc that is modal
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         guard let setInfoViewController = segue.destination as? SetInformationViewController else {
-            return print("segue error")
+            return print("segue error : account history => set filter")
         }
         setInfoViewController.receivedInfo = selectedInfo
         setInfoViewController.delegate = self
@@ -96,12 +97,15 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
     //number of cells in each section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        
         switch(section){
         case 0:
             return 1
         case 1:
             return 1
         case 2:
+            accountHistoryModel.delegate = self
+            accountHistoryModel.getAccountHistory(userId: userInfo, accountId: accountInfo[1], duration: "5M", otp: updateOPTResult?.otp ?? "otp fail")
             return accountHistoryList.count
         default:
             return 0
@@ -122,20 +126,19 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         guard let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: historyCell.cellIdentifier, for: indexPath) as? TransferHistoryCell else {
             return UICollectionViewCell()
         }
-        
+//        print("account history : ", accountHistoryList)
         switch(indexPath.section){
         case 0:
             cell.cellSettings(number: accountInfo[1], balance: accountInfo[2])
             cell.setConstraints()
             return cell
         case 1:
-            print("setting cell")
+//            print("setting cell")
             searchCell.cellSettings(month: selectedInfo[0], type: selectedInfo[1], order: selectedInfo[2])
             searchCell.setConstraints()
             return searchCell
         case 2:
-            print("/////////////historyList//////////////////", accountHistoryList)
-            historyCell.cellSettings(index: indexPath.row, accountHistoryList: accountHistoryList)
+            historyCell.cellSettings(index: indexPath.row, accountHistoryList: accountHistoryList.reversed(), accountNum: accountInfo[1])
             historyCell.setConstraints()
             return historyCell
         default:
@@ -194,13 +197,13 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
 extension AccountUseViewController: SendUpDateDelegate {
     func sendUpdate(selectedData: [String]) {
         
-        print(selectedData)
+//        print(selectedData)
         
         for s in 0...2{
             self.selectedInfo[s] = selectedData[s]
         }
         
-        print(selectedInfo)
+//        print(selectedInfo)
         self.collectionView.reloadData()
     }
 }
@@ -208,15 +211,29 @@ extension AccountUseViewController: SendUpDateDelegate {
 
 extension AccountUseViewController: AccountHistoryDelegate{
     func accountHistoryRetrieved(histories: [AccountHistoryList]) {
+        
+        print("-------------------------")
         self.accountHistoryList = histories
+        
+        collectionView.reloadData()
+    }
+}
+
+extension AccountUseViewController: OTPModelDelegate {
+    func OTPRetrieved(otpResult: OTPResult) {
+
+        self.updateOPTResult = otpResult
+        collectionView.reloadData()
     }
 }
 
 //extension AccountUseViewController: OTPSendingDelegate{
-//    func OTPRetrieved(otp: String) {
-//        self.otpString = otp
-//
-//        collectionView.reloadData()
+//    func OTPRetrieved(otpResult: OTPResult) {
+//        self.receivedOTP = otpResult
+//        
+//        print("***** otp received *****", otpResult)
+//        self.collectionView.reloadData()
 //    }
+//    
 //}
 

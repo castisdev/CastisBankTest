@@ -17,23 +17,33 @@ class TransferHistoryCell: UICollectionViewCell {
     let cellIdentifier = "transferHistoryCell"
     
     let uikitFuncs = UIKitFuncs()
+    let detailFuncs = DetailFuncs()
     let fakeUsedData = AccountModel().usedInformation
+    let user = "test1"
     
-    func cellSettings(index: Int, accountHistoryList: [AccountHistoryList]) {
+    let historyModel = AccountHistoryModel()
+    
+    func cellSettings(index: Int, accountHistoryList: [AccountHistoryList], accountNum : String) {
         
         self.layer.borderWidth = 0.2
         self.backgroundColor = .white
         
-        //날짜 레이블 바꾸기
-        let date = accountHistoryList[index].date
-        let dateArray = date.map {String($0)}
         
-        let dateDisplay = Array(dateArray[5...9])
+        let date = String(detailFuncs.makeDate(fullDate: accountHistoryList[index].date))
+        let amount = detailFuncs.makeStringDoubleToInt(string: accountHistoryList[index].amount)
+        let balance = detailFuncs.makeStringDoubleToInt(string: accountHistoryList[index].balance)
         
-        uikitFuncs.labelSettings(label: transferDateLabel, title: dateDisplay[0], size: 15, color: .black)
+        if accountHistoryList[index].recvAccount == accountNum {
+            
+            uikitFuncs.labelSettings(label: transferedAmountLabel, title: "+" + detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: .red)
+        } else if accountHistoryList[index].sendAccount == accountNum {
+            
+            uikitFuncs.labelSettings(label: transferedAmountLabel, title: "-" + detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: .blue)
+        }
+        
+        uikitFuncs.labelSettings(label: transferDateLabel, title: date, size: 15, color: .black)
         uikitFuncs.labelSettings(label: transferedAccountNameLabel, title: accountHistoryList[index].recvName, size: 15, color: .black)
-        uikitFuncs.labelSettings(label: transferedAmountLabel, title: accountHistoryList[index].amount, size: 15, color: .black)
-        uikitFuncs.labelSettings(label: afterTransferAccountBalanceLabel, title: fakeUsedData[index].balance, size: 13, color: .darkGray)
+        uikitFuncs.labelSettings(label: afterTransferAccountBalanceLabel, title: detailFuncs.makeMoneyAmountEasy(amount: balance), size: 13, color: .darkGray)
     }
     
     func setConstraints(){

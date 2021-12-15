@@ -53,6 +53,7 @@ class AccountHistoryModel{
                     
                     DispatchQueue.main.sync {
                         self.delegate?.accountHistoryRetrieved(histories: accountService.history)
+//                        print(accountService.history)
                     }
                 }
                 catch {

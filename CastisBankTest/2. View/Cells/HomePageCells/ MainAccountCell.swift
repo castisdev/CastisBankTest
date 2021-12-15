@@ -20,7 +20,6 @@ class MainAccountCell: UICollectionViewCell {
     let cellIdentifier = "accountInfoCell"
     
     let uikitFuncs = UIKitFuncs()
-    var accountToDisplay = [AccountList]()
     let detailFuncs = DetailFuncs()
     
     let cellSize = [
@@ -31,17 +30,13 @@ class MainAccountCell: UICollectionViewCell {
     //set cell settings func
     public func cellSettings(index: Int, accountList: [AccountList]) {
         
-        accountToDisplay = accountList
-        
-//        print("AccountToDisplay :: " ,accountToDisplay )
-        
         self.layer.cornerRadius = 10
         self.isSelected = false
         
         //set label text
-        uikitFuncs.labelSettings(label: accountNameLabel, title: accountToDisplay[index].name, size: 15, color: .black)
-        uikitFuncs.labelSettings(label: accountNumberLabel, title: accountToDisplay[index].id, size: 10, color: .darkGray)
-        uikitFuncs.labelSettings(label: accountBalanceLabel, title: detailFuncs.makeMoneyAmountEasy(amount: accountToDisplay[index].balance), size: 22, color: .black)
+        uikitFuncs.labelSettings(label: accountNameLabel, title: accountList[index].name, size: 15, color: .black)
+        uikitFuncs.labelSettings(label: accountNumberLabel, title: accountList[index].id, size: 10, color: .darkGray)
+        uikitFuncs.labelSettings(label: accountBalanceLabel, title: detailFuncs.makeMoneyAmountEasy(amount: accountList[index].balance), size: 22, color: .black)
         
         //set button title
         uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 10, tintColor: .black)

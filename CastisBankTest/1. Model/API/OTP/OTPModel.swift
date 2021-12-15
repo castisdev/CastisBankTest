@@ -16,6 +16,7 @@ class OTPModel{
     var delegate: OTPModelDelegate?
     
     func getOTP(userId: String, companyId: String){
+        print("***************** model called *******************")
         
         let ask = OTPBody(userId: userId, companyId: companyId)
         let encoder = JSONEncoder()
@@ -24,7 +25,7 @@ class OTPModel{
             return print("fail to encode otp body")
         }
         
-        print(String(data: uploadData, encoding: .utf8)!)
+        print("encoded body is ", String(data: uploadData, encoding: .utf8)!)
         
         let urlString = "http://172.16.48.201/cbank/api/v1/otp"
         let url = URL(string: urlString)
@@ -39,30 +40,32 @@ class OTPModel{
         request.httpBody = uploadData
         request.addValue("application/json", forHTTPHeaderField: "Content-type")
         
+        print("rrrrrrrrrrrrrrr request maded rrrrrrrrrrrrrrrrrr")
+        
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: request){ (data, response, error) in
             
             if error == nil && data != nil {
+                print("with have a data before decoding: ",String(data: data!, encoding: .utf8)!)
                 
-                print(String(data: data!, encoding: .utf8)!)
                 let decoder = JSONDecoder()
-                
                 do {
                     let otpInfo = try decoder.decode(OTPResult.self, from: data!)
                     
-                    print(otpInfo)
+                    print("otpEncoded : ",otpInfo)
                     DispatchQueue.main.sync {
                         self.delegate?.OTPRetrieved(otpResult: otpInfo)
                     }
                 }
             catch {
-                print("Error: parsing the json")
+                print("????????????Error: parsing the json")
             }
             
         }
     }
     dataTask.resume()
+    print("$$$$$$$$$$$$$$$data task resumed$$$$$$$$$$$$$$$")
         
     }
 }

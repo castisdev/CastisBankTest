@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol OTPSendingDelegate{
-    func OTPRetrieved(otp: String)
-}
-
 class HomePageViewController: UIViewController{
     
     //MARK: declare instances
@@ -26,10 +22,6 @@ class HomePageViewController: UIViewController{
     let userName = "test1"
     var accountList = [AccountList]()
     var accountModel = AccountListModel()
-    
-    var otpModel = OTPModel()
-    var otpResult: OTPResult?
-    var delegate: OTPSendingDelegate?
     
     //MARK: selected cell info (to account history VC)
     var selectedAccountInfo = ["name", "number", "balance"]
@@ -55,9 +47,10 @@ class HomePageViewController: UIViewController{
         accountModel.delegate = self
         accountModel.getAccountList(user: userName)
         
-        otpModel.delegate = self
-        
+        print("cell made account list : ", accountList)
     }
+    
+    
     
     
     //MARK: prepare devided by segue identifier
@@ -78,7 +71,8 @@ class HomePageViewController: UIViewController{
             }
             
             accountUseViewController.accountInfo = selectedAccountInfo
-            accountUseViewController.otpString = otpResult?.otp ?? "otp"
+            accountUseViewController.userInfo = userName
+            
         }
     }
     
@@ -139,7 +133,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         //배열 순서대로 하니까, 셀이 reusable 이기 때문에 자꾸 바뀌는 듯..! 아니네.
         switch(indexPath.section){
         case 0:
-            print("cell made account list : ", accountList)
             cell.cellSettings(index: indexPath.row, accountList: accountList)
             
             //tag for sending information
@@ -203,9 +196,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         self.selectedAccountInfo[0] = accountList[sender.tag].name
         self.selectedAccountInfo[1] = accountList[sender.tag].id
         self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
-        
-        otpModel.getOTP(userId: "test1", companyId: "talkis_app")
-//        print(otpResult)
+        print("--------------------history-------------------------")
     }
 }
 
@@ -214,11 +205,15 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 //MARK: from data which is from server(url)
 extension HomePageViewController: AccountListModelDelegate {
     func AccountListRetrieved(accounts: [AccountList]) {
-//        print("accounts retrieved from account list model!")
+        print("accounts retrieved from account list model!")
 //        print("retrieved accounts:", accounts)
         self.accountList = accounts
+//        print("after set account list at delegate function :", accountList)
         
         collectionView.reloadData()
+        
+//        print("after reload data at delegate function :", accountList)
+        
     }
 }
 
@@ -228,12 +223,5 @@ extension HomePageViewController: sendUpdateAccountOrderDelegate {
         accountList = updatedOrderList
         
         self.collectionView.reloadData()
-    }
-}
-
-extension HomePageViewController: OTPModelDelegate{
-    func OTPRetrieved(otpResult: OTPResult) {
-        self.otpResult = otpResult
-        print(otpResult)
     }
 }
