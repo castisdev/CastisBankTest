@@ -567,7 +567,7 @@
                                             <outlet property="transferTypeLabel" destination="EgC-RF-5Wo" id="3Yl-hm-a8I"/>
                                             <outlet property="transferedAccountNameLabel" destination="BEk-RP-pMW" id="kCY-vc-4nN"/>
                                             <outlet property="transferedAmountLabel" destination="AN2-Ki-cls" id="roW-qv-3mw"/>
-                                            <segue destination="g9E-fo-OQP" kind="show" id="pMs-x9-bIL"/>
+                                            <segue destination="g9E-fo-OQP" kind="show" identifier="detailInfoSegue" id="TVg-fS-Qhb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -625,7 +625,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailInfoCell" id="bMz-dg-DfF" customClass="DetailTransferInfoTableViewCell" customModule="CastisBankTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DetailInfoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailInfoCell" id="bMz-dg-DfF" customClass="DetailTransferInfoCell" customModule="CastisBankTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bMz-dg-DfF" id="x66-uY-SfN">
@@ -660,10 +660,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="8kP-CI-9JL"/>
+                    <connections>
+                        <outlet property="tableView" destination="SKB-gq-iES" id="ZiS-Sa-aRh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l6j-8L-kJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331.8840579710145" y="1148.4375"/>
+            <point key="canvasLocation" x="1393" y="1171"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ieZ-bJ-2cm">
@@ -871,7 +874,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NPn-cY-VsQ"/>
+        <segue reference="vYG-o1-Wki"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

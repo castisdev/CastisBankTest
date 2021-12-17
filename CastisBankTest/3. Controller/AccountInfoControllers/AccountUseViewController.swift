@@ -19,6 +19,9 @@ class AccountUseViewController: UIViewController {
     let headerIdentifier = "header"
     let footerIdentifier = "footer"
     
+    let toSetFilterSegueIdentifier = "setFilterSegue"
+    let toDetailInfoSegueIdnetifier = "detailInfoSegue"
+    
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
     let uikitFuncs = UIKitFuncs()
@@ -27,6 +30,7 @@ class AccountUseViewController: UIViewController {
     var accountHistoryList = [AccountHistoryList]()
     
     var userInfo = "test1"
+    var selectedCellIndex = 3
 
     //filter: default value
     var selectedInfo = ["1개월", "전체", "최신순"]
@@ -78,11 +82,31 @@ class AccountUseViewController: UIViewController {
     //prepare information before present next vc that is modal
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let setInfoViewController = segue.destination as? SetInformationViewController else {
-            return print("segue error : account history => set filter")
+        if segue.identifier == toSetFilterSegueIdentifier {
+            
+            guard let setInfoViewController = segue.destination as? SetInformationViewController else {
+                return print("segue error : account history => set filter")
+            }
+            
+            setInfoViewController.receivedInfo = selectedInfo
+            setInfoViewController.delegate = self
+            
+        } else if segue.identifier == toDetailInfoSegueIdnetifier {
+            
+            guard let useDetailViewController = segue.destination as? UseDetailViewController else {
+                return print("segue error : account history => use detail")
+            }
+            
+            useDetailViewController.selectedInfo = self.accountHistoryList
+            if let index = sender as? Int {
+                print(index)
+                print("-----------------let's go -----------")
+                
+                print("--------", accountHistoryList)
+                useDetailViewController.selectedCellInfo = index
+            }
+
         }
-        setInfoViewController.receivedInfo = selectedInfo
-        setInfoViewController.delegate = self
     }
 }
 
@@ -126,7 +150,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         guard let historyCell = collectionView.dequeueReusableCell(withReuseIdentifier: historyCell.cellIdentifier, for: indexPath) as? TransferHistoryCell else {
             return UICollectionViewCell()
         }
-//        print("account history : ", accountHistoryList)
+        
         switch(indexPath.section){
         case 0:
             cell.cellSettings(number: accountInfo[1], balance: accountInfo[2])
@@ -146,6 +170,10 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(">>>select>>>")
+        performSegue(withIdentifier: toDetailInfoSegueIdnetifier, sender: indexPath.row)
+    }
     
     //cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -173,7 +201,6 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
           view.collectionViewLayout = flowLayout
     }
     
-    
     //이것도 안됨.
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -191,19 +218,16 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
     
         }
     }
+    
 }
 
 //MARK: - use custom protocol
 extension AccountUseViewController: SendUpDateDelegate {
     func sendUpdate(selectedData: [String]) {
-        
-//        print(selectedData)
-        
         for s in 0...2{
             self.selectedInfo[s] = selectedData[s]
         }
-        
-//        print(selectedInfo)
+
         self.collectionView.reloadData()
     }
 }

@@ -27,4 +27,17 @@ class DetailFuncs {
         let date = fullDate.dropFirst(5).prefix(5) as Substring
         return date
     }
+    
+    func typeInKorean(type: String) -> String {
+        switch type{
+        case "Internal":
+            return "내부이체"
+        case "External":
+            return "외부이체"
+        case "salary":
+            return "급여이체"
+        default:
+            return " "
+        }
+    }
 }

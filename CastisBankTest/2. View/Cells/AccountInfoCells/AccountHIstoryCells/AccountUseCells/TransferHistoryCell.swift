@@ -46,16 +46,18 @@ class TransferHistoryCell: UICollectionViewCell {
         uikitFuncs.labelSettings(label: afterTransferAccountBalanceLabel, title: detailFuncs.makeMoneyAmountEasy(amount: balance), size: 13, color: .darkGray)
         
         //타입 구분
-        switch(accountHistoryList[index].type){
-        case "Internal":
-            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#내부이체", size: 12, color: colorChip.kakaoDarkBlue42)
-        case "External":
-            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#외부이체", size: 12, color: colorChip.kakaoDarkBlue42)
-        case "salary":
-            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#급여이체", size: 12, color: colorChip.kakaoDarkBlue42)
-        default:
-            return uikitFuncs.labelSettings(label: transferTypeLabel, title: " ", size: 12, color: colorChip.kakaoDarkBlue42)
-        }
+//        switch(accountHistoryList[index].type){
+//        case "Internal":
+//            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#내부이체", size: 12, color: colorChip.kakaoDarkBlue42)
+//        case "External":
+//            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#외부이체", size: 12, color: colorChip.kakaoDarkBlue42)
+//        case "salary":
+//            return uikitFuncs.labelSettings(label: transferTypeLabel, title: "#급여이체", size: 12, color: colorChip.kakaoDarkBlue42)
+//        default:
+//            return uikitFuncs.labelSettings(label: transferTypeLabel, title: " ", size: 12, color: colorChip.kakaoDarkBlue42)
+//        }
+        
+        uikitFuncs.labelSettings(label: transferTypeLabel, title: "#" + detailFuncs.typeInKorean(type: accountHistoryList[index].type), size: 12, color: colorChip.kakaoDarkBlue42)
         
     }
     

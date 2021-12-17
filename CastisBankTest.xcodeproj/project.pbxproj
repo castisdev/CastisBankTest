@@ -42,7 +42,7 @@
 		3C95E560275897230007B483 /* SetFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55F275897230007B483 /* SetFilterCell.swift */; };
 		3C95E562275897340007B483 /* TransferHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E561275897340007B483 /* TransferHistoryCell.swift */; };
 		3C95E564275897590007B483 /* SelectedFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E563275897590007B483 /* SelectedFilterCell.swift */; };
-		3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */; };
+		3C95E566275899D20007B483 /* DetailTransferInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E565275899D20007B483 /* DetailTransferInfoCell.swift */; };
 		3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B17A7276073CB006F8517 /* ControlEnums.swift */; };
 		3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A62759D4AB00F7478E /* Colorchip.swift */; };
 		3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A82759D51A00F7478E /* AccountModel.swift */; };
@@ -112,7 +112,7 @@
 		3C95E55F275897230007B483 /* SetFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFilterCell.swift; sourceTree = "<group>"; };
 		3C95E561275897340007B483 /* TransferHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferHistoryCell.swift; sourceTree = "<group>"; };
 		3C95E563275897590007B483 /* SelectedFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFilterCell.swift; sourceTree = "<group>"; };
-		3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransferInfoTableViewCell.swift; sourceTree = "<group>"; };
+		3C95E565275899D20007B483 /* DetailTransferInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransferInfoCell.swift; sourceTree = "<group>"; };
 		3C9B17A7276073CB006F8517 /* ControlEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEnums.swift; sourceTree = "<group>"; };
 		3CA8E2A62759D4AB00F7478E /* Colorchip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorchip.swift; sourceTree = "<group>"; };
 		3CA8E2A82759D51A00F7478E /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
@@ -372,7 +372,7 @@
 		3C95F408276196E300856A54 /* DetailCells */ = {
 			isa = PBXGroup;
 			children = (
-				3C95E565275899D20007B483 /* DetailTransferInfoTableViewCell.swift */,
+				3C95E565275899D20007B483 /* DetailTransferInfoCell.swift */,
 			);
 			path = DetailCells;
 			sourceTree = "<group>";
@@ -585,7 +585,7 @@
 				3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */,
 				3C95E55E275896F50007B483 /* SelectedInfoCell.swift in Sources */,
 				3C83FD532762E0B100B4DB30 /* HomePageNavgationItem.swift in Sources */,
-				3C95E566275899D20007B483 /* DetailTransferInfoTableViewCell.swift in Sources */,
+				3C95E566275899D20007B483 /* DetailTransferInfoCell.swift in Sources */,
 				3C95E54A275883130007B483 /* SetSendingMemoViewController.swift in Sources */,
 				3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */,
 				3CBDEF6C275E00C70014308A /* ApplyFilterCell.swift in Sources */,

@@ -24,7 +24,7 @@ class SetInformationViewController: UIViewController {
     let confirmCell = ApplyFilterCell()
     
     //default value
-    var receivedInfo = ["1개월","전체","최신순"]
+    var receivedInfo = [""]
     var delegate: SendUpDateDelegate?
     
     //MARK: - VC life cycle

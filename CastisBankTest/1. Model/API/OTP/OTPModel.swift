@@ -16,7 +16,6 @@ class OTPModel{
     var delegate: OTPModelDelegate?
     
     func getOTP(userId: String, companyId: String){
-        print("***************** model called *******************")
         
         let ask = OTPBody(userId: userId, companyId: companyId)
         let encoder = JSONEncoder()
@@ -40,8 +39,6 @@ class OTPModel{
         request.httpBody = uploadData
         request.addValue("application/json", forHTTPHeaderField: "Content-type")
         
-        print("rrrrrrrrrrrrrrr request maded rrrrrrrrrrrrrrrrrr")
-        
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: request){ (data, response, error) in
@@ -59,13 +56,12 @@ class OTPModel{
                     }
                 }
             catch {
-                print("????????????Error: parsing the json")
+                print("////////otp Error: parsing the json")
             }
             
         }
     }
     dataTask.resume()
-    print("$$$$$$$$$$$$$$$data task resumed$$$$$$$$$$$$$$$")
         
     }
 }
