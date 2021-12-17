@@ -613,6 +613,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="확인"/>
+                                <connections>
+                                    <action selector="returnToDetailView:" destination="g9E-fo-OQP" eventType="touchUpInside" id="NYI-1t-W1U"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSe-g8-H7l">
                                 <rect key="frame" x="48" y="784" width="68" height="60"/>
@@ -661,6 +664,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="8kP-CI-9JL"/>
                     <connections>
+                        <outlet property="backToHistoryButton" destination="IBa-Z8-ZWO" id="OCd-A0-RyL"/>
+                        <outlet property="shareButton" destination="hSe-g8-H7l" id="zJP-Cb-IsP"/>
                         <outlet property="tableView" destination="SKB-gq-iES" id="ZiS-Sa-aRh"/>
                     </connections>
                 </viewController>

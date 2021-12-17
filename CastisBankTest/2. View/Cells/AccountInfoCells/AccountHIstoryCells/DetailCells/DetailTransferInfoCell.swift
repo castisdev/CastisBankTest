@@ -20,18 +20,18 @@ class DetailTransferInfoCell: UITableViewCell {
     let detailFuncs = DetailFuncs()
     let colorChip = ColorChip()
     
-    func cellSettings(index: Int, accountInfo: AccountHistoryList){
+    func cellSettings(index: Int, accountInfo: [String]){
         
         uikitFuncs.labelSettings(label: transactionInfoLabel, title: info[index], size: 15, color: .black)
         
-        let amount = detailFuncs.makeStringDoubleToInt(string: accountInfo.amount)
-        let balance = detailFuncs.makeStringDoubleToInt(string: accountInfo.balance)
+        let amount = detailFuncs.makeStringDoubleToInt(string: accountInfo[2])
+        let balance = detailFuncs.makeStringDoubleToInt(string: accountInfo[3])
         
         switch index{
         case 0:
-            return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: accountInfo.date, size: 15, color: .black)
+            return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: accountInfo[0], size: 15, color: .black)
         case 1:
-            return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: detailFuncs.typeInKorean(type: accountInfo.type), size: 15, color: .black)
+            return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: detailFuncs.typeInKorean(type: accountInfo[1]), size: 15, color: .black)
         case 2:
             return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: colorChip.kakaoDarkBlue42)
         case 3:

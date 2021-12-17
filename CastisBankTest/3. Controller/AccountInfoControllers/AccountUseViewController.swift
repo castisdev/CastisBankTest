@@ -93,17 +93,20 @@ class AccountUseViewController: UIViewController {
             
         } else if segue.identifier == toDetailInfoSegueIdnetifier {
             
-            guard let useDetailViewController = segue.destination as? UseDetailViewController else {
-                return print("segue error : account history => use detail")
-            }
-            
-            useDetailViewController.selectedInfo = self.accountHistoryList
-            if let index = sender as? Int {
-                print(index)
+            if let selectedList = sender as? AccountHistoryList {
+                
+                guard let useDetailViewController = segue.destination as? UseDetailViewController else {
+                    return print("segue error : account history => use detail")
+                } 
+                print(selectedList)
                 print("-----------------let's go -----------")
                 
-                print("--------", accountHistoryList)
-                useDetailViewController.selectedCellInfo = index
+//                print("--------", accountHistoryList)
+                useDetailViewController.selectedAccountDate = selectedList.date
+                useDetailViewController.selectedAccountType = selectedList.type
+                useDetailViewController.selectedAccountAmount = selectedList.amount
+                useDetailViewController.selectedAccountBalance = selectedList.balance
+                useDetailViewController.selectedAccountName = selectedList.recvName
             }
 
         }
@@ -121,13 +124,15 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
     //number of cells in each section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        
+        print("section insepct : ", section)
         switch(section){
         case 0:
             return 1
         case 1:
             return 1
         case 2:
+            
+            print("****make a number of items *****")
             accountHistoryModel.delegate = self
             accountHistoryModel.getAccountHistory(userId: userInfo, accountId: accountInfo[1], duration: "5M", otp: updateOPTResult?.otp ?? "otp fail")
             return accountHistoryList.count
@@ -172,7 +177,8 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(">>>select>>>")
-        performSegue(withIdentifier: toDetailInfoSegueIdnetifier, sender: indexPath.row)
+        let index = accountHistoryList.count - (indexPath.row + 1)
+        performSegue(withIdentifier: toDetailInfoSegueIdnetifier, sender: self.accountHistoryList[index])
     }
     
     //cell size

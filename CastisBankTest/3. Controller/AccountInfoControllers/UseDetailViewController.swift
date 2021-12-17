@@ -10,23 +10,70 @@ import UIKit
 class UseDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backToHistoryButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     let detailTransferInfoCell = DetailTransferInfoCell()
     
     var selectedInfo = [AccountHistoryList]()
-    var selectedCellInfo = 3
+    
+    var selectedCellInfo = [String]()
+    var selectedAccountDate = ""
+    var selectedAccountType = ""
+    var selectedAccountAmount = ""
+    var selectedAccountBalance = ""
+    var selectedAccountName = ""
+    
+    
+    
+    let uikitFuncs = UIKitFuncs()
+    let colorChip = ColorChip()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view did load")
-        tableView.frame = view.bounds
-        print(" view make bounds ")
         
         tableView.delegate = self
         tableView.dataSource = self
-    
-        print("selected Index : ", selectedCellInfo, " count :", selectedInfo.count, " which : ", selectedInfo.count - (selectedCellInfo + 1))
         
+        selectedCellInfo = [selectedAccountDate, selectedAccountType, selectedAccountAmount, selectedAccountBalance]
+        navigationSettings()
+        viewSettings()
+    }
+    
+    func navigationSettings(){
+        
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = selectedAccountName
+//        self.navigationController?.navigationBar.largeTitleTextAttributes{
+//            .font: UIFont(name: , size: 10)
+//        }
+    }
+    
+    func viewSettings(){
+        uikitFuncs.buttonSettings(button: backToHistoryButton, title: "확인", fontSize: 15, tintColor: .systemBlue)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        backToHistoryButton.translatesAutoresizingMaskIntoConstraints = false
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  10),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+            backToHistoryButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20),
+            backToHistoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            backToHistoryButton.heightAnchor.constraint(equalToConstant: 50),
+            backToHistoryButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            shareButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20),
+            shareButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            shareButton.trailingAnchor.constraint(equalTo: backToHistoryButton.leadingAnchor, constant: -20),
+            shareButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            shareButton.heightAnchor.constraint(equalToConstant: 50),
+            shareButton.widthAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }
 
@@ -37,6 +84,8 @@ extension UseDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
         return detailTransferInfoCell.info.count
     }
     
@@ -46,8 +95,8 @@ extension UseDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let displayInfo = selectedInfo[selectedInfo.count - (selectedCellInfo + 1)]
-        cell.cellSettings(index: indexPath.row, accountInfo: displayInfo)
+//        let displayInfo = selectedInfo[selectedInfo.count - (selectedCellInfo + 1)]
+        cell.cellSettings(index: indexPath.row, accountInfo: self.selectedCellInfo)
         cell.setContraints()
         
         return cell
@@ -57,6 +106,9 @@ extension UseDetailViewController: UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     
+    @IBAction func returnToDetailView(_ sender: Any){
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 

@@ -53,11 +53,11 @@ class AccountHistoryModel{
                     
                     DispatchQueue.main.sync {
                         self.delegate?.accountHistoryRetrieved(histories: accountService.history)
-//                        print(accountService.history)
+                        print("----------------- parsing success !!! :", accountService.history)
                     }
                 }
                 catch {
-                    print("/////////// history Error: parsing the json")
+                    print("/////////// history Error: parsing the json : ")
                 }
             }
             

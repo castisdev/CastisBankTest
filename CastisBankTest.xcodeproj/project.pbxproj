@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382ABFF4276C6DD900F92710 /* getList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ABFF3276C6DD900F92710 /* getList.swift */; };
 		3C059B5D27683359003FB4D0 /* OTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5C27683359003FB4D0 /* OTPBody.swift */; };
 		3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5F276833ED003FB4D0 /* OTPResult.swift */; };
 		3C059B622768340C003FB4D0 /* OTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B612768340C003FB4D0 /* OTPModel.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		382ABFF3276C6DD900F92710 /* getList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getList.swift; sourceTree = "<group>"; };
 		3C059B5C27683359003FB4D0 /* OTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPBody.swift; sourceTree = "<group>"; };
 		3C059B5F276833ED003FB4D0 /* OTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPResult.swift; sourceTree = "<group>"; };
 		3C059B612768340C003FB4D0 /* OTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModel.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				3CA8E2A62759D4AB00F7478E /* Colorchip.swift */,
 				3C2249DE2767306D00DD10EE /* DetailFuncs.swift */,
+				382ABFF3276C6DD900F92710 /* getList.swift */,
 			);
 			path = skills;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */,
 				3CC5B457276873CB0000A9A3 /* AccountHistoryList.swift in Sources */,
 				3CDF96CA27673A0000928066 /* DecodedAccountList.swift in Sources */,
+				382ABFF4276C6DD900F92710 /* getList.swift in Sources */,
 				3C95E562275897340007B483 /* TransferHistoryCell.swift in Sources */,
 				3C95E564275897590007B483 /* SelectedFilterCell.swift in Sources */,
 				3C2447AC2761E57A001D2215 /* AccountList.swift in Sources */,
