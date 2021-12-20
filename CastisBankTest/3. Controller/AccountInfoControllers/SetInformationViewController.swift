@@ -1,4 +1,4 @@
-//
+ //
 //  SetInformationViewController.swift
 //  CastisBankTest
 //
@@ -17,7 +17,7 @@ class SetInformationViewController: UIViewController {
     //MARK: - declare instances
     @IBOutlet weak var tableView: UITableView!
     
-    let fakeModels = AccountModel().searchInfo
+    let filterModel = FilterModel().searchInfo
     let uikitFuncs = UIKitFuncs()
     
     let setInfoCell = SetFilterCell()
@@ -41,10 +41,6 @@ class SetInformationViewController: UIViewController {
         //view size
 //        self.view.clipsToBounds = true
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        print("view will disappear")
-    }
 }
 
 //MARK: - about cell
@@ -59,7 +55,7 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return fakeModels.count
+            return filterModel.count
         case 1:
             return 1
         default:
@@ -117,6 +113,7 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
     //check button action(with segment's changed value
     @IBAction func backToInfo(_ sender: Any) {
         
+        print("--------back to list =====")
         delegate?.sendUpdate(selectedData: receivedInfo)
         
         self.dismiss(animated: true, completion: nil)
@@ -124,7 +121,7 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
     
     //act when sement value changed
     @objc func segmentValueChanged(_ sender: UISegmentedControl){
-        self.receivedInfo[sender.tag] = fakeModels[sender.tag].standards[sender.selectedSegmentIndex]
+        self.receivedInfo[sender.tag] = filterModel[sender.tag].standards[sender.selectedSegmentIndex]
     }
     
 }

@@ -25,15 +25,18 @@ class AccountUseViewController: UIViewController {
     let colorchip = ColorChip()
     let fakeModel = AccountModel().usedInformation
     let uikitFuncs = UIKitFuncs()
+    let filterModel = FilterModel()
     
     var accountHistoryModel = AccountHistoryModel()
     var accountHistoryList = [AccountHistoryList]()
     
     var userInfo = "test1"
     var selectedCellIndex = 3
+    let banbokCount = 1
 
     //filter: default value
-    var selectedInfo = ["1개월", "전체", "최신순"]
+    var selectedInfo = ["3개월", "전체", "최신순"]
+    var selectedSearchPeriod = ""
     
     //accountName
     var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
@@ -58,6 +61,8 @@ class AccountUseViewController: UIViewController {
         
         otpModel.delegate = self
         otpModel.getOTP(userId: userInfo, companyId: "talkis_app")
+        
+        accountHistoryModel.delegate = self
     }
     
     //MARK: - navigation settings
@@ -131,10 +136,8 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         case 1:
             return 1
         case 2:
-            
-            print("****make a number of items *****")
-            accountHistoryModel.delegate = self
-            accountHistoryModel.getAccountHistory(userId: userInfo, accountId: accountInfo[1], duration: "5M", otp: updateOPTResult?.otp ?? "otp fail")
+            selectedSearchPeriod = filterModel.setSearchPeriod(period: selectedInfo[0])
+            accountHistoryModel.getAccountHistory(userId: userInfo, accountId: accountInfo[1], duration: selectedSearchPeriod, otp: updateOPTResult?.otp ?? "otp fail")
             return accountHistoryList.count
         default:
             return 0
@@ -230,11 +233,13 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
 //MARK: - use custom protocol
 extension AccountUseViewController: SendUpDateDelegate {
     func sendUpdate(selectedData: [String]) {
-        for s in 0...2{
-            self.selectedInfo[s] = selectedData[s]
-        }
-
-        self.collectionView.reloadData()
+        
+        otpModel.getOTP(userId: userInfo, companyId: "talkis_app")
+        selectedInfo = selectedData
+        print("넘어온 selected ..", selectedInfo)
+        
+        print("^ selectedInfo delegate")
+        collectionView.reloadData()
     }
 }
 
@@ -244,6 +249,7 @@ extension AccountUseViewController: AccountHistoryDelegate{
 
         self.accountHistoryList = histories
         
+        print("^ account history delegate")
         collectionView.reloadData()
     }
 }
@@ -252,6 +258,8 @@ extension AccountUseViewController: OTPModelDelegate {
     func OTPRetrieved(otpResult: OTPResult) {
 
         self.updateOPTResult = otpResult
+        
+        print("^ upadate otp delegate")
         collectionView.reloadData()
     }
 }

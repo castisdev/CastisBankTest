@@ -39,8 +39,8 @@ class MainAccountCell: UICollectionViewCell {
         uikitFuncs.labelSettings(label: accountBalanceLabel, title: detailFuncs.makeMoneyAmountEasy(amount: accountList[index].balance), size: 22, color: .black)
         
         //set button title
-        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 10, tintColor: .black)
-        uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 10, tintColor: .black)
+        uikitFuncs.buttonSettings(button: transferButton, title: "이체", fontSize: 17, tintColor: .black)
+        uikitFuncs.buttonSettings(button: useInformationOfAccountButton, title: "거래내역", fontSize: 5, tintColor: .black)
         
         //set cell color from colorchip
         self.backgroundColor = colorchip.kakaoYello11

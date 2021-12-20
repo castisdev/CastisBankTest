@@ -15,16 +15,16 @@ class SetFilterCell: UITableViewCell {
     let cellIdentifier = "setSearchCell"
     
     let uikitFuncs = UIKitFuncs()
-    let fakeModel = AccountModel().searchInfo
+    let filterModel = FilterModel().searchInfo
     
     func cellSettings(index: Int, selected: [String]){
         
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         
-        uikitFuncs.labelSettings(label: searchStandardNameLabel, title: fakeModel[index].searchStandard, size: 15, color: .black)
-        uikitFuncs.segmentSetting(segment: choiceSegmentControl, items: fakeModel[index].standards)
+        uikitFuncs.labelSettings(label: searchStandardNameLabel, title: filterModel[index].searchStandard, size: 15, color: .black)
+        uikitFuncs.segmentSetting(segment: choiceSegmentControl, items: filterModel[index].standards)
         
-        let selectedIndex = fakeModel[index].standards.firstIndex(of: selected[index])
+        let selectedIndex = filterModel[index].standards.firstIndex(of: selected[index])
         choiceSegmentControl.selectedSegmentIndex = selectedIndex ?? 0
         
     }
@@ -51,7 +51,7 @@ class SetFilterCell: UITableViewCell {
         var sending: [String] = ["", "", ""]
         
         let changedIndex = choiceSegmentControl.selectedSegmentIndex
-        sending[index] = fakeModel[index].standards[changedIndex]
+        sending[index] = filterModel[index].standards[changedIndex]
         
         return sending
         

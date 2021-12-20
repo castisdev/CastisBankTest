@@ -16,6 +16,8 @@ class AccountHistoryModel{
     
     func getAccountHistory(userId: String, accountId: String, duration: String, otp: String){
         
+        print("@@ account list model called @@") 
+        
         let ask = AccountHistoryBody(userId: userId, accountId: accountId, duration: duration, otp: otp)
         
         let encoder = JSONEncoder()
@@ -45,13 +47,14 @@ class AccountHistoryModel{
             
             if error == nil && data != nil {
                 
-//                print("account transfer list : ",String(data: data!, encoding: .utf8)!)
+                print("account transfer list : ",String(data: data!, encoding: .utf8)!)
                 let decoder = JSONDecoder()
                 
                 do {
                     let accountService = try decoder.decode(AccountHistoryService.self, from: data!)
                     
-                    DispatchQueue.main.sync {
+                    DispatchQueue.main.async {
+                        print("go to delegate func which is at model class")
                         self.delegate?.accountHistoryRetrieved(histories: accountService.history)
                         print("----------------- parsing success !!! :", accountService.history)
                     }

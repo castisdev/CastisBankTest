@@ -51,7 +51,7 @@ class OTPModel{
                     let otpInfo = try decoder.decode(OTPResult.self, from: data!)
                     
                     print("otpEncoded : ",otpInfo)
-                    DispatchQueue.main.sync {
+                    DispatchQueue.main.async {
                         self.delegate?.OTPRetrieved(otpResult: otpInfo)
                     }
                 }

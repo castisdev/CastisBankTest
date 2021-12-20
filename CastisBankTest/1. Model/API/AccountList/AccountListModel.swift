@@ -42,7 +42,7 @@ class AccountListModel{
                     //sync : 함수는 작업이 다 끝난 다음에만 현재의 queue에게 컨트롤을 넘깁니다.
                     //main.sync : 어떤 함수/메소드가 중복으로 불리지 않는 것을 보장해야 할 때
                     //출처: https://wlaxhrl.tistory.com/81 [찜토끼의 Swift 블로그]
-                    DispatchQueue.main.sync {
+                    DispatchQueue.main.async {
                         self.delegate?.AccountListRetrieved(accounts: accountList)
                     }
                 }
