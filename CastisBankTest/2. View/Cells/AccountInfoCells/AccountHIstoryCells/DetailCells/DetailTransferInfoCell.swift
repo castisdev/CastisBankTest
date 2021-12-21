@@ -22,6 +22,7 @@ class DetailTransferInfoCell: UITableViewCell {
     
     func cellSettings(index: Int, accountInfo: AccountHistoryList){
         
+        self.selectionStyle = .none
         uikitFuncs.labelSettings(label: transactionInfoLabel, title: info[index], size: 15, color: .black)
         
         let amount = detailFuncs.makeStringDoubleToInt(string: accountInfo.amount)

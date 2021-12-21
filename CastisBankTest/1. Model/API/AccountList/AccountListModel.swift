@@ -54,7 +54,6 @@ class AccountListModel{
         }
         
         dataTask.resume()
-        print("------------------------------------dataTask resume()")
     }
 
 }

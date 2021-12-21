@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		382ABFF4276C6DD900F92710 /* getList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ABFF3276C6DD900F92710 /* getList.swift */; };
 		38B226B527716D5200F7FDD7 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226B427716D5200F7FDD7 /* userInfo.swift */; };
+		38B226B727718DC600F7FDD7 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226B627718DC600F7FDD7 /* Accounts.swift */; };
+		38B226C22771B9A300F7FDD7 /* TranferBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C12771B9A300F7FDD7 /* TranferBody.swift */; };
+		38B226C42771B9AE00F7FDD7 /* TransferResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C32771B9AE00F7FDD7 /* TransferResult.swift */; };
+		38B226C62771B9BE00F7FDD7 /* TransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C52771B9BE00F7FDD7 /* TransferModel.swift */; };
+		38B226C82771BE9200F7FDD7 /* SetTransferAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C72771BE9200F7FDD7 /* SetTransferAccountViewController.swift */; };
+		38B226CD2771C7C300F7FDD7 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226CC2771C7C300F7FDD7 /* NumberCell.swift */; };
 		3C059B5D27683359003FB4D0 /* OTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5C27683359003FB4D0 /* OTPBody.swift */; };
 		3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5F276833ED003FB4D0 /* OTPResult.swift */; };
 		3C059B622768340C003FB4D0 /* OTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B612768340C003FB4D0 /* OTPModel.swift */; };
@@ -18,7 +24,6 @@
 		3C83FD532762E0B100B4DB30 /* HomePageNavgationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C83FD522762E0B100B4DB30 /* HomePageNavgationItem.swift */; };
 		3C95E506275856340007B483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E505275856340007B483 /* AppDelegate.swift */; };
 		3C95E508275856340007B483 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E507275856340007B483 /* SceneDelegate.swift */; };
-		3C95E50A275856340007B483 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E509275856340007B483 /* ViewController.swift */; };
 		3C95E50D275856340007B483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C95E50B275856340007B483 /* Main.storyboard */; };
 		3C95E50F275856350007B483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C95E50E275856350007B483 /* Assets.xcassets */; };
 		3C95E512275856350007B483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C95E510275856350007B483 /* LaunchScreen.storyboard */; };
@@ -76,6 +81,12 @@
 /* Begin PBXFileReference section */
 		382ABFF3276C6DD900F92710 /* getList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getList.swift; sourceTree = "<group>"; };
 		38B226B427716D5200F7FDD7 /* userInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
+		38B226B627718DC600F7FDD7 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		38B226C12771B9A300F7FDD7 /* TranferBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranferBody.swift; sourceTree = "<group>"; };
+		38B226C32771B9AE00F7FDD7 /* TransferResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferResult.swift; sourceTree = "<group>"; };
+		38B226C52771B9BE00F7FDD7 /* TransferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferModel.swift; sourceTree = "<group>"; };
+		38B226C72771BE9200F7FDD7 /* SetTransferAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTransferAccountViewController.swift; sourceTree = "<group>"; };
+		38B226CC2771C7C300F7FDD7 /* NumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
 		3C059B5C27683359003FB4D0 /* OTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPBody.swift; sourceTree = "<group>"; };
 		3C059B5F276833ED003FB4D0 /* OTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPResult.swift; sourceTree = "<group>"; };
 		3C059B612768340C003FB4D0 /* OTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModel.swift; sourceTree = "<group>"; };
@@ -86,7 +97,6 @@
 		3C95E502275856340007B483 /* CastisBankTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastisBankTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C95E505275856340007B483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C95E507275856340007B483 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3C95E509275856340007B483 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C95E50C275856340007B483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C95E50E275856350007B483 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C95E511275856350007B483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -152,9 +162,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38B226C02771B96D00F7FDD7 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				38B226C12771B9A300F7FDD7 /* TranferBody.swift */,
+				38B226C32771B9AE00F7FDD7 /* TransferResult.swift */,
+				38B226C52771B9BE00F7FDD7 /* TransferModel.swift */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
 		3C059B59276832AE003FB4D0 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				38B226C02771B96D00F7FDD7 /* Transfer */,
 				3CC5B4532768730E0000A9A3 /* AccountHistory */,
 				3C059B5A276832BC003FB4D0 /* OTP */,
 				3C2447AD2761E5DC001D2215 /* AccountList */,
@@ -228,7 +249,6 @@
 				3C95E5372758815E0007B483 /* 3. Controller */,
 				3C95E505275856340007B483 /* AppDelegate.swift */,
 				3C95E507275856340007B483 /* SceneDelegate.swift */,
-				3C95E509275856340007B483 /* ViewController.swift */,
 				3C95E50E275856350007B483 /* Assets.xcassets */,
 				3C95E510275856350007B483 /* LaunchScreen.storyboard */,
 				3C95E513275856350007B483 /* Info.plist */,
@@ -296,6 +316,7 @@
 		3C95E539275881990007B483 /* TransferPageControllers */ = {
 			isa = PBXGroup;
 			children = (
+				38B226C72771BE9200F7FDD7 /* SetTransferAccountViewController.swift */,
 				3C95E545275882EA0007B483 /* SetRecieverViewController.swift */,
 				3C95E547275883020007B483 /* SetSendingAmountViewController.swift */,
 				3C95E549275883130007B483 /* SetSendingMemoViewController.swift */,
@@ -329,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				3C95E558275896810007B483 /* TransferedHistoryTableViewCell.swift */,
+				38B226CC2771C7C300F7FDD7 /* NumberCell.swift */,
 			);
 			path = TransferPageCells;
 			sourceTree = "<group>";
@@ -392,6 +414,7 @@
 			children = (
 				3C9B17A7276073CB006F8517 /* ControlEnums.swift */,
 				38B226B427716D5200F7FDD7 /* userInfo.swift */,
+				38B226B627718DC600F7FDD7 /* Accounts.swift */,
 			);
 			path = basicSettings;
 			sourceTree = "<group>";
@@ -501,6 +524,7 @@
 				TargetAttributes = {
 					3C95E501275856340007B483 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1320;
 					};
 					3C95E517275856350007B483 = {
 						CreatedOnToolsVersion = 13.1;
@@ -576,15 +600,17 @@
 				3C95E562275897340007B483 /* TransferHistoryCell.swift in Sources */,
 				3C95E564275897590007B483 /* SelectedFilterCell.swift in Sources */,
 				3C2447AC2761E57A001D2215 /* AccountList.swift in Sources */,
-				3C95E50A275856340007B483 /* ViewController.swift in Sources */,
+				38B226C42771B9AE00F7FDD7 /* TransferResult.swift in Sources */,
 				3CC5B4592768741B0000A9A3 /* AccountHistoryService.swift in Sources */,
 				3C95E54E275883580007B483 /* PutTransferPasswordViewController.swift in Sources */,
 				3C95E548275883020007B483 /* SetSendingAmountViewController.swift in Sources */,
 				3C95E540275882500007B483 /* AccountUseViewController.swift in Sources */,
 				3C95E53E275882240007B483 /* EditAccountOrderViewController.swift in Sources */,
 				3C95E557275896060007B483 /* EditOrderCell.swift in Sources */,
+				38B226C22771B9A300F7FDD7 /* TranferBody.swift in Sources */,
 				3C95E559275896810007B483 /* TransferedHistoryTableViewCell.swift in Sources */,
 				3CC5B4552768732D0000A9A3 /* AccountHistoryBody.swift in Sources */,
+				38B226C82771BE9200F7FDD7 /* SetTransferAccountViewController.swift in Sources */,
 				3CC5B45B2768744F0000A9A3 /* AccountHistoryModel.swift in Sources */,
 				3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */,
 				3C95E55E275896F50007B483 /* SelectedInfoCell.swift in Sources */,
@@ -592,12 +618,15 @@
 				3C95E566275899D20007B483 /* DetailTransferInfoCell.swift in Sources */,
 				3C95E54A275883130007B483 /* SetSendingMemoViewController.swift in Sources */,
 				3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */,
+				38B226B727718DC600F7FDD7 /* Accounts.swift in Sources */,
 				3CBDEF6C275E00C70014308A /* ApplyFilterCell.swift in Sources */,
+				38B226CD2771C7C300F7FDD7 /* NumberCell.swift in Sources */,
 				3C059B5D27683359003FB4D0 /* OTPBody.swift in Sources */,
 				3C95E506275856340007B483 /* AppDelegate.swift in Sources */,
 				3C95E542275882BC0007B483 /* SetInformationViewController.swift in Sources */,
 				3C2447AF2761E5EE001D2215 /* AccountListModel.swift in Sources */,
 				3C95E55B275896B50007B483 /* SetOrderCell.swift in Sources */,
+				38B226C62771B9BE00F7FDD7 /* TransferModel.swift in Sources */,
 				3C95E508275856340007B483 /* SceneDelegate.swift in Sources */,
 				3C95E544275882D40007B483 /* UseDetailViewController.swift in Sources */,
 				3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */,
@@ -781,6 +810,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PKQ5ZDCU29;
@@ -799,6 +829,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jewonTak.CastisBankTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -809,6 +840,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PKQ5ZDCU29;

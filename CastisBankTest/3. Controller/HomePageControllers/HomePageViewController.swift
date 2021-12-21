@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomePageViewController: UIViewController{
     
@@ -25,6 +26,7 @@ class HomePageViewController: UIViewController{
     
     //MARK: selected cell info (to account history VC)
     var selectedAccountInfo = ["name", "number", "balance"]
+    var container: NSPersistentContainer!
     
     //MARK: seperate segue by identifier (connected with storyboard)
     let toHistorySegueIdentifier = "accountUseSegue"
@@ -47,7 +49,6 @@ class HomePageViewController: UIViewController{
         accountModel.delegate = self
         accountModel.getAccountList(user: userName)
         
-        print("cell made account list : ", accountList)
     }
     
     

@@ -20,7 +20,7 @@ class UIKitFuncs {
     //버튼 일괄 세팅
     func buttonSettings(button: UIButton, title: String, fontSize: CGFloat, tintColor: UIColor) {
         
-        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+//        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         button.setTitle(title, for: .normal )
         button.setTitleColor(tintColor, for: .normal)
         button.contentHorizontalAlignment = .center

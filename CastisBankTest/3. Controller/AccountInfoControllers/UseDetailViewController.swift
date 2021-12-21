@@ -18,15 +18,7 @@ class UseDetailViewController: UIViewController {
     var selectedInfo = [AccountHistoryList]()
     
     var selectedCellList: AccountHistoryList?
-    var selectedCellInfo = [String]()
-    var selectedAccountDate = ""
-    var selectedAccountType = ""
-    var selectedAccountAmount = ""
-    var selectedAccountBalance = ""
-    var selectedAccountName = ""
-    
-    
-    
+
     let uikitFuncs = UIKitFuncs()
     let colorChip = ColorChip()
 
@@ -35,8 +27,8 @@ class UseDetailViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isScrollEnabled = false
         
-        selectedCellInfo = [selectedAccountDate, selectedAccountType, selectedAccountAmount, selectedAccountBalance]
         navigationSettings()
         viewSettings()
     }
@@ -46,9 +38,6 @@ class UseDetailViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = selectedCellList?.recvName
-//        self.navigationController?.navigationBar.largeTitleTextAttributes{
-//            .font: UIFont(name: , size: 10)
-//        }
     }
     
     func viewSettings(){
@@ -59,7 +48,7 @@ class UseDetailViewController: UIViewController {
         shareButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  10),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             
@@ -96,7 +85,6 @@ extension UseDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-//        let displayInfo = selectedInfo[selectedInfo.count - (selectedCellInfo + 1)]
         cell.cellSettings(index: indexPath.row, accountInfo: selectedCellList!)
         cell.setContraints()
         

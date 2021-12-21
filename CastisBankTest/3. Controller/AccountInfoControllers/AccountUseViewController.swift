@@ -52,15 +52,18 @@ class AccountUseViewController: UIViewController {
         super.viewDidLoad()
 //
 //        setInfoViewController.delegate = self
-//        collectionView.backgroundColor = colorchip.kakaoYello
+//        collectionView.backgroundColor = colorchip.kakaoYello11
+
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.frame = view.bounds
+//        collectionView.frame = view.bounds
+        collectionView.backgroundColor = colorchip.kakaoBabyPink62
         
         setFlowLayout(view: collectionView)
         setNavigation()
+        setConstraints()
         
         otpModel.delegate = self
         otpModel.getOTP(userId: userName, companyId: companyId)
@@ -72,6 +75,7 @@ class AccountUseViewController: UIViewController {
     //navigation bar settingㄷ
     func setNavigation(){
         self.title = accountInfo[0]
+        navigationController?.navigationBar.isTranslucent = true
 //        navigationController?.navigationBar.backgroundColor = colorchip.kakaoYello
 //        navigationController?.navigationBar.barTintColor = colorchip.kakaoYello
         
@@ -85,6 +89,18 @@ class AccountUseViewController: UIViewController {
             .font: UIFont.boldSystemFont(ofSize: 20),
         ]
         
+    }
+    
+    func setConstraints(){
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     //prepare information before present next vc that is modal
@@ -108,16 +124,7 @@ class AccountUseViewController: UIViewController {
                 }
                 
                 useDetailViewController.selectedCellList = selectedSearchOrder[indexPath.row]
-                print("----------", selectedSearchOrder[indexPath.row])
             }
-            
-//            print(sender)
-//            useDetailViewController.selectedCellList = sender as? AccountHistoryList
-//            if let cell = sender as? UICollectionViewCell, let indexPath = self.collectionView.indexPath(for: cell){
-//                let controller = segue.destination as! MomentDetailViewController
-//                controller.item = items[indexPath.item]
-//              }
-
         }
     }
 }
@@ -142,9 +149,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         case 2:
             selectedSearchPeriod = filterModel.setSearchPeriod(period: selectedInfo[0])
             accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod, otp: updateOPTResult?.otp ?? "otp fail")
-            print("-- peri0d account list :",accountHistoryList )
             selectedSearchType = filterModel.setSearchType(type: selectedInfo[1], list: accountHistoryList, accountNum: accountInfo[1])
-            print("--selected search type list :", selectedSearchType)
             return selectedSearchType.count
         default:
             return 0
@@ -200,7 +205,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         case 1:
             return uikitFuncs.cellSizeSetting(widthPadding: 0, heightRatio: 7)
         case 2:
-            return uikitFuncs.cellSizeSetting(widthPadding: 0, heightRatio: 5)
+            return uikitFuncs.cellSizeSetting(widthPadding: 0, heightRatio: 4)
         default:
             return CGSize(width: 0, height: 0)
         }
@@ -270,4 +275,3 @@ extension AccountUseViewController: OTPModelDelegate {
         collectionView.reloadData()
     }
 }
-

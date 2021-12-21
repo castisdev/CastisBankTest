@@ -61,7 +61,7 @@ class TransferHistoryCell: UICollectionViewCell {
             transferDateLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             
             transferedAccountNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 70),
-            transferedAccountNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -90),
+            transferedAccountNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100),
             transferedAccountNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             
             transferTypeLabel.topAnchor.constraint(equalTo: transferedAccountNameLabel.bottomAnchor, constant: 10),

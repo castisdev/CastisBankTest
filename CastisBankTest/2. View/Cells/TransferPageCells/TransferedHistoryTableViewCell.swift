@@ -11,7 +11,6 @@ class TransferedHistoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var receiveredAccountNameLabel: UILabel!
     @IBOutlet weak var receiveredAccountNumberLabel: UILabel!
-    
     let cellIdentifier = "transferedHistoryCell"
 
 }
