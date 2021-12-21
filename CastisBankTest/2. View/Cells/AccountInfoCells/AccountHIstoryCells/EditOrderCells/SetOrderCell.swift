@@ -19,7 +19,6 @@ class SetOrderCell: UITableViewCell {
     let cellIdentifier = "changeOrderCell"
     
     let uikitFunc = UIKitFuncs()
-    let fakeModel = AccountModel().mainCellInformation
     let detailFuncs = DetailFuncs()
     
     
@@ -51,9 +50,5 @@ class SetOrderCell: UITableViewCell {
             
             self.trailingAnchor.constraint(equalTo:accountBalanceLabel.trailingAnchor, constant: 55)
         ])
-    }
-    
-    func isOrderChanged(list: [AccountModel]){
-        
     }
 }

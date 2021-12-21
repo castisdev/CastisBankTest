@@ -19,7 +19,7 @@ class HomePageViewController: UIViewController{
     let detailFuncs = DetailFuncs()
     
     //MARK: cell information (from server, from edit order VC)
-    let userName = "test1"
+    let userName = UserInformation().user.userName
     var accountList = [AccountList]()
     var accountModel = AccountListModel()
     
@@ -71,7 +71,6 @@ class HomePageViewController: UIViewController{
             }
             
             accountUseViewController.accountInfo = selectedAccountInfo
-            accountUseViewController.userInfo = userName
             
         }
     }

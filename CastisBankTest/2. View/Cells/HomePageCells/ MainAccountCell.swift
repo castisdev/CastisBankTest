@@ -21,6 +21,7 @@ class MainAccountCell: UICollectionViewCell {
     
     let uikitFuncs = UIKitFuncs()
     let detailFuncs = DetailFuncs()
+    let colorchip = ColorChip()
     
     let cellSize = [
         "widthPadding": 40.0,
@@ -89,5 +90,6 @@ class MainAccountCell: UICollectionViewCell {
 
         ])
     }
+
 }
 

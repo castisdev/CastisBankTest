@@ -17,6 +17,7 @@ class UseDetailViewController: UIViewController {
     
     var selectedInfo = [AccountHistoryList]()
     
+    var selectedCellList: AccountHistoryList?
     var selectedCellInfo = [String]()
     var selectedAccountDate = ""
     var selectedAccountType = ""

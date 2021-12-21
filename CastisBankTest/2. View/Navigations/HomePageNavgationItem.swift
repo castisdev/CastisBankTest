@@ -12,10 +12,10 @@ class HomePageNavgationItem: UINavigationItem {
     @IBOutlet weak var myInfoBarButton: UIBarButtonItem!
     let label = UILabel()
     
-    let fakeUser = AccountModel().userInformation
+    let userInfo = UserInformation().user
     
     func navigationSettings(){
-        label.text = fakeUser.userName
+        label.text = userInfo.userName
         label.textAlignment = .left
         
         titleView = label

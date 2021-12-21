@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		382ABFF4276C6DD900F92710 /* getList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ABFF3276C6DD900F92710 /* getList.swift */; };
+		38B226B527716D5200F7FDD7 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226B427716D5200F7FDD7 /* userInfo.swift */; };
 		3C059B5D27683359003FB4D0 /* OTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5C27683359003FB4D0 /* OTPBody.swift */; };
 		3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5F276833ED003FB4D0 /* OTPResult.swift */; };
 		3C059B622768340C003FB4D0 /* OTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B612768340C003FB4D0 /* OTPModel.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		382ABFF3276C6DD900F92710 /* getList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getList.swift; sourceTree = "<group>"; };
+		38B226B427716D5200F7FDD7 /* userInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
 		3C059B5C27683359003FB4D0 /* OTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPBody.swift; sourceTree = "<group>"; };
 		3C059B5F276833ED003FB4D0 /* OTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPResult.swift; sourceTree = "<group>"; };
 		3C059B612768340C003FB4D0 /* OTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModel.swift; sourceTree = "<group>"; };
@@ -258,8 +260,7 @@
 			children = (
 				3C059B59276832AE003FB4D0 /* API */,
 				3C2249DB27672EF400DD10EE /* skills */,
-				3CA8E2AA2759D51F00F7478E /* Fake Model */,
-				3C9B17A7276073CB006F8517 /* ControlEnums.swift */,
+				3CA8E2AA2759D51F00F7478E /* basicSettings */,
 			);
 			path = "1. Model";
 			sourceTree = "<group>";
@@ -388,12 +389,14 @@
 			path = EditOrderCells;
 			sourceTree = "<group>";
 		};
-		3CA8E2AA2759D51F00F7478E /* Fake Model */ = {
+		3CA8E2AA2759D51F00F7478E /* basicSettings */ = {
 			isa = PBXGroup;
 			children = (
+				3C9B17A7276073CB006F8517 /* ControlEnums.swift */,
 				3CA8E2A82759D51A00F7478E /* AccountModel.swift */,
+				38B226B427716D5200F7FDD7 /* userInfo.swift */,
 			);
-			path = "Fake Model";
+			path = basicSettings;
 			sourceTree = "<group>";
 		};
 		3CA8E2AB2759FCE400F7478E /* Cells */ = {
@@ -570,6 +573,7 @@
 				3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */,
 				3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */,
 				3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */,
+				38B226B527716D5200F7FDD7 /* userInfo.swift in Sources */,
 				3CC5B457276873CB0000A9A3 /* AccountHistoryList.swift in Sources */,
 				3CDF96CA27673A0000928066 /* DecodedAccountList.swift in Sources */,
 				382ABFF4276C6DD900F92710 /* getList.swift in Sources */,

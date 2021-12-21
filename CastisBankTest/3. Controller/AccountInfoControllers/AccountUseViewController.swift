@@ -23,20 +23,23 @@ class AccountUseViewController: UIViewController {
     let toDetailInfoSegueIdnetifier = "detailInfoSegue"
     
     let colorchip = ColorChip()
-    let fakeModel = AccountModel().usedInformation
     let uikitFuncs = UIKitFuncs()
     let filterModel = FilterModel()
     
     var accountHistoryModel = AccountHistoryModel()
     var accountHistoryList = [AccountHistoryList]()
     
-    var userInfo = "test1"
+    var userName = UserInformation().user.userName
+    let companyId = UserInformation().user.companyId
     var selectedCellIndex = 3
     let banbokCount = 1
 
     //filter: default value
     var selectedInfo = ["3개월", "전체", "최신순"]
     var selectedSearchPeriod = ""
+    var selectedSearchType = [AccountHistoryList]()
+    var selectedSearchOrder = [AccountHistoryList]()
+    
     
     //accountName
     var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
@@ -60,7 +63,7 @@ class AccountUseViewController: UIViewController {
         setNavigation()
         
         otpModel.delegate = self
-        otpModel.getOTP(userId: userInfo, companyId: "talkis_app")
+        otpModel.getOTP(userId: userName, companyId: companyId)
         
         accountHistoryModel.delegate = self
     }
@@ -97,22 +100,20 @@ class AccountUseViewController: UIViewController {
             setInfoViewController.delegate = self
             
         } else if segue.identifier == toDetailInfoSegueIdnetifier {
-            
-            if let selectedList = sender as? AccountHistoryList {
+            if let cell = sender as? TransferHistoryCell, let indexPath = self.collectionView.indexPath(for: cell){
                 
+                print("--segue entered")
                 guard let useDetailViewController = segue.destination as? UseDetailViewController else {
-                    return print("segue error : account history => use detail")
-                } 
-                print(selectedList)
-                print("-----------------let's go -----------")
-                
-//                print("--------", accountHistoryList)
-                useDetailViewController.selectedAccountDate = selectedList.date
-                useDetailViewController.selectedAccountType = selectedList.type
-                useDetailViewController.selectedAccountAmount = selectedList.amount
-                useDetailViewController.selectedAccountBalance = selectedList.balance
-                useDetailViewController.selectedAccountName = selectedList.recvName
+                    return print("segue error : account history => detail view")
+                }
             }
+            
+//            print(sender)
+//            useDetailViewController.selectedCellList = sender as? AccountHistoryList
+//            if let cell = sender as? UICollectionViewCell, let indexPath = self.collectionView.indexPath(for: cell){
+//                let controller = segue.destination as! MomentDetailViewController
+//                controller.item = items[indexPath.item]
+//              }
 
         }
     }
@@ -137,8 +138,11 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             return 1
         case 2:
             selectedSearchPeriod = filterModel.setSearchPeriod(period: selectedInfo[0])
-            accountHistoryModel.getAccountHistory(userId: userInfo, accountId: accountInfo[1], duration: selectedSearchPeriod, otp: updateOPTResult?.otp ?? "otp fail")
-            return accountHistoryList.count
+            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod, otp: updateOPTResult?.otp ?? "otp fail")
+            print("-- peri0d account list :",accountHistoryList )
+            selectedSearchType = filterModel.setSearchType(type: selectedInfo[1], list: accountHistoryList, accountNum: accountInfo[1])
+            print("--selected search type list :", selectedSearchType)
+            return selectedSearchType.count
         default:
             return 0
         }
@@ -170,7 +174,8 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             searchCell.setConstraints()
             return searchCell
         case 2:
-            historyCell.cellSettings(index: indexPath.row, accountHistoryList: accountHistoryList.reversed(), accountNum: accountInfo[1])
+            selectedSearchOrder = filterModel.setSearchOrder(order: selectedInfo[2], list: selectedSearchType)
+            historyCell.cellSettings(index: indexPath.row, accountHistoryList: selectedSearchOrder, accountNum: accountInfo[1])
             historyCell.setConstraints()
             return historyCell
         default:
@@ -178,11 +183,10 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(">>>select>>>")
-        let index = accountHistoryList.count - (indexPath.row + 1)
-        performSegue(withIdentifier: toDetailInfoSegueIdnetifier, sender: self.accountHistoryList[index])
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("----selected item entered")
+//        performSegue(withIdentifier: toDetailInfoSegueIdnetifier, sender: selectedSearchOrder[indexPath.row])
+//    }
     
     //cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -234,7 +238,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
 extension AccountUseViewController: SendUpDateDelegate {
     func sendUpdate(selectedData: [String]) {
         
-        otpModel.getOTP(userId: userInfo, companyId: "talkis_app")
+        otpModel.getOTP(userId: userName, companyId: "talkis_app")
         selectedInfo = selectedData
         print("넘어온 selected ..", selectedInfo)
         

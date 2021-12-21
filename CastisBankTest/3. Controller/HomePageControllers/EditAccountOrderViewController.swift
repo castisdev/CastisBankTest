@@ -71,7 +71,6 @@ class EditAccountOrderViewController: UIViewController {
     private func setConstraints(){
         tableView.translatesAutoresizingMaskIntoConstraints = false
         applyOrderButton.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = colorChip.kakaoBabyPink62
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
