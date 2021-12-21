@@ -19,6 +19,7 @@ class TransferHistoryCell: UICollectionViewCell {
     
     let uikitFuncs = UIKitFuncs()
     let detailFuncs = DetailFuncs()
+    let colorChip = ColorChip()
     
     let historyModel = AccountHistoryModel()
     
