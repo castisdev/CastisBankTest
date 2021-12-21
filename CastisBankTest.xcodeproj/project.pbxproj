@@ -47,7 +47,6 @@
 		3C95E566275899D20007B483 /* DetailTransferInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E565275899D20007B483 /* DetailTransferInfoCell.swift */; };
 		3C9B17A8276073CB006F8517 /* ControlEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9B17A7276073CB006F8517 /* ControlEnums.swift */; };
 		3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A62759D4AB00F7478E /* Colorchip.swift */; };
-		3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2A82759D51A00F7478E /* AccountModel.swift */; };
 		3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */; };
 		3CBDEF6C275E00C70014308A /* ApplyFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBDEF6B275E00C70014308A /* ApplyFilterCell.swift */; };
 		3CC5B4552768732D0000A9A3 /* AccountHistoryBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC5B4542768732D0000A9A3 /* AccountHistoryBody.swift */; };
@@ -119,7 +118,6 @@
 		3C95E565275899D20007B483 /* DetailTransferInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransferInfoCell.swift; sourceTree = "<group>"; };
 		3C9B17A7276073CB006F8517 /* ControlEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlEnums.swift; sourceTree = "<group>"; };
 		3CA8E2A62759D4AB00F7478E /* Colorchip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorchip.swift; sourceTree = "<group>"; };
-		3CA8E2A82759D51A00F7478E /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		3CA8E2AE2759FD2100F7478E /* UIKitFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitFuncs.swift; sourceTree = "<group>"; };
 		3CBDEF6B275E00C70014308A /* ApplyFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilterCell.swift; sourceTree = "<group>"; };
 		3CC5B4542768732D0000A9A3 /* AccountHistoryBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHistoryBody.swift; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 			isa = PBXGroup;
 			children = (
 				3C9B17A7276073CB006F8517 /* ControlEnums.swift */,
-				3CA8E2A82759D51A00F7478E /* AccountModel.swift */,
 				38B226B427716D5200F7FDD7 /* userInfo.swift */,
 			);
 			path = basicSettings;
@@ -570,7 +567,6 @@
 				3C95E54C2758833D0007B483 /* SeekTransferConsentViewController.swift in Sources */,
 				3C95E550275883670007B483 /* TransferSuccessViewController.swift in Sources */,
 				3C95E53C275882060007B483 /* HomePageViewController.swift in Sources */,
-				3CA8E2A92759D51A00F7478E /* AccountModel.swift in Sources */,
 				3CA8E2AF2759FD2100F7478E /* UIKitFuncs.swift in Sources */,
 				3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */,
 				38B226B527716D5200F7FDD7 /* userInfo.swift in Sources */,
