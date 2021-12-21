@@ -45,7 +45,7 @@ class UseDetailViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.title = selectedAccountName
+        self.title = selectedCellList?.recvName
 //        self.navigationController?.navigationBar.largeTitleTextAttributes{
 //            .font: UIFont(name: , size: 10)
 //        }
@@ -97,7 +97,7 @@ extension UseDetailViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
 //        let displayInfo = selectedInfo[selectedInfo.count - (selectedCellInfo + 1)]
-        cell.cellSettings(index: indexPath.row, accountInfo: self.selectedCellInfo)
+        cell.cellSettings(index: indexPath.row, accountInfo: selectedCellList!)
         cell.setContraints()
         
         return cell

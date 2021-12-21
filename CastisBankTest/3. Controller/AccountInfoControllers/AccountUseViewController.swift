@@ -106,6 +106,9 @@ class AccountUseViewController: UIViewController {
                 guard let useDetailViewController = segue.destination as? UseDetailViewController else {
                     return print("segue error : account history => detail view")
                 }
+                
+                useDetailViewController.selectedCellList = selectedSearchOrder[indexPath.row]
+                print("----------", selectedSearchOrder[indexPath.row])
             }
             
 //            print(sender)
