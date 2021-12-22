@@ -18,6 +18,7 @@ class SetTransferAccountViewController: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     
     let uikitFuncs = UIKitFuncs()
+    let colorchip = ColorChip()
     
     let numberCell = NumberCell()
     
@@ -50,17 +51,25 @@ class SetTransferAccountViewController: UIViewController{
             collectionView.topAnchor.constraint(equalTo: putAccountTextField.bottomAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            collectionView.heightAnchor.constraint(equalToConstant: 300),
+//            collectionView.heightAnchor.constraint(equalToConstant: 400),
             
             applyTrasferAccountButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
             applyTrasferAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             applyTrasferAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            applyTrasferAccountButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             applyTrasferAccountButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     func displaySettings(){
-        uikitFuncs.buttonSettings(button: cancelButton, title: "닫기", fontSize: 17, tintColor: .black)
+        putAccountTextField.placeholder = "입금할 계좌번호 입력"
+        
+        putAccountTextField.backgroundColor = .systemGray6
+        putAccountTextField.borderStyle = .none
+        putAccountTextField.layer.cornerRadius = 10
+
+
+        uikitFuncs.buttonSettings(button: cancelButton, title: "취소", fontSize: 17, tintColor: .black)
         uikitFuncs.buttonSettings(button: applyTrasferAccountButton, title: "확인", fontSize: 17, tintColor: .black)
         
         applyTrasferAccountButton.backgroundColor = .lightGray
@@ -70,6 +79,10 @@ class SetTransferAccountViewController: UIViewController{
     @IBAction func backToTransferButton(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func toTheSetAmountVC(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -110,15 +123,46 @@ extension SetTransferAccountViewController: UICollectionViewDelegateFlowLayout, 
         default:
             cell.cellSettings(index: indexPath.row)
         }
-        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 100
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let cellWidth = view.bounds.width / 3 - 40
+        let cellSize = CGSize(width: cellWidth , height: cellWidth - 35)
+        
+        return cellSize
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 50
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let cellInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return cellInset
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        switch indexPath.section{
+        case 0:
+            putAccountTextField.text?.append(contentsOf: numberCell.numbers[indexPath.row])
+            return
+        case 1:
+            putAccountTextField.text?.append(contentsOf: numberCell.numbers[indexPath.row + 3])
+        case 2:
+            putAccountTextField.text?.append(contentsOf: numberCell.numbers[indexPath.row + 6])
+        case 3:
+            if indexPath.row == 1{
+                putAccountTextField.text?.append(contentsOf: numberCell.numbers[10])
+            } else if putAccountTextField.text?.isEmpty == false && indexPath.row == 2{
+                putAccountTextField.text?.removeLast()
+            } else {
+                print("selected cell which means nothing")
+            }
+        default:
+            return
+        }
+    }
+    
 }

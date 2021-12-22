@@ -20,7 +20,7 @@ class FilterModel{
     }
     
     let searchInfo: [SearchInfo] = [
-        SearchInfo(searchStandard: "조회기간", standards: ["1개월", "3개월", "1년치", "직접설정"]),
+        SearchInfo(searchStandard: "조회기간", standards: ["1개월", "3개월", "지난달", "직접설정"]),
         SearchInfo(searchStandard: "거래 유형", standards: ["전체", "입금만", "출금만"]),
         SearchInfo(searchStandard: "거래내역정렬", standards: ["최신순", "과거순"])
     ]
@@ -31,7 +31,7 @@ class FilterModel{
             return "1M"
         case "3개월":
             return "3M"
-        case "1년치":
+        case "지난달":
             return "12M"
         case "직접설정":
             return "7M"

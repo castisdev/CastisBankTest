@@ -148,7 +148,7 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             return 1
         case 2:
             selectedSearchPeriod = filterModel.setSearchPeriod(period: selectedInfo[0])
-            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod, otp: updateOPTResult?.otp ?? "otp fail")
+            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod, startDate: "", endDate: "", otp: updateOPTResult?.otp ?? "otp fail")
             selectedSearchType = filterModel.setSearchType(type: selectedInfo[1], list: accountHistoryList, accountNum: accountInfo[1])
             return selectedSearchType.count
         default:

@@ -8,5 +8,5 @@
 import Foundation
 
 struct AccountHistoryBody: Codable{
-    var userId, accountId, duration, otp: String
+    var userId, accountId, duration, startDate, endDate, otp: String
 }

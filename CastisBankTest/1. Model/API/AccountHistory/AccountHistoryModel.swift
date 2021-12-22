@@ -14,11 +14,11 @@ protocol AccountHistoryDelegate{
 class AccountHistoryModel{
     var delegate: AccountHistoryDelegate?
     
-    func getAccountHistory(userId: String, accountId: String, duration: String, otp: String){
+    func getAccountHistory(userId: String, accountId: String, duration: String, startDate:String, endDate: String, otp: String){
         
         print("@@ account list model called @@") 
         
-        let ask = AccountHistoryBody(userId: userId, accountId: accountId, duration: duration, otp: otp)
+        let ask = AccountHistoryBody(userId: userId, accountId: accountId, duration: duration, startDate: startDate, endDate: endDate, otp: otp)
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
