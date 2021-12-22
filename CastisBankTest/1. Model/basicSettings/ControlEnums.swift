@@ -35,6 +35,7 @@ class FilterModel{
             return ["3M", "", ""]
         case "지난달":
             let lastMonthAndYear = setSearchLastMonth(now: now)
+            print("last month period : ", lastMonthAndYear[0], " ~ ", lastMonthAndYear[1])
             return ["", lastMonthAndYear[0], lastMonthAndYear[1]]
         case "직접설정":
             return ["7M", startDate, endDate]

@@ -38,6 +38,7 @@ class AccountUseViewController: UIViewController {
     //filter: default value
     var selectedInfo = ["3개월", "전체", "최신순"]
     var selectedSearchPeriod = ["3개월", "", ""]
+    var nowTime = ""
     var selectedSearchType = [AccountHistoryList]()
     var selectedSearchOrder = [AccountHistoryList]()
     
@@ -148,11 +149,29 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         case 1:
             return 1
         case 2:
-            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod[0], startDate: selectedSearchPeriod[1], endDate: selectedSearchPeriod[2], otp: updateOPTResult?.otp ?? "otp fail")
-            selectedSearchPeriod = filterModel.setSearchPeriod(period: selectedInfo[0], startDate: "20210802", endDate: "20211221", now: "Wed Jan 22 05:14:55 UTC 2021")
-            print("^^^^^^^ duration, end and start date : ", selectedSearchPeriod)
-            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod[0], startDate: selectedSearchPeriod[1], endDate: selectedSearchPeriod[2], otp: updateOPTResult?.otp ?? "otp fail")
-            selectedSearchType = filterModel.setSearchType(type: selectedInfo[1], list: accountHistoryList, accountNum: accountInfo[1])
+            if selectedInfo[0] == "지난달"{
+                nowTime = whenNowIsNeeded()
+            }
+            
+            selectedSearchPeriod = filterModel.setSearchPeriod(
+                period: selectedInfo[0],
+                startDate: "20210802",
+                endDate: "20211221",
+                now: nowTime
+            )
+            accountHistoryModel.getAccountHistory(
+                userId: userName,
+                accountId: accountInfo[1],
+                duration: selectedSearchPeriod[0],
+                startDate: selectedSearchPeriod[1],
+                endDate: selectedSearchPeriod[2],
+                otp: updateOPTResult?.otp ?? "otp fail"
+            )
+            selectedSearchType = filterModel.setSearchType(
+                type: selectedInfo[1],
+                list: accountHistoryList,
+                accountNum: accountInfo[1]
+            )
             return selectedSearchType.count
         default:
             return 0
@@ -268,6 +287,18 @@ extension AccountUseViewController: AccountHistoryDelegate{
         
         print("^ account history delegate")
         collectionView.reloadData()
+    }
+    
+    private func whenNowIsNeeded() -> String{
+        accountHistoryModel.getAccountHistory(
+            userId: userName,
+            accountId: accountInfo[1],
+            duration: "",
+            startDate: "",
+            endDate: "",
+            otp: updateOPTResult?.otp ?? "otp fail"
+        )
+        return accountHistoryService!.now
     }
 }
 
