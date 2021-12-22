@@ -126,6 +126,7 @@ extension SetTransferAccountViewController: UICollectionViewDelegateFlowLayout, 
         return cell
     }
     
+    //cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let cellWidth = view.bounds.width / 3 - 40
@@ -134,15 +135,18 @@ extension SetTransferAccountViewController: UICollectionViewDelegateFlowLayout, 
         return cellSize
     }
     
+    //같은 섹션안의 아이템 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
 
+    //섹션 간 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let cellInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return cellInset
     }
     
+    //셀이 선택 되었을 떄
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         switch indexPath.section{
         case 0:

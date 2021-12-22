@@ -28,6 +28,7 @@ class AccountUseViewController: UIViewController {
     
     var accountHistoryModel = AccountHistoryModel()
     var accountHistoryList = [AccountHistoryList]()
+    var accountHistoryService: AccountHistoryService?
     
     var userName = UserInformation().user.userName
     let companyId = UserInformation().user.companyId
@@ -36,7 +37,7 @@ class AccountUseViewController: UIViewController {
 
     //filter: default value
     var selectedInfo = ["3개월", "전체", "최신순"]
-    var selectedSearchPeriod = ""
+    var selectedSearchPeriod = ["3개월", "", ""]
     var selectedSearchType = [AccountHistoryList]()
     var selectedSearchOrder = [AccountHistoryList]()
     
@@ -147,8 +148,10 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         case 1:
             return 1
         case 2:
-            selectedSearchPeriod = filterModel.setSearchPeriod(period: selectedInfo[0])
-            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod, startDate: "", endDate: "", otp: updateOPTResult?.otp ?? "otp fail")
+            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod[0], startDate: selectedSearchPeriod[1], endDate: selectedSearchPeriod[2], otp: updateOPTResult?.otp ?? "otp fail")
+            selectedSearchPeriod = filterModel.setSearchPeriod(period: selectedInfo[0], startDate: "20210802", endDate: "20211221", now: "Wed Jan 22 05:14:55 UTC 2021")
+            print("^^^^^^^ duration, end and start date : ", selectedSearchPeriod)
+            accountHistoryModel.getAccountHistory(userId: userName, accountId: accountInfo[1], duration: selectedSearchPeriod[0], startDate: selectedSearchPeriod[1], endDate: selectedSearchPeriod[2], otp: updateOPTResult?.otp ?? "otp fail")
             selectedSearchType = filterModel.setSearchType(type: selectedInfo[1], list: accountHistoryList, accountNum: accountInfo[1])
             return selectedSearchType.count
         default:
@@ -257,9 +260,11 @@ extension AccountUseViewController: SendUpDateDelegate {
 
 
 extension AccountUseViewController: AccountHistoryDelegate{
-    func accountHistoryRetrieved(histories: [AccountHistoryList]) {
-
+    func accountHistoryRetrieved(histories: [AccountHistoryList], service: AccountHistoryService) {
+        
         self.accountHistoryList = histories
+        self.accountHistoryService = service
+        
         
         print("^ account history delegate")
         collectionView.reloadData()

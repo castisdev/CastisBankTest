@@ -8,13 +8,13 @@
 import Foundation
 
 protocol AccountHistoryDelegate{
-    func accountHistoryRetrieved(histories: [AccountHistoryList])
+    func accountHistoryRetrieved(histories: [AccountHistoryList], service: AccountHistoryService)
 }
 
 class AccountHistoryModel{
     var delegate: AccountHistoryDelegate?
     
-    func getAccountHistory(userId: String, accountId: String, duration: String, startDate:String, endDate: String, otp: String){
+    func getAccountHistory(userId: String, accountId: String, duration: String, startDate: String, endDate: String, otp: String){
         
         print("@@ account list model called @@") 
         
@@ -55,8 +55,7 @@ class AccountHistoryModel{
                     
                     DispatchQueue.main.async {
                         print("go to delegate func which is at model class")
-                        self.delegate?.accountHistoryRetrieved(histories: accountService.history)
-                        print("----------------- parsing success !!! :", accountService.history)
+                        self.delegate?.accountHistoryRetrieved(histories: accountService.history, service: accountService)
                     }
                 }
                 catch {
