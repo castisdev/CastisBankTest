@@ -71,6 +71,7 @@ class HomePageViewController: UIViewController{
             guard let accountUseViewController = segue.destination as? AccountUseViewController else {
                 return print("segue error from: Home Page => Account Use")
             }
+            print("before sending account info for history :", selectedAccountInfo)
             print("selected account info before going to history list : ", selectedAccountInfo)
             accountUseViewController.accountInfo = selectedAccountInfo
             
@@ -206,11 +207,13 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         self.selectedAccountInfo[0] = accountList[sender.tag].name
         self.selectedAccountInfo[1] = accountList[sender.tag].id
         self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
+        
+        print("sending account info for history : ", selectedAccountInfo)
         print("--------------------history-------------------------")
     }
     
-    @IBAction func transferButtonPressed(_ sender: UIButton)
-    {
+    @IBAction func transferButtonPressed(_ sender: UIButton){
+        
         self.selectedAccountInfo[0] = accountList[sender.tag].name
         self.selectedAccountInfo[1] = accountList[sender.tag].id
         self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)

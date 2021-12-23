@@ -43,7 +43,7 @@
 		3C95E550275883670007B483 /* TransferSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E54F275883670007B483 /* TransferSuccessViewController.swift */; };
 		3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E554275895F10007B483 /*  MainAccountCell.swift */; };
 		3C95E557275896060007B483 /* EditOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E556275896060007B483 /* EditOrderCell.swift */; };
-		3C95E559275896810007B483 /* TransferedHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E558275896810007B483 /* TransferedHistoryTableViewCell.swift */; };
+		3C95E559275896810007B483 /* TransferedAccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E558275896810007B483 /* TransferedAccountInfoCell.swift */; };
 		3C95E55B275896B50007B483 /* SetOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55A275896B50007B483 /* SetOrderCell.swift */; };
 		3C95E55E275896F50007B483 /* SelectedInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55D275896F50007B483 /* SelectedInfoCell.swift */; };
 		3C95E560275897230007B483 /* SetFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E55F275897230007B483 /* SetFilterCell.swift */; };
@@ -119,7 +119,7 @@
 		3C95E54F275883670007B483 /* TransferSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSuccessViewController.swift; sourceTree = "<group>"; };
 		3C95E554275895F10007B483 /*  MainAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " MainAccountCell.swift"; sourceTree = "<group>"; };
 		3C95E556275896060007B483 /* EditOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderCell.swift; sourceTree = "<group>"; };
-		3C95E558275896810007B483 /* TransferedHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferedHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		3C95E558275896810007B483 /* TransferedAccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferedAccountInfoCell.swift; sourceTree = "<group>"; };
 		3C95E55A275896B50007B483 /* SetOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetOrderCell.swift; sourceTree = "<group>"; };
 		3C95E55D275896F50007B483 /* SelectedInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedInfoCell.swift; sourceTree = "<group>"; };
 		3C95E55F275897230007B483 /* SetFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFilterCell.swift; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 		3C95E552275895B40007B483 /* TransferPageCells */ = {
 			isa = PBXGroup;
 			children = (
-				3C95E558275896810007B483 /* TransferedHistoryTableViewCell.swift */,
+				3C95E558275896810007B483 /* TransferedAccountInfoCell.swift */,
 				38B226CC2771C7C300F7FDD7 /* NumberCell.swift */,
 			);
 			path = TransferPageCells;
@@ -608,7 +608,7 @@
 				3C95E53E275882240007B483 /* EditAccountOrderViewController.swift in Sources */,
 				3C95E557275896060007B483 /* EditOrderCell.swift in Sources */,
 				38B226C22771B9A300F7FDD7 /* TranferBody.swift in Sources */,
-				3C95E559275896810007B483 /* TransferedHistoryTableViewCell.swift in Sources */,
+				3C95E559275896810007B483 /* TransferedAccountInfoCell.swift in Sources */,
 				3CC5B4552768732D0000A9A3 /* AccountHistoryBody.swift in Sources */,
 				38B226C82771BE9200F7FDD7 /* SetTransferAccountViewController.swift in Sources */,
 				3CC5B45B2768744F0000A9A3 /* AccountHistoryModel.swift in Sources */,

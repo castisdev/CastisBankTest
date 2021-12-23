@@ -17,10 +17,10 @@ class SetRecieverViewController: UIViewController {
     
     let uikitFuncs = UIKitFuncs()
     let colorChip = ColorChip()
-    let transferedListCell = TransferedHistoryTableViewCell()
+    let transferedListCell = TransferedAccountInfoCell()
     
     let userInfo = UserInformation().user
-    var accountInfo = ["name", "number", "balance"]
+    var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
     
     var otpResult: OTPResult?
     let otpModel = OTPModel()
@@ -31,9 +31,13 @@ class SetRecieverViewController: UIViewController {
     
     var accountNameList = [String]()
     var accountNumberList = [String]()
+    var accountList = [String:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
         setconstraints()
         displaySettings()
@@ -42,11 +46,10 @@ class SetRecieverViewController: UIViewController {
         otpModel.delegate = self
         otpModel.getOTP(userId: userInfo.userName, companyId: userInfo.companyId)
         
-        accountHistoryModel.delegate = self
-        
         print("otpResult at set receiver controller : ", otpResult)
         
         print("received account info : ", accountInfo)
+        print("userInfo : ", userInfo)
         
     }
     
@@ -95,25 +98,42 @@ extension SetRecieverViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("retrieved otp result : ", otpResult?.otp ?? "otp retrieved fail at number of Rows")
-        accountHistoryModel.getAccountHistory(userId: userInfo.userName, accountId: accountInfo[1], duration: "5M", startDate: "", endDate: "", otp: otpResult?.otp ?? "otp retrieved fail")
+        print("--numberOfRowsInSection entered")
+        print("--retrieved otp result : ", otpResult?.otp ?? "otp retrieved fail at number of Rows")
+        
+        
+        accountHistoryModel.delegate = self
+        accountHistoryModel.getAccountHistory(
+            userId: userInfo.userName,
+            accountId: "8282-0200",
+            duration: "5M",
+            startDate: "",
+            endDate: "",
+            otp: otpResult?.otp ?? "otp retrieved fail"
+        )
+        
         transferedListCell.recvedList(list: accountHistoryList)
         print("retrieved account history list for 5M : ", accountHistoryList)
         
-        accountNameList = transferedListCell.recvedNames
-        accountNumberList = transferedListCell.recvedAccounts
-        return accountNameList.count
+        accountList = transferedListCell.recievedAccounts
+        
+        print("----------accountList sorted :", accountNameList, accountNumberList)
+        print("----------accountNAmeList count : ", accountNameList.count, ", ", accountNumberList.count)
+        return accountList.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: transferedListCell.cellIdentifier) as? TransferedHistoryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: transferedListCell.cellIdentifier) as? TransferedAccountInfoCell else {
             return UITableViewCell()
         }
-        
-        cell.cellSettings(index: indexPath.row, retrievedNames: accountNameList, retrievedAccounts: accountNumberList)
+        cell.cellSettings(index: indexPath.row, retrievedAccounts: accountList)
         cell.setConstraints()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
 }
