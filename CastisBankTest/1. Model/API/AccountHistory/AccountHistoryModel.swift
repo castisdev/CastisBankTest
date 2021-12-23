@@ -29,7 +29,7 @@ class AccountHistoryModel{
         }
 //        print(String(data: accountHistoryBody, encoding: .utf8)!)
         
-        let urlString = "http://172.16.48.201/cbank/api/v1/account/history"
+        let urlString = "http://110.35.173.101/cbank/api/v1/account/history"
         let url = URL(string: urlString)
         
         guard url != nil else {

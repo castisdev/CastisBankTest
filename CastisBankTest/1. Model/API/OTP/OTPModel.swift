@@ -26,7 +26,7 @@ class OTPModel{
         
         print("encoded body is ", String(data: uploadData, encoding: .utf8)!)
         
-        let urlString = "http://172.16.48.201/cbank/api/v1/otp"
+        let urlString = "http://110.35.173.101/cbank/api/v1/otp"
         let url = URL(string: urlString)
         
         guard url != nil else {

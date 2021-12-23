@@ -26,7 +26,7 @@ class TransferModel{
             return print("fail to encode transfer body")
         }
         
-        let urlString = "http://172.16.48.201/cbank/api/v1/transfer"
+        let urlString = "http://110.35.173.101/cbank/api/v1/transfer"
         let url = URL(string: urlString)
         
         guard url != nil else{

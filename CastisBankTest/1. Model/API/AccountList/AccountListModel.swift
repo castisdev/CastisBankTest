@@ -18,7 +18,7 @@ class AccountListModel{
     func getAccountList(user: String) {
         
         //1. url 인스턴스 생성 (nil 검사)
-        let urlString = "http://172.16.48.201/cbank/api/v1/accounts/\(user)"
+        let urlString = "http://110.35.173.101/cbank/api/v1/accounts/\(user)"
         let url = URL(string: urlString)
         
         guard url != nil else {
@@ -28,12 +28,14 @@ class AccountListModel{
         
         //2. urlSession 만들기 - 기본 요청을 위한 공유 세션
         let session = URLSession.shared
+        print("session maded")
         //3. dataTasK 만들기 - decode (받아온 api 문서를 swift로)
         let dataTask = session.dataTask(with: url!){ (data, response, error) in
+            print("dataTask entered")
             
             if error == nil && data != nil {
                 
-//                print("with have a data before decoding: ",String(data: data!, encoding: .utf8)!)
+                print("with have a data before decoding: ",String(data: data!, encoding: .utf8)!)
                 let decoder = JSONDecoder()
                 
                 do {

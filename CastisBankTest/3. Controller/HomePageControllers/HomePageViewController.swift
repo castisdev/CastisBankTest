@@ -31,6 +31,7 @@ class HomePageViewController: UIViewController{
     //MARK: seperate segue by identifier (connected with storyboard)
     let toHistorySegueIdentifier = "accountUseSegue"
     let toEditOrderSegueIdentifier = "editAccountSegue"
+    let toTransferSegueIdentifier = "toTransferSegue"
     
     //MARK: - VC life cycles
     override func viewDidLoad() {
@@ -70,8 +71,16 @@ class HomePageViewController: UIViewController{
             guard let accountUseViewController = segue.destination as? AccountUseViewController else {
                 return print("segue error from: Home Page => Account Use")
             }
-            
+            print("selected account info before going to history list : ", selectedAccountInfo)
             accountUseViewController.accountInfo = selectedAccountInfo
+            
+        } else if segue.identifier == toTransferSegueIdentifier {
+            guard let setReceiverViewController = segue.destination as? SetRecieverViewController else {
+                return print("segue error from: Home Page => transfer Receiver setting")
+            }
+            print("before sending account info :", selectedAccountInfo)
+            setReceiverViewController.accountInfo = selectedAccountInfo
+            
             
         }
     }
@@ -137,6 +146,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             
             //tag for sending information
             cell.useInformationOfAccountButton.tag = indexPath.row
+            cell.transferButton.tag = indexPath.row
             cell.setConstraints()
             
             return cell
@@ -198,6 +208,17 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         print("--------------------history-------------------------")
     }
+    
+    @IBAction func transferButtonPressed(_ sender: UIButton)
+    {
+        self.selectedAccountInfo[0] = accountList[sender.tag].name
+        self.selectedAccountInfo[1] = accountList[sender.tag].id
+        self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
+        
+        print("sending account info : ", selectedAccountInfo)
+        print("--------------------transfer-------------------------")
+    }
+    
 }
 
 //MARK: - delegate methods
