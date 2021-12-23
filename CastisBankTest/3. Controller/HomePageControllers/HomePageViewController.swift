@@ -25,7 +25,8 @@ class HomePageViewController: UIViewController{
     var accountModel = AccountListModel()
     
     //MARK: selected cell info (to account history VC)
-    var selectedAccountInfo = ["name", "number", "balance"]
+    var selectedAccountInfoForHistory = ["name", "number", "balance"]
+    var selectedAccountInfoForTransfer = ["name", "8282-0200", "123,456"]
     var container: NSPersistentContainer!
     
     //MARK: seperate segue by identifier (connected with storyboard)
@@ -58,31 +59,32 @@ class HomePageViewController: UIViewController{
     //MARK: prepare devided by segue identifier
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == toEditOrderSegueIdentifier {
+        if segue.identifier == self.toEditOrderSegueIdentifier {
             
             guard let editAccountOrderViewController = segue.destination as? EditAccountOrderViewController else {
                 return print("segue error from: Home Page => Edit Order Page")
             }
             editAccountOrderViewController.delegate = self
-            editAccountOrderViewController.receivedAccountList = accountList
+            editAccountOrderViewController.receivedAccountList = self.accountList
             
-        } else if segue.identifier == toHistorySegueIdentifier {
+        } else if segue.identifier == self.toHistorySegueIdentifier {
+            print("to history segue entered!")
             
             guard let accountUseViewController = segue.destination as? AccountUseViewController else {
                 return print("segue error from: Home Page => Account Use")
             }
-            print("before sending account info for history :", selectedAccountInfo)
-            print("selected account info before going to history list : ", selectedAccountInfo)
-            accountUseViewController.accountInfo = selectedAccountInfo
+            print("before sending account info for history :", selectedAccountInfoForHistory)
+            accountUseViewController.accountInfo = self.selectedAccountInfoForHistory
             
-        } else if segue.identifier == toTransferSegueIdentifier {
+        } else if segue.identifier == self.toTransferSegueIdentifier {
+            print("to transfer segue entered! ")
+            
             guard let setReceiverViewController = segue.destination as? SetRecieverViewController else {
                 return print("segue error from: Home Page => transfer Receiver setting")
             }
-            print("before sending account info :", selectedAccountInfo)
-            setReceiverViewController.accountInfo = selectedAccountInfo
-            
-            
+            print(setReceiverViewController.accountInfo)
+            setReceiverViewController.accountInfo = self.selectedAccountInfoForTransfer
+            print("---", setReceiverViewController.accountInfo)
         }
     }
     
@@ -146,8 +148,8 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.cellSettings(index: indexPath.row, accountList: accountList)
             
             //tag for sending information
-            cell.useInformationOfAccountButton.tag = indexPath.row
             cell.transferButton.tag = indexPath.row
+            cell.useInformationOfAccountButton.tag = indexPath.row
             cell.setConstraints()
             
             return cell
@@ -204,22 +206,23 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     //MARK: - segue actions
     @IBAction func buttonPressed(_ sender: UIButton){
 
-        self.selectedAccountInfo[0] = accountList[sender.tag].name
-        self.selectedAccountInfo[1] = accountList[sender.tag].id
-        self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
+        self.selectedAccountInfoForHistory[0] = self.accountList[sender.tag].name
+        self.selectedAccountInfoForHistory[1] = self.accountList[sender.tag].id
+        self.selectedAccountInfoForHistory[2] = self.detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         
-        print("sending account info for history : ", selectedAccountInfo)
+        print("sending account info for history : ", selectedAccountInfoForHistory)
         print("--------------------history-------------------------")
     }
     
     @IBAction func transferButtonPressed(_ sender: UIButton){
+        if sender == accountInfoCell.transferButton {
+            self.selectedAccountInfoForTransfer[0] = self.accountList[sender.tag].name
+            self.selectedAccountInfoForTransfer[1] = self.accountList[sender.tag].id
+            self.selectedAccountInfoForTransfer[2] = self.detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         
-        self.selectedAccountInfo[0] = accountList[sender.tag].name
-        self.selectedAccountInfo[1] = accountList[sender.tag].id
-        self.selectedAccountInfo[2] = detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
-        
-        print("sending account info : ", selectedAccountInfo)
-        print("--------------------transfer-------------------------")
+            print("sending account info for transfer : ", selectedAccountInfoForHistory)
+            print("--------------------transfer-------------------------")
+        }
     }
     
 }

@@ -12,22 +12,24 @@ class TransferedAccountInfoCell: UITableViewCell {
     let uikitFuncs = UIKitFuncs()
         
     var recievedAccounts = [String:String]()
+    let userInfo = UserInformation().user
     
     @IBOutlet weak var receiveredAccountNameLabel: UILabel!
     @IBOutlet weak var receiveredAccountNumberLabel: UILabel!
     let cellIdentifier = "transferedHistoryCell"
     
-    func recvedList(list: [AccountHistoryList]){
+    func recvedList(list: [AccountHistoryList], accountNumber: String){
             
         recievedAccounts = [:]
             
         //내역이 있으면 recvName과 recvAccount를 append 한다.
         if list.count != 0 {
             for a in 0...list.count - 1{
-                recievedAccounts.updateValue(list[a].recvAccount, forKey: list[a].recvName)
+                if list[a].recvAccount != accountNumber{
+                    recievedAccounts.updateValue(list[a].recvAccount, forKey: list[a].recvName)
+                }
             }
         }
-        
     }
         
     func cellSettings(index: Int, retrievedAccounts: [String: String]){

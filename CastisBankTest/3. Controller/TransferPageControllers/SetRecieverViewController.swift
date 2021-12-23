@@ -105,16 +105,14 @@ extension SetRecieverViewController: UITableViewDelegate, UITableViewDataSource{
         accountHistoryModel.delegate = self
         accountHistoryModel.getAccountHistory(
             userId: userInfo.userName,
-            accountId: "8282-0200",
+            accountId: accountInfo[1],
             duration: "5M",
             startDate: "",
             endDate: "",
             otp: otpResult?.otp ?? "otp retrieved fail"
         )
         
-        transferedListCell.recvedList(list: accountHistoryList)
-        print("retrieved account history list for 5M : ", accountHistoryList)
-        
+        transferedListCell.recvedList(list: accountHistoryList, accountNumber: accountInfo[1])
         accountList = transferedListCell.recievedAccounts
         
         print("----------accountList sorted :", accountNameList, accountNumberList)
