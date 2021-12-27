@@ -21,6 +21,7 @@ class SetRecieverViewController: UIViewController {
     
     let userInfo = UserInformation().user
     var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
+    var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
     
     var otpResult: OTPResult?
     let otpModel = OTPModel()
@@ -86,6 +87,13 @@ class SetRecieverViewController: UIViewController {
     
     func navigationSettings(){
         navigationController?.title = "이체"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let setAmountViewController = segue.destination as? SetSendingAmountViewController else {
+            return print("segue error : set receiver -> set amount")
+        }
+        setAmountViewController.selectedAccountInfo = []
     }
 
     @IBAction func popToMainButton(_ sender: Any) {

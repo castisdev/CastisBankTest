@@ -317,7 +317,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="다음"/>
                                 <connections>
-                                    <segue destination="kht-o4-LRS" kind="show" id="L0C-MG-paH"/>
+                                    <segue destination="YRO-Hd-X6n" kind="show" id="GpN-Va-UuK"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jvs-nL-pDK">
@@ -386,7 +386,7 @@
                         <outlet property="accountNameOfSendingButton" destination="E2G-Ly-k0r" id="tvl-H1-PJv"/>
                         <outlet property="amountOfMoneyTextField" destination="jvs-nL-pDK" id="csS-HT-JM0"/>
                         <outlet property="applyAmountOfMoneyButton" destination="lDC-KQ-bNU" id="8PI-G0-eJH"/>
-                        <outlet property="numberCollectionView" destination="IXh-Zq-uWf" id="Bfc-aR-pzi"/>
+                        <outlet property="collectionView" destination="IXh-Zq-uWf" id="Bfc-aR-pzi"/>
                         <outlet property="receiverAccountNameLabel" destination="9ba-xV-bN2" id="ImE-8b-R5K"/>
                     </connections>
                 </viewController>
@@ -835,9 +835,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="다음"/>
-                                <connections>
-                                    <segue destination="YRO-Hd-X6n" kind="presentation" id="Ju0-cu-8Zz"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="보낼 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi5-gz-kNu">
                                 <rect key="frame" x="175" y="251" width="64" height="21"/>
@@ -886,40 +883,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hg0-rd-6Ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3016" y="-1071"/>
+            <point key="canvasLocation" x="3017" y="-1446"/>
         </scene>
         <!--Seek Transfer Consent View Controller-->
         <scene sceneID="zpI-9v-tQY">
             <objects>
                 <viewController id="YRO-Hd-X6n" customClass="SeekTransferConsentViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ro-z6-k01">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="받는 계좌 : 보내는 계좌 번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLV-4M-ogk">
-                                <rect key="frame" x="113" y="95" width="189" height="21"/>
+                                <rect key="frame" x="93" y="187" width="189" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2T-yT-1ec">
-                                <rect key="frame" x="30" y="149" width="125" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="취소"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qi-jR-f22">
-                                <rect key="frame" x="174" y="149" width="220" height="59"/>
+                                <rect key="frame" x="174" y="260" width="220" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="이체하기"/>
                                 <connections>
-                                    <segue destination="mde-U9-s1b" kind="show" id="KZy-wn-Q0i"/>
+                                    <segue destination="hRn-ew-Apy" kind="show" id="ff9-6O-9Y1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2T-yT-1ec">
+                                <rect key="frame" x="38" y="260" width="125" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="취소"/>
+                                <connections>
+                                    <action selector="pushPopButton:" destination="YRO-Hd-X6n" eventType="touchUpInside" id="834-Yj-caG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="받는 사람에게 출금 금액원 \n 이체하시겠습니까?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSD-8k-mrX">
-                                <rect key="frame" x="45" y="52" width="324" height="21"/>
+                                <rect key="frame" x="53" y="52" width="324" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -929,17 +929,24 @@
                         <viewLayoutGuide key="safeArea" id="3Zg-M4-64M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fOF-VR-AGK"/>
+                    <connections>
+                        <outlet property="accountLabel" destination="LLV-4M-ogk" id="kNI-Qh-phi"/>
+                        <outlet property="cancelButton" destination="l2T-yT-1ec" id="moE-n3-87r"/>
+                        <outlet property="moneyLabel" destination="oSD-8k-mrX" id="gMa-GQ-tay"/>
+                        <outlet property="transferButton" destination="1Qi-jR-f22" id="D3L-zz-4o9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zec-51-U0q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3754" y="-1071"/>
+            <point key="canvasLocation" x="3813" y="-1125"/>
         </scene>
         <!--Put Transfer Password View Controller-->
         <scene sceneID="jmE-cR-SQe">
             <objects>
                 <viewController id="mde-U9-s1b" customClass="PutTransferPasswordViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTm-gR-gnU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비번 치는 창 for 이체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54A-Cs-yYa">
@@ -957,7 +964,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1IN-an-91E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4496" y="-1071"/>
+            <point key="canvasLocation" x="4507" y="-1446"/>
         </scene>
         <!--Transfer Success View Controller-->
         <scene sceneID="prS-EW-snW">
@@ -974,8 +981,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&amp; notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shm-rL-wRY">
-                                <rect key="frame" x="157" y="197" width="101" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mw-lz-V0Z">
+                                <rect key="frame" x="151" y="659" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="pushToRootButton:" destination="hRn-ew-Apy" eventType="touchUpInside" id="PLO-f4-LsK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWK-jp-CCh">
+                                <rect key="frame" x="186" y="197" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -985,6 +1001,12 @@
                         <viewLayoutGuide key="safeArea" id="2FM-rd-gPK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lfK-8D-jEl"/>
+                    <connections>
+                        <outlet property="backToRootButton" destination="1Mw-lz-V0Z" id="nb8-7c-aof"/>
+                        <outlet property="transferInfoLabel" destination="wWK-jp-CCh" id="lsc-Ch-0pW"/>
+                        <outlet property="transferSuccessLabel" destination="AgV-pU-eoQ" id="TTN-CX-yCY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAj-ni-Sxp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

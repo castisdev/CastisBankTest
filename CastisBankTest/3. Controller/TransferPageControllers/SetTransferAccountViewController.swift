@@ -51,7 +51,6 @@ class SetTransferAccountViewController: UIViewController{
             collectionView.topAnchor.constraint(equalTo: putAccountTextField.bottomAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-//            collectionView.heightAnchor.constraint(equalToConstant: 400),
             
             applyTrasferAccountButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
             applyTrasferAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -67,6 +66,7 @@ class SetTransferAccountViewController: UIViewController{
         putAccountTextField.backgroundColor = .systemGray6
         putAccountTextField.borderStyle = .none
         putAccountTextField.layer.cornerRadius = 10
+        putAccountTextField.textAlignment = .center
 
 
         uikitFuncs.buttonSettings(button: cancelButton, title: "취소", fontSize: 17, tintColor: .black)

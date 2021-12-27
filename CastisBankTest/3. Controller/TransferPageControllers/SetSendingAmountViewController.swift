@@ -12,21 +12,24 @@ class SetSendingAmountViewController: UIViewController {
     @IBOutlet weak var receiverAccountNameLabel: UILabel!
     @IBOutlet weak var amountOfMoneyTextField: UITextField!
     @IBOutlet weak var accountNameOfSendingButton: UIButton!
-    @IBOutlet weak var numberCollectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var applyAmountOfMoneyButton: UIButton!
     
     let numberCell = NumberCell()
-    
     let uikitFuncs = UIKitFuncs()
+    
+    var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        numberCollectionView.delegate = self
-        numberCollectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
 
         settings()
         setConstraints()
+        print("--------", selectedAccountInfo
+        )
         
         // Do any additional setup after loading the view.
     }
@@ -38,19 +41,22 @@ class SetSendingAmountViewController: UIViewController {
         amountOfMoneyTextField.placeholder = "보낼 금액"
         amountOfMoneyTextField.borderStyle = .none
         amountOfMoneyTextField.layer.cornerRadius = 10
+        amountOfMoneyTextField.textAlignment = .center
         
         uikitFuncs.buttonSettings(button: accountNameOfSendingButton, title: "테트트용 계좌(8282-0200)", fontSize: 17, tintColor: .black)
         accountNameOfSendingButton.backgroundColor = .lightGray
         
         applyAmountOfMoneyButton.backgroundColor = .lightGray
         applyAmountOfMoneyButton.layer.cornerRadius = 10
+        
+        collectionView.backgroundColor = .blue
     }
     
     private func setConstraints(){
         receiverAccountNameLabel.translatesAutoresizingMaskIntoConstraints = false
         amountOfMoneyTextField.translatesAutoresizingMaskIntoConstraints = false
         accountNameOfSendingButton.translatesAutoresizingMaskIntoConstraints = false
-        numberCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         applyAmountOfMoneyButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -64,18 +70,19 @@ class SetSendingAmountViewController: UIViewController {
             accountNameOfSendingButton.topAnchor.constraint(equalTo: amountOfMoneyTextField.bottomAnchor, constant: 100),
             accountNameOfSendingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             accountNameOfSendingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            accountNameOfSendingButton.heightAnchor.constraint(equalToConstant: 20),
+            accountNameOfSendingButton.heightAnchor.constraint(equalToConstant: 50),
             
-            numberCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            numberCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            numberCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            numberCollectionView.heightAnchor.constraint(equalToConstant: 150),
+            collectionView.topAnchor.constraint(equalTo: accountNameOfSendingButton.bottomAnchor, constant: 20),
+            collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+//            numberCollectionView.heightAnchor.constraint(equalToConstant: 300),
             
-            applyAmountOfMoneyButton.topAnchor.constraint(equalTo: numberCollectionView.bottomAnchor, constant: 20),
+            applyAmountOfMoneyButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
             applyAmountOfMoneyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             applyAmountOfMoneyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            applyAmountOfMoneyButton.heightAnchor.constraint(equalToConstant: 30),
-            applyAmountOfMoneyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+            applyAmountOfMoneyButton.heightAnchor.constraint(equalToConstant: 50),
+            applyAmountOfMoneyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
     }
 
@@ -100,7 +107,7 @@ extension SetSendingAmountViewController: UICollectionViewDelegate, UICollection
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: numberCell.cellIdentifier, for: indexPath) as? NumberCell else {
             return UICollectionViewCell()
         }
-        
+        cell.backgroundColor = .lightGray
         cell.setConstraints()
         
         switch indexPath.section{
@@ -122,7 +129,7 @@ extension SetSendingAmountViewController: UICollectionViewDelegate, UICollection
     //cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = view.bounds.width / 3 - 40
+        let cellWidth = view.bounds.width / 3
         let cellSize = CGSize(width: cellWidth , height: cellWidth - 35)
         
         return cellSize
@@ -130,12 +137,12 @@ extension SetSendingAmountViewController: UICollectionViewDelegate, UICollection
     
     //같은 섹션안의 아이템 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 1000
     }
 
     //섹션 간 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let cellInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let cellInset = UIEdgeInsets(top: 200, left: 200, bottom: 200, right: 200)
         return cellInset
     }
     
