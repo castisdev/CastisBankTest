@@ -15,6 +15,9 @@ class SeekTransferConsentViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var transferButton: UIButton!
     
+    var sendingAccountInfo = ["받는 계좌 이름", "받는 계좌 번호"]
+    var sendingAmount = ""
+    
     let uikitFuns = UIKitFuncs()
     
     override func viewDidLoad() {
@@ -26,9 +29,18 @@ class SeekTransferConsentViewController: UIViewController {
     }
     
     private func settings(){
-        navigationItem.backBarButtonItem = .none
+        self.navigationController?.isNavigationBarHidden = true
+        
         uikitFuns.buttonSettings(button: cancelButton, title: "취소", fontSize: 17, tintColor: .black)
         uikitFuns.buttonSettings(button: transferButton, title: "이체하기", fontSize: 17, tintColor: .black)
+
+        let moneyComment = "\(sendingAccountInfo[0])에게 \(sendingAmount)원 \n 이체하시겠습니까?"
+        let accountComment = "받는계좌: \(sendingAccountInfo[1])"
+        
+        uikitFuns.labelSettings(label: moneyLabel, title: moneyComment, size: 20, color: .black)
+        moneyLabel.numberOfLines = 2
+        moneyLabel.textAlignment = .center
+        uikitFuns.labelSettings(label: accountLabel, title: accountComment, size: 15, color: .darkGray)
         
     }
     
@@ -39,10 +51,10 @@ class SeekTransferConsentViewController: UIViewController {
         transferButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            moneyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            moneyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             moneyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            accountLabel.topAnchor.constraint(equalTo: moneyLabel.bottomAnchor, constant: 30),
+            accountLabel.topAnchor.constraint(equalTo: moneyLabel.bottomAnchor, constant: 10),
             accountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

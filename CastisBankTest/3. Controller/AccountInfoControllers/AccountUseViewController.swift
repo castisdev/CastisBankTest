@@ -20,7 +20,8 @@ class AccountUseViewController: UIViewController {
     let footerIdentifier = "footer"
     
     let toSetFilterSegueIdentifier = "setFilterSegue"
-    let toDetailInfoSegueIdnetifier = "detailInfoSegue"
+    let toDetailInfoSegueIdentifier = "detailInfoSegue"
+    let toTransferSegueIdentifier = "toTransferSegue"
     
     let colorchip = ColorChip()
     let uikitFuncs = UIKitFuncs()
@@ -117,7 +118,7 @@ class AccountUseViewController: UIViewController {
             setInfoViewController.receivedInfo = selectedInfo
             setInfoViewController.delegate = self
             
-        } else if segue.identifier == toDetailInfoSegueIdnetifier {
+        } else if segue.identifier == toDetailInfoSegueIdentifier {
             if let cell = sender as? TransferHistoryCell, let indexPath = self.collectionView.indexPath(for: cell){
                 
                 print("--segue entered")
@@ -127,6 +128,12 @@ class AccountUseViewController: UIViewController {
                 
                 useDetailViewController.selectedCellList = selectedSearchOrder[indexPath.row]
             }
+        } else if segue.identifier == toTransferSegueIdentifier {
+            guard let setRecieverViewController = segue.destination as? SetRecieverViewController else {
+                return print("segue error : account history => set transfer reciever")
+            }
+            
+            setRecieverViewController.accountInfo = self.accountInfo
         }
     }
 }

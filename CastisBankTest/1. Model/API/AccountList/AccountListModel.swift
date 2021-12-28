@@ -35,7 +35,7 @@ class AccountListModel{
             
             if error == nil && data != nil {
                 
-                print("with have a data before decoding: ",String(data: data!, encoding: .utf8)!)
+//                print("with have a data before decoding: ",String(data: data!, encoding: .utf8)!)
                 let decoder = JSONDecoder()
                 
                 do {

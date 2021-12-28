@@ -19,9 +19,10 @@ class SetRecieverViewController: UIViewController {
     let colorChip = ColorChip()
     let transferedListCell = TransferedAccountInfoCell()
     
+    let toAmountSettingSegueIndentifier = "toSetAmount"
+    
     let userInfo = UserInformation().user
     var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
-    var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
     
     var otpResult: OTPResult?
     let otpModel = OTPModel()
@@ -47,6 +48,7 @@ class SetRecieverViewController: UIViewController {
         otpModel.delegate = self
         otpModel.getOTP(userId: userInfo.userName, companyId: userInfo.companyId)
         
+        print("---------------------transfer settings ------------")
         print("otpResult at set receiver controller : ", otpResult)
         
         print("received account info : ", accountInfo)
@@ -93,7 +95,11 @@ class SetRecieverViewController: UIViewController {
         guard let setAmountViewController = segue.destination as? SetSendingAmountViewController else {
             return print("segue error : set receiver -> set amount")
         }
-        setAmountViewController.selectedAccountInfo = []
+        if let cell = sender as? TransferedAccountInfoCell, let indexPath = self.tableView.indexPath(for: cell) {
+            let keys = Array(accountList.keys)
+            let values = Array(accountList.values)
+            setAmountViewController.selectedAccountInfo = [keys[indexPath.row], values[indexPath.row]]
+        }
     }
 
     @IBAction func popToMainButton(_ sender: Any) {
@@ -123,8 +129,6 @@ extension SetRecieverViewController: UITableViewDelegate, UITableViewDataSource{
         transferedListCell.recvedList(list: accountHistoryList, accountNumber: accountInfo[1])
         accountList = transferedListCell.recievedAccounts
         
-        print("----------accountList sorted :", accountNameList, accountNumberList)
-        print("----------accountNAmeList count : ", accountNameList.count, ", ", accountNumberList.count)
         return accountList.count
     }
         

@@ -47,7 +47,7 @@ class AccountHistoryModel{
             
             if error == nil && data != nil {
                 
-                print("account transfer list : ",String(data: data!, encoding: .utf8)!)
+//                print("account transfer list : ",String(data: data!, encoding: .utf8)!)
                 let decoder = JSONDecoder()
                 
                 do {

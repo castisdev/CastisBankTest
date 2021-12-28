@@ -56,7 +56,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="이체"/>
                                                     <connections>
-                                                        <action selector="transferButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Mm-BE-oA8"/>
+                                                        <action selector="transferButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3VX-25-7v3"/>
                                                         <segue destination="HJb-Oc-Qpz" kind="show" identifier="toTransferSegue" id="NPn-cY-VsQ"/>
                                                     </connections>
                                                 </button>
@@ -77,8 +77,8 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="계좌이용내역"/>
                                                     <connections>
-                                                        <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yMM-FS-27S"/>
-                                                        <segue destination="w8V-qc-al4" kind="show" identifier="accountUseSegue" id="BtU-Qb-2aw"/>
+                                                        <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aLT-TT-7zI"/>
+                                                        <segue destination="w8V-qc-al4" kind="show" identifier="toAccountUseSegue" id="BtU-Qb-2aw"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -296,7 +296,7 @@
             </objects>
             <point key="canvasLocation" x="2266.666666666667" y="-342.1875"/>
         </scene>
-        <!--이체 받을 계좌 이름-->
+        <!--Set Sending Amount View Controller-->
         <scene sceneID="MR3-IC-70I">
             <objects>
                 <viewController id="kGF-fg-fyt" customClass="SetSendingAmountViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -317,6 +317,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="다음"/>
                                 <connections>
+                                    <action selector="pushApplyAmountButton:" destination="kGF-fg-fyt" eventType="touchUpInside" id="Iuk-Ro-SXJ"/>
                                     <segue destination="YRO-Hd-X6n" kind="show" id="GpN-Va-UuK"/>
                                 </connections>
                             </button>
@@ -369,9 +370,9 @@
                         <viewLayoutGuide key="safeArea" id="4gE-Ec-zE2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="이체 받을 계좌 이름" id="wvS-MM-mO6">
+                    <navigationItem key="navigationItem" id="wvS-MM-mO6">
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5rC-eG-9Ba">
-                            <rect key="frame" x="149" y="7" width="116" height="30"/>
+                            <rect key="frame" x="192" y="7" width="30" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <menu key="menu" id="Lwl-tD-vVo">
                                 <children>
@@ -379,7 +380,6 @@
                                     <command title="Item 2" id="Q0C-rh-G8A"/>
                                 </children>
                             </menu>
-                            <state key="normal" title="이체 받을 계좌 이름"/>
                         </button>
                     </navigationItem>
                     <connections>
@@ -601,7 +601,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="이체"/>
                                                     <connections>
-                                                        <segue destination="HJb-Oc-Qpz" kind="show" id="vYG-o1-Wki"/>
+                                                        <segue destination="HJb-Oc-Qpz" kind="show" identifier="toTransferSegue" id="vYG-o1-Wki"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -939,7 +939,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zec-51-U0q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3813" y="-1125"/>
+            <point key="canvasLocation" x="3814" y="-1071"/>
         </scene>
         <!--Put Transfer Password View Controller-->
         <scene sceneID="jmE-cR-SQe">

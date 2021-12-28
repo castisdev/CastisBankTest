@@ -28,16 +28,12 @@ class SetSendingAmountViewController: UIViewController {
 
         settings()
         setConstraints()
-        print("--------", selectedAccountInfo
-        )
-        
-        // Do any additional setup after loading the view.
     }
     
     private func settings(){
-        navigationItem.title = "테트트용 계좌"
+        self.navigationItem.title = selectedAccountInfo[0]
         
-        uikitFuncs.labelSettings(label: receiverAccountNameLabel, title: "8282-0200", size: 17, color: .darkGray)
+        uikitFuncs.labelSettings(label: receiverAccountNameLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)
         amountOfMoneyTextField.placeholder = "보낼 금액"
         amountOfMoneyTextField.borderStyle = .none
         amountOfMoneyTextField.layer.cornerRadius = 10
@@ -85,7 +81,19 @@ class SetSendingAmountViewController: UIViewController {
             applyAmountOfMoneyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let seekConsentViewController = segue.destination as? SeekTransferConsentViewController else {
+            return print("segue error : set amount -> seek consent")
+        }
+        
+        seekConsentViewController.sendingAccountInfo = selectedAccountInfo
+        seekConsentViewController.sendingAmount = amountOfMoneyTextField.text!
+    }
 
+    @IBAction func pushApplyAmountButton(_ sender: Any) {
+        
+    }
 }
 
 extension SetSendingAmountViewController: UICollectionViewDelegate, UICollectionViewDataSource{
