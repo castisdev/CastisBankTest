@@ -15,9 +15,9 @@ class TransferModel{
     
     var delegate: TransferDelegate?
     
-    func askTransfer(userID: String, sendAccountID: String, recvAccountID: String, amount: Int, transferHistory: String, otp: String, memo: String){
+    func askTransfer(userId: String, sendAccountId: String, recvAccountId: String, amount: Int, transferHistory: String, otp: String, memo: String){
         
-        let ask = TransferBody(userID: userID, sendAccountID: sendAccountID, recvAccountID: recvAccountID, amount: amount, transferHistory: transferHistory, otp: otp, memo: memo)
+        let ask = TransferBody(userId: userId, sendAccountId: sendAccountId, recvAccountId: recvAccountId, amount: amount, transferHistory: transferHistory, otp: otp, memo: memo)
         
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
@@ -25,6 +25,8 @@ class TransferModel{
         guard let uploadData = try? encoder.encode(ask) else {
             return print("fail to encode transfer body")
         }
+        
+        print("transfer result: ",String(data: uploadData, encoding: .utf8)!)
         
         let urlString = "http://110.35.173.101/cbank/api/v1/transfer"
         let url = URL(string: urlString)
@@ -42,6 +44,7 @@ class TransferModel{
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             
+            print("transfer result: ",String(data: data!, encoding: .utf8)!)
             if error == nil && data != nil {
                 
                 let decoder = JSONDecoder()

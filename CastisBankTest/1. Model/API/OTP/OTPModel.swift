@@ -45,7 +45,6 @@ class OTPModel{
             
             if error == nil && data != nil {
                 print("with have a data before decoding: ",String(data: data!, encoding: .utf8)!)
-                
                 let decoder = JSONDecoder()
                 do {
                     let otpInfo = try decoder.decode(OTPResult.self, from: data!)

@@ -27,7 +27,7 @@ class AccountHistoryModel{
             return print("error : encoding the account history body")
 
         }
-//        print(String(data: accountHistoryBody, encoding: .utf8)!)
+        print(String(data: accountHistoryBody, encoding: .utf8)!)
         
         let urlString = "http://110.35.173.101/cbank/api/v1/account/history"
         let url = URL(string: urlString)

@@ -14,7 +14,7 @@ class DetailTransferInfoCell: UITableViewCell {
     
     let cellIdentifier = "DetailInfoCell"
     
-    let info = ["거래시간", "거래구분", "거래 금액", "거래 후 잔액"]
+    let info = ["거래시간", "거래구분", "거래 금액", "거래 후 잔액", "거래 내역(memo)"]
     
     let uikitFuncs = UIKitFuncs()
     let detailFuncs = DetailFuncs()
@@ -37,6 +37,8 @@ class DetailTransferInfoCell: UITableViewCell {
             return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: detailFuncs.makeMoneyAmountEasy(amount: amount), size: 15, color: colorChip.kakaoDarkBlue42)
         case 3:
             return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: detailFuncs.makeMoneyAmountEasy(amount: balance), size: 15, color: .black)
+        case 4:
+            return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: accountInfo.history, size: 15, color: .black)
         default:
             return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: " ", size: 15, color: .black)
         }

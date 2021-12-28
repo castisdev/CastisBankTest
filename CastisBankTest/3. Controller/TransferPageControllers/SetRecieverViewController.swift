@@ -99,6 +99,7 @@ class SetRecieverViewController: UIViewController {
             let keys = Array(accountList.keys)
             let values = Array(accountList.values)
             setAmountViewController.selectedAccountInfo = [keys[indexPath.row], values[indexPath.row]]
+            setAmountViewController.sendingAccountInfo = [accountInfo[0], accountInfo[1]]
         }
     }
 

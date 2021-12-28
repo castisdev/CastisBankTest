@@ -9,7 +9,7 @@ import Foundation
 
 struct TransferBody: Codable{
     
-    var userID, sendAccountID, recvAccountID: String
+    var userId, sendAccountId, recvAccountId: String
     var amount: Int
     var transferHistory, otp, memo: String
     

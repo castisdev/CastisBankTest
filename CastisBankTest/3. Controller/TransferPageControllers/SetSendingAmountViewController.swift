@@ -19,6 +19,7 @@ class SetSendingAmountViewController: UIViewController {
     let uikitFuncs = UIKitFuncs()
     
     var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
+    var sendingAccountInfo = ["보내는 계좌 이름", "보내는 계좌 번호"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,14 @@ class SetSendingAmountViewController: UIViewController {
         setConstraints()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.navigationController?.isNavigationBarHidden = false
+//
+//        if amountOfMoneyTextField.text?.isEmpty == true {
+//            applyAmountOfMoneyButton.isEnabled = false
+//        }
+//    }
+//
     private func settings(){
         self.navigationItem.title = selectedAccountInfo[0]
         
@@ -43,7 +48,8 @@ class SetSendingAmountViewController: UIViewController {
         amountOfMoneyTextField.layer.cornerRadius = 10
         amountOfMoneyTextField.textAlignment = .center
         
-        uikitFuncs.buttonSettings(button: accountNameOfSendingButton, title: "테트트용 계좌(8282-0200)", fontSize: 17, tintColor: .black)
+        let sendingAccountTitle = "\(sendingAccountInfo[0])(\(sendingAccountInfo[1]))"
+        uikitFuncs.buttonSettings(button: accountNameOfSendingButton, title: sendingAccountTitle, fontSize: 17, tintColor: .black)
         accountNameOfSendingButton.backgroundColor = .lightGray
         
         applyAmountOfMoneyButton.backgroundColor = .lightGray
@@ -91,8 +97,9 @@ class SetSendingAmountViewController: UIViewController {
             return print("segue error : set amount -> seek consent")
         }
         
-        seekConsentViewController.sendingAccountInfo = selectedAccountInfo
-        seekConsentViewController.sendingAmount = amountOfMoneyTextField.text!
+        seekConsentViewController.receivingAccountInfo = self.selectedAccountInfo
+        seekConsentViewController.sendingAmount = self.amountOfMoneyTextField.text!
+        seekConsentViewController.sedingAccountInfo = self.sendingAccountInfo
     }
 
     @IBAction func pushApplyAmountButton(_ sender: Any) {
@@ -182,3 +189,13 @@ extension SetSendingAmountViewController: UICollectionViewDelegate, UICollection
     }
     
 }
+
+//extension SetSendingAmountViewController: UITextFieldDelegate{
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        if self.amountOfMoneyTextField.text?.isEmpty == false {
+//            applyAmountOfMoneyButton.isEnabled = true
+//        } else{
+//            applyAmountOfMoneyButton.isEnabled = false
+//        }
+//    }
+//}
