@@ -42,28 +42,29 @@ class SetSendingAmountViewController: UIViewController {
     private func settings(){
         self.navigationItem.title = selectedAccountInfo[0]
         
-        uikitFuncs.labelSettings(label: receiverAccountNameLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)
-        amountOfMoneyTextField.placeholder = "보낼 금액"
-        amountOfMoneyTextField.borderStyle = .none
-        amountOfMoneyTextField.layer.cornerRadius = 10
-        amountOfMoneyTextField.textAlignment = .center
+        uikitFuncs.labelSettings(label: self.receiverAccountNameLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)
+        
+        self.amountOfMoneyTextField.placeholder = "보낼 금액"
+        self.amountOfMoneyTextField.borderStyle = .none
+        self.amountOfMoneyTextField.layer.cornerRadius = 10
+        self.amountOfMoneyTextField.textAlignment = .center
         
         let sendingAccountTitle = "\(sendingAccountInfo[0])(\(sendingAccountInfo[1]))"
-        uikitFuncs.buttonSettings(button: accountNameOfSendingButton, title: sendingAccountTitle, fontSize: 17, tintColor: .black)
-        accountNameOfSendingButton.backgroundColor = .lightGray
+        uikitFuncs.buttonSettings(button: self.accountNameOfSendingButton, title: sendingAccountTitle, fontSize: 17, tintColor: .black)
+        self.accountNameOfSendingButton.backgroundColor = .lightGray
         
-        applyAmountOfMoneyButton.backgroundColor = .lightGray
-        applyAmountOfMoneyButton.layer.cornerRadius = 10
+        self.applyAmountOfMoneyButton.backgroundColor = .lightGray
+        self.applyAmountOfMoneyButton.layer.cornerRadius = 10
         
-        collectionView.backgroundColor = .blue
+        self.collectionView.backgroundColor = .blue
     }
     
     private func setConstraints(){
-        receiverAccountNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        amountOfMoneyTextField.translatesAutoresizingMaskIntoConstraints = false
-        accountNameOfSendingButton.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        applyAmountOfMoneyButton.translatesAutoresizingMaskIntoConstraints = false
+        self.receiverAccountNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.amountOfMoneyTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.accountNameOfSendingButton.translatesAutoresizingMaskIntoConstraints = false
+        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.applyAmountOfMoneyButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             receiverAccountNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
@@ -93,17 +94,13 @@ class SetSendingAmountViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let seekConsentViewController = segue.destination as? SeekTransferConsentViewController else {
-            return print("segue error : set amount -> seek consent")
+        guard let setMemoViewController = segue.destination as? SetSendingMemoViewController else {
+            return print("segue error : set amount -> set memo")
         }
         
-        seekConsentViewController.receivingAccountInfo = self.selectedAccountInfo
-        seekConsentViewController.sendingAmount = self.amountOfMoneyTextField.text!
-        seekConsentViewController.sedingAccountInfo = self.sendingAccountInfo
-    }
-
-    @IBAction func pushApplyAmountButton(_ sender: Any) {
-        
+        setMemoViewController.sendingAmount = self.amountOfMoneyTextField.text!
+        setMemoViewController.selectedAccountInfo = self.selectedAccountInfo
+        setMemoViewController.sendingAccountInfo = self.sendingAccountInfo
     }
 }
 

@@ -16,8 +16,9 @@ class SeekTransferConsentViewController: UIViewController {
     @IBOutlet weak var transferButton: UIButton!
     
     var receivingAccountInfo = ["받는 계좌 이름", "받는 계좌 번호"]
+    var sendingAccountInfo = ["보내는 계좌 이름", "보내는 계좌 번호"]
     var sendingAmount = ""
-    var sedingAccountInfo = ["보내는 계좌 이름", "보내는 계좌 번호"]
+    var sendingMemo = ""
     
     let uikitFuns = UIKitFuncs()
     
@@ -75,7 +76,7 @@ class SeekTransferConsentViewController: UIViewController {
             return print("segue error : seek consent -> transfer success")
         }
         
-        transferSuccessViewController.transferInfo = [sedingAccountInfo[1] ,receivingAccountInfo[0], receivingAccountInfo[1], sendingAmount]
+        transferSuccessViewController.transferInfo = [sendingAccountInfo[1] ,receivingAccountInfo[0], receivingAccountInfo[1], sendingAmount, sendingMemo]
 
     }
 

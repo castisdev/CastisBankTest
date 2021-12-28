@@ -22,7 +22,7 @@ class TransferSuccessViewController: UIViewController {
     let transferModel = TransferModel()
     var transferResult: TransferResult?
     
-    var transferInfo = ["보내는 계좌 번호", "받는 계좌 이름", "받는 계좌 번호", "송금 금액"]
+    var transferInfo = ["보내는 계좌 번호", "받는 계좌 이름", "받는 계좌 번호", "송금 금액", "메모"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +90,7 @@ extension TransferSuccessViewController: OTPModelDelegate{
         print("otpREesult ", otpResult)
         
         transferModel.delegate = self
-        transferModel.askTransfer(userId: userInfo.userName, sendAccountId: transferInfo[0], recvAccountId: transferInfo[2], amount: Int(transferInfo[3]) ?? 0, transferHistory: "transfer text 12/28", otp: self.otpResult!.otp, memo: "memomemo")
+        transferModel.askTransfer(userId: userInfo.userName, sendAccountId: transferInfo[0], recvAccountId: transferInfo[2], amount: Int(transferInfo[3]) ?? 0, transferHistory: transferInfo[4], otp: self.otpResult!.otp, memo: "memomemo")
     }
 }
 

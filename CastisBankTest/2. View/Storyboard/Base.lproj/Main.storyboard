@@ -317,8 +317,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="다음"/>
                                 <connections>
-                                    <action selector="pushApplyAmountButton:" destination="kGF-fg-fyt" eventType="touchUpInside" id="Iuk-Ro-SXJ"/>
-                                    <segue destination="YRO-Hd-X6n" kind="show" id="GpN-Va-UuK"/>
+                                    <segue destination="kht-o4-LRS" kind="show" id="JTv-bM-xae"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jvs-nL-pDK">
@@ -835,6 +834,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="다음"/>
+                                <connections>
+                                    <segue destination="YRO-Hd-X6n" kind="show" id="evA-je-faa"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="보낼 금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi5-gz-kNu">
                                 <rect key="frame" x="175" y="251" width="64" height="21"/>
@@ -843,12 +845,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="나에게 표기" borderStyle="roundedRect" placeholder="받는 분에게 표기" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s04-ov-ypM">
-                                <rect key="frame" x="51" y="528" width="312" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="받는 분에게 표기" borderStyle="roundedRect" placeholder="받는 분에게 표기" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nas-05-ScA">
                                 <rect key="frame" x="51" y="471" width="312" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -880,10 +876,17 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="applyMemoButton" destination="KX4-5z-g68" id="ghg-kZ-riS"/>
+                        <outlet property="historyMemoTextField" destination="nas-05-ScA" id="i1E-35-Uaj"/>
+                        <outlet property="selectedAccountNumberLabel" destination="SWF-vU-ULw" id="qCX-E4-4zI"/>
+                        <outlet property="sendingAccountInfoButton" destination="INQ-4Z-4CF" id="RWz-Pe-OzX"/>
+                        <outlet property="sendingAmountLabel" destination="Hi5-gz-kNu" id="wXX-Sx-DQJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hg0-rd-6Ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3017" y="-1446"/>
+            <point key="canvasLocation" x="3013" y="-1071"/>
         </scene>
         <!--Seek Transfer Consent View Controller-->
         <scene sceneID="zpI-9v-tQY">
