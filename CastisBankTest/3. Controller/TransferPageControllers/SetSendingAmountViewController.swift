@@ -30,6 +30,10 @@ class SetSendingAmountViewController: UIViewController {
         setConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     private func settings(){
         self.navigationItem.title = selectedAccountInfo[0]
         
