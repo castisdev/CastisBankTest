@@ -47,6 +47,9 @@ class HomePageViewController: UIViewController{
         setFlowLayout(view: collectionView)
         setNavigation()
         refresh()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         //MARK: receive cell information data from server(url)
         accountModel.delegate = self
@@ -116,12 +119,15 @@ class HomePageViewController: UIViewController{
         refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
         refresh.attributedTitle = NSAttributedString(string: "새로고침")
         
-        collectionView.addSubview(refresh)
+        self.collectionView.refreshControl = refresh
     }
     
     @objc func updateUI(refresh: UIRefreshControl){
-        refresh.endRefreshing()
-        collectionView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+            self.collectionView.reloadData()
+            refresh.endRefreshing()
+        }
     }
     
     //MARK: - segue actions

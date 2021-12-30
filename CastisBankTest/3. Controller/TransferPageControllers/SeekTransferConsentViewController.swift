@@ -82,7 +82,15 @@ class SeekTransferConsentViewController: UIViewController {
     }
 
     @IBAction func pushPopButton(_ sender: Any) {
-        
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
+    
+//    @IBAction func applyTransferButton(_ sender: Any) {
+//
+//        let presentVC = self.presentingViewController
+//
+//        self.dismiss(animated: true, completion: {
+//            presentVC?.performSegue(withIdentifier: "toTransferSuccessSegue", sender: nil)
+//        })
+//    }
 }

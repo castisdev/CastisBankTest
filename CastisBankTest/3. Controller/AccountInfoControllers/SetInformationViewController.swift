@@ -124,5 +124,9 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         self.receivedInfo[sender.tag] = filterModel[sender.tag].standards[sender.selectedSegmentIndex]
     }
     
+    @IBAction func indexChanges(_ sender: Any){
+//        switch segmentCon
+    }
+    
 }
 

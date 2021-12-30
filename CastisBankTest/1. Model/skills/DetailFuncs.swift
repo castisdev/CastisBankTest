@@ -41,4 +41,5 @@ class DetailFuncs {
             return " "
         }
     }
+    
 }

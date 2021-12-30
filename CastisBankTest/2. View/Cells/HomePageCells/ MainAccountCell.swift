@@ -16,6 +16,7 @@ class MainAccountCell: UICollectionViewCell {
     
     @IBOutlet weak var transferButton: UIButton!
     @IBOutlet weak var useInformationOfAccountButton: UIButton!
+    @IBOutlet weak var colorChangeButton: UIButton!
     
     let cellIdentifier = "accountInfoCell"
     
@@ -60,6 +61,7 @@ class MainAccountCell: UICollectionViewCell {
         
         transferButton.translatesAutoresizingMaskIntoConstraints = false
         useInformationOfAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        colorChangeButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             accountNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
@@ -86,7 +88,10 @@ class MainAccountCell: UICollectionViewCell {
             //이체 버튼과 거래내역 버튼 크기 동일
             transferButton.trailingAnchor.constraint(equalTo: useInformationOfAccountButton.leadingAnchor, constant: 0),
             transferButton.widthAnchor.constraint(equalTo: useInformationOfAccountButton.widthAnchor),
-            transferButton.heightAnchor.constraint(equalTo: useInformationOfAccountButton.heightAnchor)
+            transferButton.heightAnchor.constraint(equalTo: useInformationOfAccountButton.heightAnchor),
+            
+            colorChangeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            colorChangeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
 
         ])
     }

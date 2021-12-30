@@ -112,12 +112,15 @@ class AccountUseViewController: UIViewController {
         refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
         refresh.attributedTitle = NSAttributedString(string: "새로고침")
         
-        self.collectionView.addSubview(refresh)
+        self.collectionView.refreshControl = refresh
     }
     
     @objc func updateUI(refresh: UIRefreshControl){
-        refresh.endRefreshing()
-        self.collectionView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+            self.collectionView.reloadData()
+            refresh.endRefreshing()
+        }
     }
     
     //prepare information before present next vc that is modal

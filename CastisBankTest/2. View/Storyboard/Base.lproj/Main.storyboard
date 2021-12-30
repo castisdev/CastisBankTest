@@ -81,6 +81,15 @@
                                                         <segue destination="w8V-qc-al4" kind="show" identifier="toAccountUseSegue" id="BtU-Qb-2aw"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpe-9G-1oJ">
+                                                    <rect key="frame" x="338" y="8" width="67" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <connections>
+                                                        <segue destination="t1w-OH-lOy" kind="presentation" id="xx6-bh-mGq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="413" height="220"/>
@@ -88,6 +97,7 @@
                                             <outlet property="accountBalanceLabel" destination="2yD-1V-1Nk" id="Ma9-u4-OCq"/>
                                             <outlet property="accountNameLabel" destination="zgm-UD-RI6" id="taa-4o-gEz"/>
                                             <outlet property="accountNumberLabel" destination="JiI-bo-Uvl" id="znv-Gd-cc6"/>
+                                            <outlet property="colorChangeButton" destination="wpe-9G-1oJ" id="CMn-49-n6H"/>
                                             <outlet property="mainAccountStarImageView" destination="hfE-0Y-gJ9" id="fIM-Ed-LcP"/>
                                             <outlet property="transferButton" destination="ge0-H4-AfE" id="ajw-I5-vqt"/>
                                             <outlet property="useInformationOfAccountButton" destination="PmS-P2-seB" id="0rF-7c-gKz"/>
@@ -128,6 +138,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="534.78260869565224" y="61.607142857142854"/>
+        </scene>
+        <!--Color Choose View Controller-->
+        <scene sceneID="nCF-Wa-eDH">
+            <objects>
+                <viewController id="t1w-OH-lOy" customClass="ColorChooseViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJV-G6-o3u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L1B-cC-bJe">
+                                <rect key="frame" x="0.0" y="63" width="414" height="259"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="avT-Ae-Ktm">
+                                    <size key="itemSize" width="132" height="135"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="qgx-2L-vQk" customClass="ColorCell" customModule="CastisBankTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="135"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="V9P-mJ-gBv">
+                                            <rect key="frame" x="0.0" y="0.0" width="132" height="135"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L7Q-Gb-S9E">
+                                                    <rect key="frame" x="38" y="40" width="57" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="132" height="135"/>
+                                        <connections>
+                                            <outlet property="colorImageView" destination="L7Q-Gb-S9E" id="SPj-rY-SW7"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Iqw-qm-4fK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="L1B-cC-bJe" id="Sls-8H-D6s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPh-sr-idf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="531.8840579710145" y="-586.60714285714278"/>
         </scene>
         <!--이체-->
         <scene sceneID="q6w-G1-saw">
@@ -473,7 +534,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKQ-7s-1CL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="JTq-Ir-CxR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2157" y="428"/>
+            <point key="canvasLocation" x="2156.521739130435" y="427.90178571428572"/>
         </scene>
         <!--화면 편집-->
         <scene sceneID="0wH-gV-hWN">

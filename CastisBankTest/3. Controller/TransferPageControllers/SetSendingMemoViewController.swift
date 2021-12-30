@@ -53,6 +53,10 @@ class SetSendingMemoViewController: UIViewController {
         uikitFuncs.buttonSettings(button: self.applyMemoButton, title: "확인", fontSize: 17, tintColor: .black)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationSettings()
+    }
+    
     
     private func setConstraints(){
         self.selectedAccountNumberLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +90,10 @@ class SetSendingMemoViewController: UIViewController {
             self.applyMemoButton.heightAnchor.constraint(equalToConstant: 50),
             self.applyMemoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
+    }
+    
+    private func navigationSettings(){
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
