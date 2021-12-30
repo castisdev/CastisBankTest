@@ -13,7 +13,7 @@
 		38B226C22771B9A300F7FDD7 /* TranferBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C12771B9A300F7FDD7 /* TranferBody.swift */; };
 		38B226C42771B9AE00F7FDD7 /* TransferResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C32771B9AE00F7FDD7 /* TransferResult.swift */; };
 		38B226C62771B9BE00F7FDD7 /* TransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C52771B9BE00F7FDD7 /* TransferModel.swift */; };
-		38B226C82771BE9200F7FDD7 /* SetTransferAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C72771BE9200F7FDD7 /* SetTransferAccountViewController.swift */; };
+		38B226C82771BE9200F7FDD7 /* SetAccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C72771BE9200F7FDD7 /* SetAccountNumberViewController.swift */; };
 		38B226CD2771C7C300F7FDD7 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226CC2771C7C300F7FDD7 /* NumberCell.swift */; };
 		3C059B5D27683359003FB4D0 /* OTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5C27683359003FB4D0 /* OTPBody.swift */; };
 		3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5F276833ED003FB4D0 /* OTPResult.swift */; };
@@ -85,7 +85,7 @@
 		38B226C12771B9A300F7FDD7 /* TranferBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranferBody.swift; sourceTree = "<group>"; };
 		38B226C32771B9AE00F7FDD7 /* TransferResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferResult.swift; sourceTree = "<group>"; };
 		38B226C52771B9BE00F7FDD7 /* TransferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferModel.swift; sourceTree = "<group>"; };
-		38B226C72771BE9200F7FDD7 /* SetTransferAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTransferAccountViewController.swift; sourceTree = "<group>"; };
+		38B226C72771BE9200F7FDD7 /* SetAccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAccountNumberViewController.swift; sourceTree = "<group>"; };
 		38B226CC2771C7C300F7FDD7 /* NumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
 		3C059B5C27683359003FB4D0 /* OTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPBody.swift; sourceTree = "<group>"; };
 		3C059B5F276833ED003FB4D0 /* OTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPResult.swift; sourceTree = "<group>"; };
@@ -316,7 +316,7 @@
 		3C95E539275881990007B483 /* TransferPageControllers */ = {
 			isa = PBXGroup;
 			children = (
-				38B226C72771BE9200F7FDD7 /* SetTransferAccountViewController.swift */,
+				38B226C72771BE9200F7FDD7 /* SetAccountNumberViewController.swift */,
 				3C95E545275882EA0007B483 /* SetRecieverViewController.swift */,
 				3C95E547275883020007B483 /* SetSendingAmountViewController.swift */,
 				3C95E549275883130007B483 /* SetSendingMemoViewController.swift */,
@@ -610,7 +610,7 @@
 				38B226C22771B9A300F7FDD7 /* TranferBody.swift in Sources */,
 				3C95E559275896810007B483 /* TransferedAccountInfoCell.swift in Sources */,
 				3CC5B4552768732D0000A9A3 /* AccountHistoryBody.swift in Sources */,
-				38B226C82771BE9200F7FDD7 /* SetTransferAccountViewController.swift in Sources */,
+				38B226C82771BE9200F7FDD7 /* SetAccountNumberViewController.swift in Sources */,
 				3CC5B45B2768744F0000A9A3 /* AccountHistoryModel.swift in Sources */,
 				3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */,
 				3C95E55E275896F50007B483 /* SelectedInfoCell.swift in Sources */,

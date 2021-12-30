@@ -35,8 +35,9 @@ class SeekTransferConsentViewController: UIViewController {
         
         uikitFuns.buttonSettings(button: cancelButton, title: "취소", fontSize: 17, tintColor: .black)
         uikitFuns.buttonSettings(button: transferButton, title: "이체하기", fontSize: 17, tintColor: .black)
-
-        let moneyComment = "\(receivingAccountInfo[0])에게 \(sendingAmount)원 \n 이체하시겠습니까?"
+        
+        let receiveInfo = "\(receivingAccountInfo[1])(\(receivingAccountInfo[0]))"
+        let moneyComment = "\(receiveInfo)에게 \(sendingAmount)원 \n 이체하시겠습니까?"
         let accountComment = "받는계좌: \(receivingAccountInfo[1])"
         
         uikitFuns.labelSettings(label: moneyLabel, title: moneyComment, size: 20, color: .black)

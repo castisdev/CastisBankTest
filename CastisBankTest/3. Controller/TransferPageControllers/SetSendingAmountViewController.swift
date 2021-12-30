@@ -24,6 +24,8 @@ class SetSendingAmountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("---------amount view did load-----------")
+        
         collectionView.delegate = self
         collectionView.dataSource = self
 
@@ -195,4 +197,4 @@ extension SetSendingAmountViewController: UICollectionViewDelegate, UICollection
 //            applyAmountOfMoneyButton.isEnabled = false
 //        }
 //    }
-//}
+//}\

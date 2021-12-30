@@ -46,15 +46,13 @@ class HomePageViewController: UIViewController{
 
         setFlowLayout(view: collectionView)
         setNavigation()
+        refresh()
         
         //MARK: receive cell information data from server(url)
         accountModel.delegate = self
         accountModel.getAccountList(user: userName)
         
     }
-    
-    
-    
     
     //MARK: prepare devided by segue identifier
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,6 +111,18 @@ class HomePageViewController: UIViewController{
         }
     }
     
+    func refresh(){
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
+        refresh.attributedTitle = NSAttributedString(string: "새로고침")
+        
+        collectionView.addSubview(refresh)
+    }
+    
+    @objc func updateUI(refresh: UIRefreshControl){
+        refresh.endRefreshing()
+        collectionView.reloadData()
+    }
     
     //MARK: - segue actions
     @IBAction func buttonPressed(_ sender: UIButton){

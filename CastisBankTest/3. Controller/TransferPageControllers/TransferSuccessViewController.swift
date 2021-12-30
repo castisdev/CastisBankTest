@@ -30,7 +30,7 @@ class TransferSuccessViewController: UIViewController {
         otpModel.delegate = self
         print("-- user info !!", userInfo)
         otpModel.getOTP(userId: userInfo.userName, companyId: userInfo.companyId)
-        print("otp result at success view : ", otpResult)
+         print("otp result at success view : ", otpResult)
         
         setConstraints()
     }

@@ -67,6 +67,7 @@ class AccountUseViewController: UIViewController {
         setFlowLayout(view: collectionView)
         setNavigation()
         setConstraints()
+        refresh()
         
         otpModel.delegate = self
         otpModel.getOTP(userId: userName, companyId: companyId)
@@ -104,6 +105,19 @@ class AccountUseViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    func refresh(){
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(updateUI(refresh:)), for: .valueChanged)
+        refresh.attributedTitle = NSAttributedString(string: "새로고침")
+        
+        self.collectionView.addSubview(refresh)
+    }
+    
+    @objc func updateUI(refresh: UIRefreshControl){
+        refresh.endRefreshing()
+        self.collectionView.reloadData()
     }
     
     //prepare information before present next vc that is modal

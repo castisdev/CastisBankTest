@@ -49,11 +49,6 @@ class SetRecieverViewController: UIViewController {
         otpModel.getOTP(userId: userInfo.userName, companyId: userInfo.companyId)
         
         print("---------------------transfer settings ------------")
-        print("otpResult at set receiver controller : ", otpResult)
-        
-        print("received account info : ", accountInfo)
-        print("userInfo : ", userInfo)
-        
     }
     
     func setconstraints(){
@@ -92,14 +87,27 @@ class SetRecieverViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let setAmountViewController = segue.destination as? SetSendingAmountViewController else {
-            return print("segue error : set receiver -> set amount")
-        }
-        if let cell = sender as? TransferedAccountInfoCell, let indexPath = self.tableView.indexPath(for: cell) {
-            let keys = Array(accountList.keys)
-            let values = Array(accountList.values)
-            setAmountViewController.selectedAccountInfo = [keys[indexPath.row], values[indexPath.row]]
-            setAmountViewController.sendingAccountInfo = [accountInfo[0], accountInfo[1]]
+        
+        if segue.identifier == "toSetAmount" {
+            
+            guard let setAmountViewController = segue.destination as? SetSendingAmountViewController else {
+                return print("segue error : set receiver -> set amount")
+            }
+            
+            if let cell = sender as? TransferedAccountInfoCell, let indexPath = self.tableView.indexPath(for: cell) {
+                let keys = Array(accountList.keys)
+                let values = Array(accountList.values)
+                setAmountViewController.selectedAccountInfo = [keys[indexPath.row], values[indexPath.row]]
+                setAmountViewController.sendingAccountInfo = [accountInfo[0], accountInfo[1]]
+            }
+            
+        } else if segue.identifier == "toSetAccountSegue" {
+            
+            guard let setAccountViewController = segue.destination as? SetAccountNumberViewController else {
+                return print("segue error: set receiver from history -> set receiver custom")
+            }
+            
+            setAccountViewController.sendingAccountInfo = [accountInfo[0], accountInfo[1]]
         }
     }
 

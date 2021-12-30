@@ -38,6 +38,7 @@ class DetailTransferInfoCell: UITableViewCell {
         case 3:
             return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: detailFuncs.makeMoneyAmountEasy(amount: balance), size: 15, color: .black)
         case 4:
+            transactionDetailInfoLabel.numberOfLines = 2
             return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: accountInfo.history, size: 15, color: .black)
         default:
             return uikitFuncs.labelSettings(label: transactionDetailInfoLabel, title: " ", size: 15, color: .black)
@@ -53,7 +54,7 @@ class DetailTransferInfoCell: UITableViewCell {
             transactionInfoLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             transactionDetailInfoLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            transactionDetailInfoLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            transactionDetailInfoLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
     }
 

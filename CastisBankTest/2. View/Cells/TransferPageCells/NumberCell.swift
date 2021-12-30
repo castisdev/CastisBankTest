@@ -11,7 +11,7 @@ class NumberCell: UICollectionViewCell {
     
     let cellIdentifier = "numberCell"
     
-    let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", " ", "0", "←"]
+    let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "0", "←"]
     let uikitFuncs = UIKitFuncs()
     
     @IBOutlet weak var numberLabel: UILabel!

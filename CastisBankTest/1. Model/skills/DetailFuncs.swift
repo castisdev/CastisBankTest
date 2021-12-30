@@ -5,6 +5,7 @@
 //  Created by Tak_iMac on 2021/12/13.
 //
 import Foundation
+import UIKit
 
 class DetailFuncs {
     

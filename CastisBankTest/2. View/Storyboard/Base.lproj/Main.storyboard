@@ -184,7 +184,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="mW6-Yy-prj" kind="modal" id="FXJ-pO-JUa"/>
+                                    <segue destination="mW6-Yy-prj" kind="show" identifier="toSetAccountSegue" id="FXJ-pO-JUa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -215,12 +215,12 @@
             </objects>
             <point key="canvasLocation" x="1392.753623188406" y="-342.1875"/>
         </scene>
-        <!--Set Transfer Account View Controller-->
+        <!--Set Account Number View Controller-->
         <scene sceneID="Bfe-2G-cft">
             <objects>
-                <viewController id="mW6-Yy-prj" customClass="SetTransferAccountViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mW6-Yy-prj" customClass="SetAccountNumberViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Grw-EJ-i2d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TsZ-Qi-OYm">
@@ -262,7 +262,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="toTheSetAmountVC:" destination="mW6-Yy-prj" eventType="touchUpInside" id="h3y-LA-DK3"/>
+                                    <segue destination="kGF-fg-fyt" kind="show" id="p83-w0-raV"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-vF-DPI">
@@ -299,7 +299,7 @@
         <!--Set Sending Amount View Controller-->
         <scene sceneID="MR3-IC-70I">
             <objects>
-                <viewController id="kGF-fg-fyt" customClass="SetSendingAmountViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setAmountStoryBoard" id="kGF-fg-fyt" customClass="SetSendingAmountViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wqw-uH-Pka">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -821,12 +821,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjx-X0-JbD">
                                 <rect key="frame" x="51" y="433" width="312" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="INQ-4Z-4CF">
-                                    <children>
-                                        <command title="Item 1" id="852-Ct-rgq"/>
-                                        <command title="Item 2" id="8ZW-jj-p2Q"/>
-                                    </children>
-                                </menu>
                                 <state key="normal" title="출금 계좌 선택"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KX4-5z-g68">
@@ -880,7 +874,7 @@
                         <outlet property="applyMemoButton" destination="KX4-5z-g68" id="ghg-kZ-riS"/>
                         <outlet property="historyMemoTextField" destination="nas-05-ScA" id="i1E-35-Uaj"/>
                         <outlet property="selectedAccountNumberLabel" destination="SWF-vU-ULw" id="qCX-E4-4zI"/>
-                        <outlet property="sendingAccountInfoButton" destination="INQ-4Z-4CF" id="RWz-Pe-OzX"/>
+                        <outlet property="sendingAccountInfoButton" destination="fjx-X0-JbD" id="Dpu-mv-2hh"/>
                         <outlet property="sendingAmountLabel" destination="Hi5-gz-kNu" id="wXX-Sx-DQJ"/>
                     </connections>
                 </viewController>
@@ -1017,6 +1011,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="p83-w0-raV"/>
         <segue reference="NPn-cY-VsQ"/>
     </inferredMetricsTieBreakers>
     <resources>

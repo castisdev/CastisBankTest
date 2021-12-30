@@ -8,14 +8,16 @@
 import Foundation
 import UIKit
 
-
-class SetTransferAccountViewController: UIViewController{
+class SetAccountNumberViewController: UIViewController{
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var putAccountTextField: UITextField!
     @IBOutlet weak var applyTrasferAccountButton: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var sendingAccountInfo = ["보내는 계좌 이름", "보내는 계좌 번호"]
+    var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
     
     let uikitFuncs = UIKitFuncs()
     let colorchip = ColorChip()
@@ -27,6 +29,8 @@ class SetTransferAccountViewController: UIViewController{
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        print("----------", sendingAccountInfo)
         
         setConstraints()
         displaySettings()
@@ -61,7 +65,7 @@ class SetTransferAccountViewController: UIViewController{
     }
     
     func displaySettings(){
-        putAccountTextField.placeholder = "입금할 계좌번호 입력"
+        putAccountTextField.placeholder = "입금할 계좌번호 입력(- 포함해서)"
         
         putAccountTextField.backgroundColor = .systemGray6
         putAccountTextField.borderStyle = .none
@@ -81,12 +85,17 @@ class SetTransferAccountViewController: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func toTheSetAmountVC(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let setAmountViewController = segue.destination as? SetSendingAmountViewController else {
+            return print("segue error: set account number -> set sending amount")
+        }
+        
+        setAmountViewController.selectedAccountInfo = ["", putAccountTextField.text!]
+        setAmountViewController.sendingAccountInfo = self.sendingAccountInfo
     }
 }
 
-extension SetTransferAccountViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension SetAccountNumberViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
@@ -157,12 +166,12 @@ extension SetTransferAccountViewController: UICollectionViewDelegateFlowLayout, 
         case 2:
             putAccountTextField.text?.append(contentsOf: numberCell.numbers[indexPath.row + 6])
         case 3:
-            if indexPath.row == 1{
+            if indexPath.row == 0{
+                putAccountTextField.text?.append(contentsOf: numberCell.numbers[9])
+            }else if indexPath.row == 1{
                 putAccountTextField.text?.append(contentsOf: numberCell.numbers[10])
             } else if putAccountTextField.text?.isEmpty == false && indexPath.row == 2{
                 putAccountTextField.text?.removeLast()
-            } else {
-                print("selected cell which means nothing")
             }
         default:
             return
