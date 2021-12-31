@@ -16,6 +16,8 @@ class SetSendingMemoViewController: UIViewController {
     @IBOutlet weak var historyMemoTextField: UITextField!
     @IBOutlet weak var applyMemoButton: UIButton!
     
+    @IBOutlet weak var goToHomeBarButton: UIBarButtonItem!
+    
     let uikitFuncs = UIKitFuncs()
 
     var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
@@ -53,6 +55,8 @@ class SetSendingMemoViewController: UIViewController {
         self.historyMemoTextField.layer.cornerRadius = 10
         
         uikitFuncs.buttonSettings(button: self.applyMemoButton, title: "확인", fontSize: 17, tintColor: .black)
+        
+        goToHomeBarButton.title = "취소"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,7 +112,10 @@ class SetSendingMemoViewController: UIViewController {
         seekConsentViewController.sendingAccountInfo = self.sendingAccountInfo
         seekConsentViewController.sendingMemo = historyMemoTextField.text!
     }
-
+    @IBAction func goToHomeButtonPressed(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
 }
 
 extension SetSendingMemoViewController: UITextFieldDelegate {

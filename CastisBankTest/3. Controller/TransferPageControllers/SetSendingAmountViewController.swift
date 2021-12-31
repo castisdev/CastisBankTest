@@ -15,6 +15,8 @@ class SetSendingAmountViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var applyAmountOfMoneyButton: UIButton!
     
+    @IBOutlet weak var goToHomeBarButton: UIBarButtonItem!
+    
     let numberCell = NumberCell()
     let uikitFuncs = UIKitFuncs()
     
@@ -59,6 +61,8 @@ class SetSendingAmountViewController: UIViewController {
         
         self.applyAmountOfMoneyButton.backgroundColor = .lightGray
         self.applyAmountOfMoneyButton.layer.cornerRadius = 10
+        
+        self.goToHomeBarButton.title = "취소"
     }
     
     private func setConstraints(){
@@ -103,6 +107,9 @@ class SetSendingAmountViewController: UIViewController {
         setMemoViewController.sendingAmount = self.amountOfMoneyTextField.text!
         setMemoViewController.selectedAccountInfo = self.selectedAccountInfo
         setMemoViewController.sendingAccountInfo = self.sendingAccountInfo
+    }
+    @IBAction func goToHomeButtonPressed(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
