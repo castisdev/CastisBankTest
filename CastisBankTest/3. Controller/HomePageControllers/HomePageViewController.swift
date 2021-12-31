@@ -15,6 +15,7 @@ class HomePageViewController: UIViewController{
     
     let accountInfoCell = MainAccountCell()
     let editAccountCell = EditOrderCell()
+    let colorCell = ColorCell()
     
     let uikitFuncs = UIKitFuncs()
     let detailFuncs = DetailFuncs()
@@ -33,6 +34,9 @@ class HomePageViewController: UIViewController{
     let toHistorySegueIdentifier = "toAccountUseSegue"
     let toEditOrderSegueIdentifier = "editAccountSegue"
     let toTransferSegueIdentifier = "toTransferSegue"
+    let toColorChooseSegueIdentifier = "colorChooseSegue"
+    
+    var selectedCellColor: UIColor?
     
     //MARK: - VC life cycles
     override func viewDidLoad() {
@@ -74,6 +78,7 @@ class HomePageViewController: UIViewController{
             guard let accountUseViewController = segue.destination as? AccountUseViewController else {
                 return print("segue error from: Home Page => Account Use")
             }
+            
             accountUseViewController.accountInfo = self.selectedAccountInfoForHistory
             
         } else if segue.identifier == self.toTransferSegueIdentifier {
@@ -84,9 +89,20 @@ class HomePageViewController: UIViewController{
             guard let setReceiverViewController = segue.destination as? SetRecieverViewController else {
                 return print("segue error from: Home Page => transfer Receiver setting")
             }
+            
             print(setReceiverViewController.accountInfo)
             setReceiverViewController.accountInfo = self.selectedAccountInfoForTransfer
             print("---", setReceiverViewController.accountInfo)
+            
+        } else if segue.identifier == self.toColorChooseSegueIdentifier{
+            
+            colorButtonPressed(sender as! UIButton)
+            
+            guard let colorChooseViewController = segue.destination as? ColorChooseViewController else {
+                return print("segue error from: Home Page => color change setting")
+            }
+            
+            colorChooseViewController.cellColor = selectedCellColor
         }
     }
     
@@ -148,6 +164,10 @@ class HomePageViewController: UIViewController{
         
         print("--------------------transfer-------------------------")
     }
+    
+    @IBAction func colorButtonPressed(_ sender: UIButton){
+        self.selectedCellColor = self.colorCell.colorChipArray[sender.tag]
+    }
 }
 
 //MARK: - cell settings
@@ -185,8 +205,9 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.cellSettings(index: indexPath.row, accountList: accountList)
             
             //tag for sending information
-            cell.transferButton.tag = indexPath.row
-            cell.useInformationOfAccountButton.tag = indexPath.row
+            cell.transferButton.tag = indexPath.item
+            cell.useInformationOfAccountButton.tag = indexPath.item
+            cell.colorChangeButton.tag = indexPath.item
             cell.setConstraints()
             
             return cell

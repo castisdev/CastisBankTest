@@ -58,8 +58,6 @@ class SetSendingAmountViewController: UIViewController {
         
         self.applyAmountOfMoneyButton.backgroundColor = .lightGray
         self.applyAmountOfMoneyButton.layer.cornerRadius = 10
-        
-        self.collectionView.backgroundColor = .blue
     }
     
     private func setConstraints(){
@@ -107,7 +105,7 @@ class SetSendingAmountViewController: UIViewController {
     }
 }
 
-extension SetSendingAmountViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension SetSendingAmountViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
     }
@@ -126,7 +124,7 @@ extension SetSendingAmountViewController: UICollectionViewDelegate, UICollection
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: numberCell.cellIdentifier, for: indexPath) as? NumberCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .lightGray
+        
         cell.setConstraints()
         
         switch indexPath.section{
@@ -144,26 +142,16 @@ extension SetSendingAmountViewController: UICollectionViewDelegate, UICollection
         return cell
     }
     
-    
     //cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = view.bounds.width / 3
-        let cellSize = CGSize(width: cellWidth , height: cellWidth - 35)
+        let cellWidth = view.bounds.width / 3 - 40
+        let cellHeight = collectionView.bounds.height / 4
+        let cellSize = CGSize(width: cellWidth , height: cellHeight)
         
         return cellSize
     }
     
-    //같은 섹션안의 아이템 간격
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1000
-    }
-
-    //섹션 간 간격
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let cellInset = UIEdgeInsets(top: 200, left: 200, bottom: 200, right: 200)
-        return cellInset
-    }
     
     //셀이 선택 되었을 떄
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){

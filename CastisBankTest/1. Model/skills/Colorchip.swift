@@ -46,5 +46,7 @@ class ColorChip {
     let kakaoBeige72 = UIColor(red: (231/255.0), green: (228/255.0), blue: (220/255.0), alpha: 1.0)
     let kakaoPinkBeige73 = UIColor(red: (233/255.0), green: (209/255.0), blue: (195/255.0), alpha: 1.0)
     let kakaoKhaki74 = UIColor(red: (194/255.0), green: (189/255.0), blue: (172/255.0), alpha: 1.0)
+    
 }
+
 

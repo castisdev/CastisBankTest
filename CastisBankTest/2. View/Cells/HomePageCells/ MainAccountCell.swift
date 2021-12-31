@@ -49,6 +49,7 @@ class MainAccountCell: UICollectionViewCell {
         
         //set star image status(Fill or not) => maybe by order...?
         uikitFuncs.starSetting(imageView: mainAccountStarImageView, color: .black, size: 100, index: index)
+        uikitFuncs.buttonSettings(button: colorChangeButton, title: "색", fontSize: 17, tintColor: .black)
     }
 
     

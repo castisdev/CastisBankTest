@@ -53,16 +53,9 @@ class AccountUseViewController: UIViewController {
     //MARK: - VC life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        setInfoViewController.delegate = self
-//        collectionView.backgroundColor = colorchip.kakaoYello11
-
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-//        collectionView.frame = view.bounds
-        collectionView.backgroundColor = colorchip.kakaoBabyPink62
         
         setFlowLayout(view: collectionView)
         setNavigation()

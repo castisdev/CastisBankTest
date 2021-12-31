@@ -87,7 +87,8 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                     <connections>
-                                                        <segue destination="t1w-OH-lOy" kind="presentation" id="xx6-bh-mGq"/>
+                                                        <action selector="colorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JNi-QI-AIR"/>
+                                                        <segue destination="t1w-OH-lOy" kind="presentation" identifier="colorChooseSegue" id="xx6-bh-mGq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -148,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L1B-cC-bJe">
-                                <rect key="frame" x="0.0" y="63" width="414" height="259"/>
+                                <rect key="frame" x="0.0" y="206" width="414" height="259"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="avT-Ae-Ktm">
@@ -178,12 +179,45 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txj-0h-cBE">
+                                <rect key="frame" x="31" y="43" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBF-f1-9c5">
+                                <rect key="frame" x="31" y="88" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pl7-Yl-wuK">
+                                <rect key="frame" x="102" y="83" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1V-6p-y4l">
+                                <rect key="frame" x="327" y="20" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="pushApplyColorButton:" destination="t1w-OH-lOy" eventType="touchUpInside" id="1us-QL-Pft"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iqw-qm-4fK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="accountNameLabel" destination="Txj-0h-cBE" id="noC-hw-pnA"/>
+                        <outlet property="accountNumberLabel" destination="dBF-f1-9c5" id="Ka1-oe-WRK"/>
+                        <outlet property="applyColorButton" destination="W1V-6p-y4l" id="FX0-0W-wr4"/>
                         <outlet property="collectionView" destination="L1B-cC-bJe" id="Sls-8H-D6s"/>
+                        <outlet property="copyAccontNumberButton" destination="Pl7-Yl-wuK" id="iCa-hO-Wi7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPh-sr-idf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
