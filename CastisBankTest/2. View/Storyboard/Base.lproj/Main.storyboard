@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -166,7 +165,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="132" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L7Q-Gb-S9E">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="L7Q-Gb-S9E">
                                                     <rect key="frame" x="38" y="40" width="57" height="55"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -391,7 +390,7 @@
             </objects>
             <point key="canvasLocation" x="2266.666666666667" y="-342.1875"/>
         </scene>
-        <!--Set Sending Amount View Controller-->
+        <!--계좌 이름-->
         <scene sceneID="MR3-IC-70I">
             <objects>
                 <viewController storyboardIdentifier="setAmountStoryBoard" id="kGF-fg-fyt" customClass="SetSendingAmountViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -399,13 +398,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 설정된 계좌 번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ba-xV-bN2">
-                                <rect key="frame" x="134" y="80" width="146" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDC-KQ-bNU">
                                 <rect key="frame" x="23" y="794" width="368" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -460,22 +452,18 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 설정된 계좌 번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ba-xV-bN2">
+                                <rect key="frame" x="130" y="99" width="146" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4gE-Ec-zE2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wvS-MM-mO6">
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5rC-eG-9Ba">
-                            <rect key="frame" x="192" y="7" width="30" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <menu key="menu" id="Lwl-tD-vVo">
-                                <children>
-                                    <command title="Item 1" id="SLj-LO-JsR"/>
-                                    <command title="Item 2" id="Q0C-rh-G8A"/>
-                                </children>
-                            </menu>
-                        </button>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="계좌 이름" id="wvS-MM-mO6"/>
                     <connections>
                         <outlet property="accountNameOfSendingButton" destination="E2G-Ly-k0r" id="tvl-H1-PJv"/>
                         <outlet property="amountOfMoneyTextField" destination="jvs-nL-pDK" id="csS-HT-JM0"/>
@@ -486,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmO-11-neP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2267" y="-1071"/>
+            <point key="canvasLocation" x="2266.666666666667" y="-1071.4285714285713"/>
         </scene>
         <!--Set Information View Controller-->
         <scene sceneID="Z9J-gL-IT3">
@@ -945,17 +933,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="이체 받을 계좌 이름" id="kJy-Hv-1gl">
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="y67-fF-UHA">
-                            <rect key="frame" x="149" y="7" width="116" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <menu key="menu" id="svF-aE-EP0">
-                                <children>
-                                    <command title="Item 1" id="sVh-eO-fsv"/>
-                                    <command title="Item 2" id="QkB-O5-6KB"/>
-                                </children>
-                            </menu>
-                            <state key="normal" title="이체 받을 계좌 이름"/>
-                        </button>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ycx-U5-AHo">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Pec-JK-1a0">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
@@ -1106,10 +1083,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="p83-w0-raV"/>
+        <segue reference="0ge-ta-XZg"/>
         <segue reference="NPn-cY-VsQ"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="person" width="128" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">

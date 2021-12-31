@@ -28,6 +28,8 @@ class SetSendingAmountViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        self.title = selectedAccountInfo[0]
 
         settings()
         setConstraints()
@@ -42,7 +44,6 @@ class SetSendingAmountViewController: UIViewController {
 //    }
 //
     private func settings(){
-        self.navigationItem.title = selectedAccountInfo[0]
         self.amountOfMoneyTextField.isUserInteractionEnabled = false
         
         uikitFuncs.labelSettings(label: self.receiverAccountNameLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)

@@ -47,9 +47,11 @@ class HomePageViewController: UIViewController{
         
         //collectionView size 설정
         collectionView.frame = view.bounds
+        
+        self.navigationItem.title = userName
 
         setFlowLayout(view: collectionView)
-        setNavigation()
+//        setNavigation()
         refresh()
     }
     
@@ -107,28 +109,28 @@ class HomePageViewController: UIViewController{
     }
     
     //MARK: custom navigation bar
-    func setNavigation(){
-
-        let label = UILabel()
-                   
-        //for setting label constraints
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        //label custom(color: for recognize)
-        label.text = userName
-//        label.backgroundColor = .green
-        label.textAlignment = .left
-      
-        //insert customed label to navigation title
-        navigationItem.titleView = label
-     
-        //set the contraints of label
-        if let navigationBar = navigationController?.navigationBar {
-            NSLayoutConstraint.activate([
-                label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -60)
-            ])
-        }
-    }
+//    func setNavigation(){
+//
+//        let label = UILabel()
+//
+//        //for setting label constraints
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//
+//        //label custom(color: for recognize)
+//        label.text = userName
+////        label.backgroundColor = .green
+//        label.textAlignment = .left
+//
+//        //insert customed label to navigation title
+//        navigationItem.titleView = label
+//
+//        //set the contraints of label
+//        if let navigationBar = navigationController?.navigationBar {
+//            NSLayoutConstraint.activate([
+//                label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -60)
+//            ])
+//        }
+//    }
     
     func refresh(){
         let refresh = UIRefreshControl()
@@ -263,7 +265,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 }
 
 //MARK: - delegate methods
-
 //MARK: from data which is from server(url)
 extension HomePageViewController: AccountListModelDelegate {
     func AccountListRetrieved(accounts: [AccountList]) {
