@@ -26,7 +26,8 @@ class FilterModel{
     ]
     
     func setSearchPeriod(period: String, startDate: String, endDate: String, now: String) -> [String] {
-
+        
+        print("--------------filter model entered and received period ------------ : ", period)
         
         switch period{
         case "1개월":
@@ -38,7 +39,7 @@ class FilterModel{
             print("last month period : ", lastMonthAndYear[0], " ~ ", lastMonthAndYear[1])
             return ["", lastMonthAndYear[0], lastMonthAndYear[1]]
         case "직접설정":
-            return ["7M", startDate, endDate]
+            return ["", startDate, endDate]
         default:
             return ["3M", "", ""]
         }

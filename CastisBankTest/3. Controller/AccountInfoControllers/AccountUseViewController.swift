@@ -37,13 +37,14 @@ class AccountUseViewController: UIViewController {
     let banbokCount = 1
 
     //filter: default value
-    var selectedInfo = ["3개월", "전체", "최신순"]
+    var labelDisplayedInfo = ["3개월", "전체", "최신순"]
     var selectedSearchPeriod = ["3개월", "", ""]
+    var filteredPeriod = ["", "", ""]
     var nowTime = ""
     var selectedSearchType = [AccountHistoryList]()
     var selectedSearchOrder = [AccountHistoryList]()
     
-    
+//    var selectedStartEndDate = ["", ""]
     //accountName
     var accountInfo = ["계좌 이름", "계좌 번호", "계좌 잔액"]
     
@@ -125,7 +126,7 @@ class AccountUseViewController: UIViewController {
                 return print("segue error : account history => set filter")
             }
             
-            setInfoViewController.receivedInfo = selectedInfo
+            setInfoViewController.receivedInfo = labelDisplayedInfo
             setInfoViewController.delegate = self
             
         } else if segue.identifier == toDetailInfoSegueIdentifier {
@@ -166,26 +167,29 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
         case 1:
             return 1
         case 2:
-            if selectedInfo[0] == "지난달"{
+            if labelDisplayedInfo[0] == "지난달"{
                 nowTime = whenNowIsNeeded()
             }
             
-            selectedSearchPeriod = filterModel.setSearchPeriod(
-                period: selectedInfo[0],
-                startDate: "20210802",
-                endDate: "20211221",
+            //make received info to filtered info
+            filteredPeriod = filterModel.setSearchPeriod(
+                period: selectedSearchPeriod[0],
+                startDate: selectedSearchPeriod[1],
+                endDate: selectedSearchPeriod[2],
                 now: nowTime
             )
+            
+            print(" >>>>>>>>>get :", filteredPeriod)
             accountHistoryModel.getAccountHistory(
                 userId: userName,
                 accountId: accountInfo[1],
-                duration: selectedSearchPeriod[0],
-                startDate: selectedSearchPeriod[1],
-                endDate: selectedSearchPeriod[2],
+                duration: filteredPeriod[0],
+                startDate: filteredPeriod[1],
+                endDate: filteredPeriod[2],
                 otp: updateOPTResult?.otp ?? "otp fail"
             )
             selectedSearchType = filterModel.setSearchType(
-                type: selectedInfo[1],
+                type: labelDisplayedInfo[1],
                 list: accountHistoryList,
                 accountNum: accountInfo[1]
             )
@@ -217,11 +221,11 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
             return cell
         case 1:
 //            print("setting cell")
-            searchCell.cellSettings(month: selectedInfo[0], type: selectedInfo[1], order: selectedInfo[2])
+            searchCell.cellSettings(month: labelDisplayedInfo[0], type: labelDisplayedInfo[1], order: labelDisplayedInfo[2])
             searchCell.setConstraints()
             return searchCell
         case 2:
-            selectedSearchOrder = filterModel.setSearchOrder(order: selectedInfo[2], list: selectedSearchType)
+            selectedSearchOrder = filterModel.setSearchOrder(order: labelDisplayedInfo[2], list: selectedSearchType)
             historyCell.cellSettings(index: indexPath.row, accountHistoryList: selectedSearchOrder, accountNum: accountInfo[1])
             historyCell.setConstraints()
             return historyCell
@@ -283,11 +287,18 @@ extension AccountUseViewController: UICollectionViewDelegateFlowLayout, UICollec
 
 //MARK: - use custom protocol
 extension AccountUseViewController: SendUpDateDelegate {
+    func sendStartEnd(selectedPeriod: [String]) {
+        print("넘어온 period ..", selectedPeriod)
+        self.selectedSearchPeriod = selectedPeriod
+        collectionView.reloadData()
+    }
+    
+    
     func sendUpdate(selectedData: [String]) {
         
         otpModel.getOTP(userId: userName, companyId: "talkis_app")
-        selectedInfo = selectedData
-        print("넘어온 selected ..", selectedInfo)
+        self.labelDisplayedInfo = selectedData
+        print("넘어온 selected ..", labelDisplayedInfo)
         
         print("^ selectedInfo delegate")
         collectionView.reloadData()

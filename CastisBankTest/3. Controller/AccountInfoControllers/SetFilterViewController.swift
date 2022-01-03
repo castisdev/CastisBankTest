@@ -10,6 +10,7 @@ import UIKit
 //for receiving data from setInformationViewController.swift delegate
 protocol SendUpDateDelegate: AnyObject {
     func sendUpdate(selectedData: [String])
+    func sendStartEnd(selectedPeriod: [String])
 }
 
 class SetFilterViewController: UIViewController {
@@ -25,6 +26,7 @@ class SetFilterViewController: UIViewController {
     
     //default value
     var receivedInfo = [""]
+    var startEndDate = ["직접설정", "startDate", "endDate"]
     var delegate: SendUpDateDelegate?
     
     //MARK: - VC life cycle
@@ -100,6 +102,9 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
             //when segment value changed
             cell.choiceSegmentControl.addTarget(self, action: #selector(segmentValueChanged(_:)), for: .valueChanged)
             cell.choiceSegmentControl.tag = indexPath.row
+            
+            cell.startDateTextField.addTarget(self, action: #selector(startDateChanged(_:)), for: .editingDidEnd)
+            cell.endDateTextField.addTarget(self, action: #selector(endDateChanged(_:)), for: .editingDidEnd)
 
             return cell
         case 1:
@@ -114,8 +119,8 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
     //check button action(with segment's changed value
     @IBAction func backToInfo(_ sender: Any) {
         
-        print("--------back to list =====")
-        delegate?.sendUpdate(selectedData: receivedInfo)
+        delegate?.sendUpdate(selectedData: self.receivedInfo)
+        delegate?.sendStartEnd(selectedPeriod: self.startEndDate)
         
         self.dismiss(animated: true, completion: nil)
     }
@@ -123,11 +128,25 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
     //act when sement value changed
     @objc func segmentValueChanged(_ sender: UISegmentedControl){
         self.receivedInfo[sender.tag] = filterModel[sender.tag].standards[sender.selectedSegmentIndex]
+        
+        
+        print("-----------", receivedInfo)
+        print("============", startEndDate)
+        
     }
     
-    @IBAction func indexChanges(_ sender: Any){
-//        switch segmentCon
+    @objc func startDateChanged(_ sender: UITextField){
+        self.startEndDate[1] = sender.text ?? "20210303"
+        
+        print("-----------", receivedInfo)
+        print("============", startEndDate)
     }
     
+    @objc func endDateChanged(_ sender: UITextField){
+        self.startEndDate[2] = sender.text ?? "20220303"
+        
+        print("-----------", receivedInfo)
+        print("============", startEndDate)
+    }
 }
 

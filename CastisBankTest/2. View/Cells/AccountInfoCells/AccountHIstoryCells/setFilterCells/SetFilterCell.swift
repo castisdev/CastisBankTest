@@ -117,7 +117,7 @@ class SetFilterCell: UITableViewCell {
     @objc func buttonDoneTappedForStartDate(){
         if let datePicker = self.startDateTextField.inputView as? UIDatePicker {
             let dateformatter = DateFormatter()
-            dateformatter.dateFormat = "yyyymmdd"
+            dateformatter.dateFormat = "yyyyMMdd"
             self.startDateTextField.text = dateformatter.string(from: datePicker.date)
         }
         
@@ -127,7 +127,7 @@ class SetFilterCell: UITableViewCell {
     @objc func buttonDoneTappedForEndDate(){
         if let datePicker = self.endDateTextField.inputView as? UIDatePicker {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyymmdd"
+            dateFormatter.dateFormat = "yyyyMMdd"
             self.endDateTextField.text = dateFormatter.string(from: datePicker.date)
         }
         
@@ -142,7 +142,7 @@ extension UITextField {
         
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
-        datePicker.preferredDatePickerStyle = .inline
+        datePicker.preferredDatePickerStyle = .wheels
         datePicker.sizeToFit()
         
         self.inputView = datePicker
