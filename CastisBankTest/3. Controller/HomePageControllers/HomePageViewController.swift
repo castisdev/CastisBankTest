@@ -26,8 +26,7 @@ class HomePageViewController: UIViewController{
     var accountModel = AccountListModel()
     
     //MARK: selected cell info (to account history VC)
-    var selectedAccountInfoForHistory = ["name", "number", "balance"]
-    var selectedAccountInfoForTransfer = ["name", "8282-0200", "123,456"]
+    var selectedAccountInfo = ["name", "number", "balance"]
 //    var container: NSPersistentContainer!
     
     //MARK: seperate segue by identifier (connected with storyboard)
@@ -81,7 +80,7 @@ class HomePageViewController: UIViewController{
                 return print("segue error from: Home Page => Account Use")
             }
             
-            accountUseViewController.accountInfo = self.selectedAccountInfoForHistory
+            accountUseViewController.accountInfo = self.selectedAccountInfo
             
         } else if segue.identifier == self.toTransferSegueIdentifier {
             
@@ -93,7 +92,7 @@ class HomePageViewController: UIViewController{
             }
             
             print(setReceiverViewController.accountInfo)
-            setReceiverViewController.accountInfo = self.selectedAccountInfoForTransfer
+            setReceiverViewController.accountInfo = self.selectedAccountInfo
             print("---", setReceiverViewController.accountInfo)
             
         } else if segue.identifier == self.toColorChooseSegueIdentifier{
@@ -105,6 +104,7 @@ class HomePageViewController: UIViewController{
             }
             
             colorChooseViewController.cellColor = selectedCellColor
+            colorChooseViewController.selectedAccountInfo = [selectedAccountInfo[0], selectedAccountInfo[1]]
         }
     }
     
@@ -151,23 +151,27 @@ class HomePageViewController: UIViewController{
     //MARK: - segue actions
     @IBAction func buttonPressed(_ sender: UIButton){
 
-        self.selectedAccountInfoForHistory[0] = self.accountList[sender.tag].name
-        self.selectedAccountInfoForHistory[1] = self.accountList[sender.tag].id
-        self.selectedAccountInfoForHistory[2] = self.detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
+        self.selectedAccountInfo[0] = self.accountList[sender.tag].name
+        self.selectedAccountInfo[1] = self.accountList[sender.tag].id
+        self.selectedAccountInfo[2] = self.detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         
         print("--------------------history-------------------------")
     }
     
     @IBAction func transferButtonPressed(_ sender: UIButton){
         
-        self.selectedAccountInfoForTransfer[0] = self.accountList[sender.tag].name
-        self.selectedAccountInfoForTransfer[1] = self.accountList[sender.tag].id
-        self.selectedAccountInfoForTransfer[2] = self.detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
+        self.selectedAccountInfo[0] = self.accountList[sender.tag].name
+        self.selectedAccountInfo[1] = self.accountList[sender.tag].id
+        self.selectedAccountInfo[2] = self.detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         
         print("--------------------transfer-------------------------")
     }
     
     @IBAction func colorButtonPressed(_ sender: UIButton){
+        
+        self.selectedAccountInfo[0] = self.accountList[sender.tag].name
+        self.selectedAccountInfo[1] = self.accountList[sender.tag].id
+        self.selectedAccountInfo[2] = self.detailFuncs.makeMoneyAmountEasy(amount: accountList[sender.tag].balance)
         self.selectedCellColor = self.colorCell.colorChipArray[sender.tag]
     }
 }
@@ -200,8 +204,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             return UICollectionViewCell()
         }
         
-        //마지막 셀은 edit.. 이거 좀 고쳐야 할듯 ㅠㅠ => section으로 바꿈.
-        //배열 순서대로 하니까, 셀이 reusable 이기 때문에 자꾸 바뀌는 듯..! 아니네.
+    
         switch(indexPath.section){
         case 0:
             cell.cellSettings(index: indexPath.row, accountList: accountList)

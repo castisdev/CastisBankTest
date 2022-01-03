@@ -26,6 +26,7 @@ class ColorChooseViewController: UIViewController {
     
     var cellColor: UIColor?
     var selectedIndexPath: IndexPath?
+    var selectedAccountInfo = ["accountName", "accountNubmer"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,9 @@ class ColorChooseViewController: UIViewController {
         settings()
         
         collectionView.allowsMultipleSelection = false
+        
+        self.accountNameLabel.text = selectedAccountInfo[0]
+        self.accountNumberLabel.text = selectedAccountInfo[1]
     }
     
     private func setConstraints(){

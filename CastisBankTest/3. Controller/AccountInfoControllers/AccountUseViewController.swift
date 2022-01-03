@@ -121,7 +121,7 @@ class AccountUseViewController: UIViewController {
         
         if segue.identifier == toSetFilterSegueIdentifier {
             
-            guard let setInfoViewController = segue.destination as? SetInformationViewController else {
+            guard let setInfoViewController = segue.destination as? SetFilterViewController else {
                 return print("segue error : account history => set filter")
             }
             

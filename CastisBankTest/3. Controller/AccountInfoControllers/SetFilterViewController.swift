@@ -12,7 +12,7 @@ protocol SendUpDateDelegate: AnyObject {
     func sendUpdate(selectedData: [String])
 }
 
-class SetInformationViewController: UIViewController {
+class SetFilterViewController: UIViewController {
     
     //MARK: - declare instances
     @IBOutlet weak var tableView: UITableView!
@@ -33,6 +33,7 @@ class SetInformationViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+    
         
         tableView.frame = view.bounds
         tableView.frame = tableView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
@@ -44,7 +45,7 @@ class SetInformationViewController: UIViewController {
 }
 
 //MARK: - about cell
-extension SetInformationViewController: UITableViewDelegate, UITableViewDataSource{
+extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
     
     //number of section
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,12 +95,12 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.section {
         case 0:
-            cell.cellSettings(index: indexPath.row, selected: receivedInfo)
+            cell.cellSettings(index: indexPath.row, selected: receivedInfo, cell.choiceSegmentControl)
             cell.setConstraints()
-            
             //when segment value changed
             cell.choiceSegmentControl.addTarget(self, action: #selector(segmentValueChanged(_:)), for: .valueChanged)
             cell.choiceSegmentControl.tag = indexPath.row
+
             return cell
         case 1:
             confirmCell.cellSettings()
@@ -128,5 +129,20 @@ extension SetInformationViewController: UITableViewDelegate, UITableViewDataSour
 //        switch segmentCon
     }
     
+}
+
+extension SetFilterViewController: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let picker = UIDatePicker()
+        
+        picker.datePickerMode = .date
+        picker.addTarget(self, action: #selector(updateDateFiled(sender:)), for: .valueChanged)
+        
+        textField.inputView = picker
+    }
+    
+    @objc func updateDateFiled(sender: UIDatePicker){
+        
+    }
 }
 
