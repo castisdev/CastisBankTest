@@ -131,18 +131,3 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
-extension SetFilterViewController: UITextFieldDelegate{
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let picker = UIDatePicker()
-        
-        picker.datePickerMode = .date
-        picker.addTarget(self, action: #selector(updateDateFiled(sender:)), for: .valueChanged)
-        
-        textField.inputView = picker
-    }
-    
-    @objc func updateDateFiled(sender: UIDatePicker){
-        
-    }
-}
-

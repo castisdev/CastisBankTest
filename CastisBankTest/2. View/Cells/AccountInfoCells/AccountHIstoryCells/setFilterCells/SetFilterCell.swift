@@ -21,10 +21,6 @@ class SetFilterCell: UITableViewCell {
     let uikitFuncs = UIKitFuncs()
     let filterModel = FilterModel().searchInfo
     
-    var datePicker = UIDatePicker()
-    var dateFormatter = DateFormatter()
-    var toolBar = UIToolbar()
-    
     func cellSettings(index: Int, selected: [String], _ sender: UISegmentedControl){
         
         self.selectionStyle = UITableViewCell.SelectionStyle.none
@@ -47,6 +43,8 @@ class SetFilterCell: UITableViewCell {
         
         uikitFuncs.labelSettings(label: barLabel, title: "-", size: 15, color: .black)
         
+        self.startDateTextField.setDatePicker(target: self, selector: #selector(buttonDoneTappedForStartDate))
+        self.endDateTextField.setDatePicker(target: self, selector: #selector(buttonDoneTappedForEndDate))
     }
     
     func setConstraints() {
@@ -115,17 +113,54 @@ class SetFilterCell: UITableViewCell {
             self.barLabel.alpha = 0
         }
     }
+    
+    @objc func buttonDoneTappedForStartDate(){
+        if let datePicker = self.startDateTextField.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyymmdd"
+            self.startDateTextField.text = dateformatter.string(from: datePicker.date)
+        }
+        
+        self.startDateTextField.resignFirstResponder()
+    }
+    
+    @objc func buttonDoneTappedForEndDate(){
+        if let datePicker = self.endDateTextField.inputView as? UIDatePicker {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyymmdd"
+            self.endDateTextField.text = dateFormatter.string(from: datePicker.date)
+        }
+        
+        self.endDateTextField.resignFirstResponder()
+    }
 }
 
-extension SetFilterCell: UITextFieldDelegate{
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+
+extension UITextField {
+    
+    func setDatePicker(target: Any, selector: Selector){
         
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.sizeToFit()
         
+        self.inputView = datePicker
         
-        if textField == self.startDateTextField {
-            
-        } else if textField == self.endDateTextField {
-            
-        }
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancel = UIBarButtonItem(title: "cancel", style: .plain, target: nil, action: #selector(tapCacel))
+        let done = UIBarButtonItem(title: "done", style: .plain, target: nil, action: selector)
+        
+        toolBar.setItems([cancel, flexible, done], animated: true)
+        self.inputAccessoryView = toolBar
     }
+    
+    @objc func tapCacel() {
+        self.resignFirstResponder()
+    }
+    
+    
 }
