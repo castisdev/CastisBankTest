@@ -50,6 +50,13 @@ class SetRecieverViewController: UIViewController {
         
         print("---------------------transfer settings ------------")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.setNavigation()
+    }
+    
+    private func setNavigation(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     func setconstraints(){
         searchAccountInfoSearchBar.translatesAutoresizingMaskIntoConstraints = false

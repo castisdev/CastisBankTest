@@ -46,15 +46,14 @@ class HomePageViewController: UIViewController{
         
         //collectionView size 설정
         collectionView.frame = view.bounds
-        
-        self.navigationItem.title = userName
-
-        setFlowLayout(view: collectionView)
-//        setNavigation()
-        refresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("- home page view controller view will appear ! -")
+    
+        setFlowLayout(view: collectionView)
+        setNavigation()
+        refresh()
         
         //MARK: receive cell information data from server(url)
         accountModel.delegate = self
@@ -109,7 +108,10 @@ class HomePageViewController: UIViewController{
     }
     
     //MARK: custom navigation bar
-//    func setNavigation(){
+    func setNavigation(){
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.title = userName
 //
 //        let label = UILabel()
 //
@@ -130,7 +132,7 @@ class HomePageViewController: UIViewController{
 //                label.widthAnchor.constraint(equalTo: navigationBar.widthAnchor, constant: -60)
 //            ])
 //        }
-//    }
+    }
     
     func refresh(){
         let refresh = UIRefreshControl()

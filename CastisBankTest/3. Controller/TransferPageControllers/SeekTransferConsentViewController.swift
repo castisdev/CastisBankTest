@@ -30,6 +30,14 @@ class SeekTransferConsentViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.setNavigation()
+    }
+    
+    private func setNavigation(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     private func settings(){
         self.navigationController?.isNavigationBarHidden = true
         
@@ -82,7 +90,7 @@ class SeekTransferConsentViewController: UIViewController {
     }
 
     @IBAction func pushPopButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 //    @IBAction func applyTransferButton(_ sender: Any) {

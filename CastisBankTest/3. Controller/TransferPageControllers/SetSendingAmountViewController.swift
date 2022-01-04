@@ -37,14 +37,14 @@ class SetSendingAmountViewController: UIViewController {
         setConstraints()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.isNavigationBarHidden = false
-//
-//        if amountOfMoneyTextField.text?.isEmpty == true {
-//            applyAmountOfMoneyButton.isEnabled = false
-//        }
-//    }
-//
+    override func viewWillAppear(_ animated: Bool) {
+        self.setNavigation()
+    }
+    
+    private func setNavigation(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     private func settings(){
         //for no keyboard
         self.amountOfMoneyTextField.isUserInteractionEnabled = false

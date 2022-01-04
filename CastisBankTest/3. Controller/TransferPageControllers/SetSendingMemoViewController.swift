@@ -19,6 +19,7 @@ class SetSendingMemoViewController: UIViewController {
     @IBOutlet weak var goToHomeBarButton: UIBarButtonItem!
     
     let uikitFuncs = UIKitFuncs()
+    let skills = DetailFuncs()
 
     var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
     var sendingAccountInfo = ["보내는 계좌 이름", "보내는 계좌 번호"]
@@ -38,6 +39,14 @@ class SetSendingMemoViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.setNavigation()
+    }
+    
+    private func setNavigation(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -46,7 +55,8 @@ class SetSendingMemoViewController: UIViewController {
     private func settings(){
         uikitFuncs.labelSettings(label: self.selectedAccountNumberLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)
         
-        uikitFuncs.labelSettings(label: self.sendingAmountLabel, title: sendingAmount + "원", size: 30, color: .black)
+        let easySendingAmount = skills.makeMoneyAmountEasy(amount: Int(sendingAmount)!)
+        uikitFuncs.labelSettings(label: self.sendingAmountLabel, title: easySendingAmount, size: 30, color: .black)
         
         let sendingAccountTitle = "\(sendingAccountInfo[0])(\(sendingAccountInfo[1]))"
         uikitFuncs.buttonSettings(button: self.sendingAccountInfoButton, title: sendingAccountTitle, fontSize: 17, tintColor: .black)
@@ -58,11 +68,6 @@ class SetSendingMemoViewController: UIViewController {
         
         goToHomeBarButton.title = "취소"
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationSettings()
-    }
-    
     
     private func setConstraints(){
         self.selectedAccountNumberLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -96,10 +101,6 @@ class SetSendingMemoViewController: UIViewController {
             self.applyMemoButton.heightAnchor.constraint(equalToConstant: 50),
             self.applyMemoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50)
         ])
-    }
-    
-    private func navigationSettings(){
-        self.navigationController?.navigationBar.isHidden = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

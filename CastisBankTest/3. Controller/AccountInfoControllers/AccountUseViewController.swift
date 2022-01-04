@@ -59,7 +59,6 @@ class AccountUseViewController: UIViewController {
         collectionView.dataSource = self
         
         setFlowLayout(view: collectionView)
-        setNavigation()
         setConstraints()
         refresh()
         
@@ -69,10 +68,15 @@ class AccountUseViewController: UIViewController {
         accountHistoryModel.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.setNavigation()
+    }
+    
     //MARK: - navigation settings
     //navigation bar settingㄷ
     func setNavigation(){
         self.title = accountInfo[0]
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.isTranslucent = true
 //        navigationController?.navigationBar.backgroundColor = colorchip.kakaoYello
 //        navigationController?.navigationBar.barTintColor = colorchip.kakaoYello
