@@ -19,6 +19,7 @@ class SetSendingAmountViewController: UIViewController {
     
     let numberCell = NumberCell()
     let uikitFuncs = UIKitFuncs()
+    let colorChip = ColorChip()
     
     var selectedAccountInfo = ["보낼 계좌 이름", "보낼 계좌 번호"]
     var sendingAccountInfo = ["보내는 계좌 이름", "보내는 계좌 번호"]
@@ -43,6 +44,7 @@ class SetSendingAmountViewController: UIViewController {
     
     private func setNavigation(){
         navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     private func settings(){
@@ -58,9 +60,11 @@ class SetSendingAmountViewController: UIViewController {
         
         let sendingAccountTitle = "\(sendingAccountInfo[0])(\(sendingAccountInfo[1]))"
         uikitFuncs.buttonSettings(button: self.accountNameOfSendingButton, title: sendingAccountTitle, fontSize: 17, tintColor: .black)
-        self.accountNameOfSendingButton.backgroundColor = .lightGray
+        self.accountNameOfSendingButton.backgroundColor = .systemGray6
+        self.accountNameOfSendingButton.layer.cornerRadius = 10
         
-        self.applyAmountOfMoneyButton.backgroundColor = .lightGray
+        uikitFuncs.buttonSettings(button: self.applyAmountOfMoneyButton, title: "다음", fontSize: 17, tintColor: .black)
+        self.applyAmountOfMoneyButton.backgroundColor = .systemGray6
         self.applyAmountOfMoneyButton.layer.cornerRadius = 10
         self.applyAmountOfMoneyButton.isEnabled = false
         
@@ -170,6 +174,7 @@ extension SetSendingAmountViewController: UICollectionViewDelegateFlowLayout, UI
         
         if amountOfMoneyTextField.text != nil {
             applyAmountOfMoneyButton.isEnabled = true
+            applyAmountOfMoneyButton.backgroundColor = colorChip.kakaoYello11
         }
         
         switch indexPath.section{
@@ -189,10 +194,15 @@ extension SetSendingAmountViewController: UICollectionViewDelegateFlowLayout, UI
                 //if the textField's text is empty, button will be disabled
                 if amountOfMoneyTextField.text?.isEmpty == true{
                     applyAmountOfMoneyButton.isEnabled = false
+                    applyAmountOfMoneyButton.backgroundColor = .systemGray6
                 }
                 
             } else {
                 print("selected cell which means nothing")
+                if amountOfMoneyTextField.text?.isEmpty == true{
+                    applyAmountOfMoneyButton.isEnabled = false
+                    applyAmountOfMoneyButton.backgroundColor = .systemGray6
+                }
             }
         default:
             return

@@ -37,6 +37,9 @@ class HomePageViewController: UIViewController{
     
     var selectedCellColor: UIColor?
     
+    var userDefault = UserDefaults.standard
+    
+    
     //MARK: - VC life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +61,7 @@ class HomePageViewController: UIViewController{
         //MARK: receive cell information data from server(url)
         accountModel.delegate = self
         accountModel.getAccountList(user: userName)
+
         
     }
     
@@ -186,9 +190,37 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        
+//        userDefault.set(try? PropertyListEncoder().encode(accountList), forKey: "accountList")
+//        userDefault.set(try? PropertyListEncoder().encode(accountList), forKey: "accountLists")
+//
+//        if let data = userDefault.value(forKey: "accountList") as? Data {
+//            let accountList = try? PropertyListDecoder().decode(AccountList.self, from: data)
+//        }
+//
+//        if let data = userDefault.value(forKey: "accountLists") as? Data {
+//            let accountLists = try? PropertyListDecoder().decode([AccountList].self, from: data)
+//        }
+//
+//        var accounts: [AccountList]{
+//            get {
+//                var lists: [AccountList]?
+//                if let data = userDefault.value(forKey: "accoutnLists") as? Data{
+//                    lists = try? PropertyListDecoder().decode([AccountList].self, from: data)
+//                }
+//                return lists ?? []
+//            }
+//            set {
+//                userDefault.set(try? PropertyListEncoder().encode(newValue), forKey: "accountLists")
+//            }
+//        }
+        
+//        print("what i got : ", accounts)
+        
         switch(section){
         case 0:
-            return accountList.count
+            return self.accountList.count
         case 1:
             return 1
         default:
@@ -293,3 +325,4 @@ extension HomePageViewController: sendUpdateAccountOrderDelegate {
         self.collectionView.reloadData()
     }
 }
+

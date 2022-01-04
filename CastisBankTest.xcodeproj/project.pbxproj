@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		382ABFF4276C6DD900F92710 /* getList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ABFF3276C6DD900F92710 /* getList.swift */; };
+		383B832C2784414D00FE6363 /* AccountInfoForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B832B2784414D00FE6363 /* AccountInfoForCell.swift */; };
 		388669AF277DA25B00A12FD2 /* ColorChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388669AE277DA25B00A12FD2 /* ColorChooseViewController.swift */; };
 		388669B1277DA27C00A12FD2 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388669B0277DA27C00A12FD2 /* ColorCell.swift */; };
 		38B226B527716D5200F7FDD7 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226B427716D5200F7FDD7 /* userInfo.swift */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		382ABFF3276C6DD900F92710 /* getList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getList.swift; sourceTree = "<group>"; };
+		383B832B2784414D00FE6363 /* AccountInfoForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoForCell.swift; sourceTree = "<group>"; };
 		388669AE277DA25B00A12FD2 /* ColorChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChooseViewController.swift; sourceTree = "<group>"; };
 		388669B0277DA27C00A12FD2 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		38B226B427716D5200F7FDD7 /* userInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				3C2447AB2761E57A001D2215 /* AccountList.swift */,
 				3C2447AE2761E5EE001D2215 /* AccountListModel.swift */,
 				3CDF96C927673A0000928066 /* DecodedAccountList.swift */,
+				383B832B2784414D00FE6363 /* AccountInfoForCell.swift */,
 			);
 			path = AccountList;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				3C95E540275882500007B483 /* AccountUseViewController.swift in Sources */,
 				3C95E53E275882240007B483 /* EditAccountOrderViewController.swift in Sources */,
 				3C95E557275896060007B483 /* EditOrderCell.swift in Sources */,
+				383B832C2784414D00FE6363 /* AccountInfoForCell.swift in Sources */,
 				38B226C22771B9A300F7FDD7 /* TranferBody.swift in Sources */,
 				3C95E559275896810007B483 /* TransferedAccountInfoCell.swift in Sources */,
 				3CC5B4552768732D0000A9A3 /* AccountHistoryBody.swift in Sources */,

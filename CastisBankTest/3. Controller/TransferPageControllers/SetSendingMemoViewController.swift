@@ -46,6 +46,7 @@ class SetSendingMemoViewController: UIViewController {
     
     private func setNavigation(){
         navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -60,6 +61,7 @@ class SetSendingMemoViewController: UIViewController {
         
         let sendingAccountTitle = "\(sendingAccountInfo[0])(\(sendingAccountInfo[1]))"
         uikitFuncs.buttonSettings(button: self.sendingAccountInfoButton, title: sendingAccountTitle, fontSize: 17, tintColor: .black)
+        sendingAccountInfoButton.layer.cornerRadius = 10 
         
         self.historyMemoTextField.placeholder = "메모 작성"
         self.historyMemoTextField.layer.cornerRadius = 10

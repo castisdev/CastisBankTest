@@ -45,8 +45,12 @@ class UIKitFuncs {
         imageView.tintColor = color
         imageView.frame.size = CGSize(width: size, height: size)
         imageView.contentMode = .scaleToFill
-
-        imageView.image = UIImage(systemName: "star")
+        
+        if index == 0 {
+            imageView.image = UIImage(systemName: "star.fill")
+        } else {
+            imageView.image = UIImage(systemName: "star")
+        }
     }
     
     //segment 세팅

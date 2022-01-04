@@ -49,7 +49,8 @@ class MainAccountCell: UICollectionViewCell {
         
         //set star image status(Fill or not) => maybe by order...?
         uikitFuncs.starSetting(imageView: mainAccountStarImageView, color: .black, size: 100, index: index)
-        uikitFuncs.buttonSettings(button: colorChangeButton, title: "색", fontSize: 17, tintColor: .black)
+        
+        
     }
 
     
@@ -91,8 +92,8 @@ class MainAccountCell: UICollectionViewCell {
             transferButton.widthAnchor.constraint(equalTo: useInformationOfAccountButton.widthAnchor),
             transferButton.heightAnchor.constraint(equalTo: useInformationOfAccountButton.heightAnchor),
             
-            colorChangeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            colorChangeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+            colorChangeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            colorChangeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
 
         ])
     }
