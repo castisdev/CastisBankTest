@@ -46,6 +46,7 @@ class SetSendingAmountViewController: UIViewController {
 //    }
 //
     private func settings(){
+        //for no keyboard
         self.amountOfMoneyTextField.isUserInteractionEnabled = false
         
         uikitFuncs.labelSettings(label: self.receiverAccountNameLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)
@@ -61,6 +62,7 @@ class SetSendingAmountViewController: UIViewController {
         
         self.applyAmountOfMoneyButton.backgroundColor = .lightGray
         self.applyAmountOfMoneyButton.layer.cornerRadius = 10
+        self.applyAmountOfMoneyButton.isEnabled = false
         
         self.goToHomeBarButton.title = "취소"
     }
@@ -114,9 +116,11 @@ class SetSendingAmountViewController: UIViewController {
 }
 
 extension SetSendingAmountViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section{
         case 0...2:
@@ -163,6 +167,11 @@ extension SetSendingAmountViewController: UICollectionViewDelegateFlowLayout, UI
     
     //셀이 선택 되었을 떄
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        
+        if amountOfMoneyTextField.text != nil {
+            applyAmountOfMoneyButton.isEnabled = true
+        }
+        
         switch indexPath.section{
         case 0:
             amountOfMoneyTextField.text?.append(contentsOf: numberCell.numbers[indexPath.row])
@@ -176,6 +185,12 @@ extension SetSendingAmountViewController: UICollectionViewDelegateFlowLayout, UI
                 amountOfMoneyTextField.text?.append(contentsOf: numberCell.numbers[10])
             } else if amountOfMoneyTextField.text?.isEmpty == false && indexPath.row == 2{
                 amountOfMoneyTextField.text?.removeLast()
+                
+                //if the textField's text is empty, button will be disabled
+                if amountOfMoneyTextField.text?.isEmpty == true{
+                    applyAmountOfMoneyButton.isEnabled = false
+                }
+                
             } else {
                 print("selected cell which means nothing")
             }
@@ -185,13 +200,3 @@ extension SetSendingAmountViewController: UICollectionViewDelegateFlowLayout, UI
     }
     
 }
-
-//extension SetSendingAmountViewController: UITextFieldDelegate{
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if self.amountOfMoneyTextField.text?.isEmpty == false {
-//            applyAmountOfMoneyButton.isEnabled = true
-//        } else{
-//            applyAmountOfMoneyButton.isEnabled = false
-//        }
-//    }
-//}\
