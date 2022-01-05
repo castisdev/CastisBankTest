@@ -45,7 +45,7 @@ class UIKitFuncs {
         imageView.tintColor = color
         imageView.frame.size = CGSize(width: size, height: size)
         imageView.contentMode = .scaleToFill
-        
+
         if index == 0 {
             imageView.image = UIImage(systemName: "star.fill")
         } else {

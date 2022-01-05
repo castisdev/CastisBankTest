@@ -129,6 +129,7 @@ extension EditAccountOrderViewController: UITableViewDelegate, UITableViewDataSo
         //가져다놓은 index의 위치에 넣는다.
         receivedAccountList.insert(item, at: destinationIndexPath.row)
         
+        tableView.reloadData()
         print(receivedAccountList)
         
     }

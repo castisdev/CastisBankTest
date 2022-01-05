@@ -18,6 +18,7 @@
 		38B226C62771B9BE00F7FDD7 /* TransferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C52771B9BE00F7FDD7 /* TransferModel.swift */; };
 		38B226C82771BE9200F7FDD7 /* SetAccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226C72771BE9200F7FDD7 /* SetAccountNumberViewController.swift */; };
 		38B226CD2771C7C300F7FDD7 /* NumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B226CC2771C7C300F7FDD7 /* NumberCell.swift */; };
+		38B7E6A627852FC300AD3032 /* UserDefaultFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B7E6A527852FC300AD3032 /* UserDefaultFuncs.swift */; };
 		3C059B5D27683359003FB4D0 /* OTPBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5C27683359003FB4D0 /* OTPBody.swift */; };
 		3C059B60276833ED003FB4D0 /* OTPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B5F276833ED003FB4D0 /* OTPResult.swift */; };
 		3C059B622768340C003FB4D0 /* OTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C059B612768340C003FB4D0 /* OTPModel.swift */; };
@@ -92,6 +93,7 @@
 		38B226C52771B9BE00F7FDD7 /* TransferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferModel.swift; sourceTree = "<group>"; };
 		38B226C72771BE9200F7FDD7 /* SetAccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAccountNumberViewController.swift; sourceTree = "<group>"; };
 		38B226CC2771C7C300F7FDD7 /* NumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCell.swift; sourceTree = "<group>"; };
+		38B7E6A527852FC300AD3032 /* UserDefaultFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultFuncs.swift; sourceTree = "<group>"; };
 		3C059B5C27683359003FB4D0 /* OTPBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPBody.swift; sourceTree = "<group>"; };
 		3C059B5F276833ED003FB4D0 /* OTPResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPResult.swift; sourceTree = "<group>"; };
 		3C059B612768340C003FB4D0 /* OTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPModel.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				3CA8E2A62759D4AB00F7478E /* Colorchip.swift */,
 				3C2249DE2767306D00DD10EE /* DetailFuncs.swift */,
 				382ABFF3276C6DD900F92710 /* getList.swift */,
+				38B7E6A527852FC300AD3032 /* UserDefaultFuncs.swift */,
 			);
 			path = skills;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				3CA8E2A72759D4AB00F7478E /* Colorchip.swift in Sources */,
 				3C95E560275897230007B483 /* SetFilterCell.swift in Sources */,
 				3C059B622768340C003FB4D0 /* OTPModel.swift in Sources */,
+				38B7E6A627852FC300AD3032 /* UserDefaultFuncs.swift in Sources */,
 				3C2249DF2767306D00DD10EE /* DetailFuncs.swift in Sources */,
 				3C95E546275882EA0007B483 /* SetRecieverViewController.swift in Sources */,
 			);

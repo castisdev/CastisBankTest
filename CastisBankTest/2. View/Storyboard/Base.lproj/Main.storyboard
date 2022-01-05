@@ -81,11 +81,11 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpe-9G-1oJ">
-                                                    <rect key="frame" x="348" y="9" width="50" height="31"/>
+                                                    <rect key="frame" x="361" y="18" width="24" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="wrench.and.screwdriver" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
                                                     <connections>
                                                         <action selector="colorButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JNi-QI-AIR"/>
                                                         <segue destination="t1w-OH-lOy" kind="presentation" identifier="colorChooseSegue" id="xx6-bh-mGq"/>
@@ -1120,7 +1120,6 @@
     <resources>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
-        <image name="wrench.and.screwdriver" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -38,6 +38,7 @@ class HomePageViewController: UIViewController{
     var selectedCellColor: UIColor?
     
     var userDefault = UserDefaults.standard
+    var displayAccountList: [AccountList]?
     
     
     //MARK: - VC life cycles
@@ -49,6 +50,16 @@ class HomePageViewController: UIViewController{
         
         //collectionView size 설정
         collectionView.frame = view.bounds
+        
+        if userDefault.object(forKey: "accountLists") != nil {
+            //MARK: receive cell information data from server(url)
+            accountModel.delegate = self
+            accountModel.getAccountList(user: userName)
+        }
+        
+        print("accountList at home page view did load : ", accountList)
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,10 +69,6 @@ class HomePageViewController: UIViewController{
         setNavigation()
         refresh()
         
-        //MARK: receive cell information data from server(url)
-        accountModel.delegate = self
-        accountModel.getAccountList(user: userName)
-
         
     }
     
@@ -191,36 +198,13 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        
-//        userDefault.set(try? PropertyListEncoder().encode(accountList), forKey: "accountList")
-//        userDefault.set(try? PropertyListEncoder().encode(accountList), forKey: "accountLists")
-//
-//        if let data = userDefault.value(forKey: "accountList") as? Data {
-//            let accountList = try? PropertyListDecoder().decode(AccountList.self, from: data)
-//        }
-//
-//        if let data = userDefault.value(forKey: "accountLists") as? Data {
-//            let accountLists = try? PropertyListDecoder().decode([AccountList].self, from: data)
-//        }
-//
-//        var accounts: [AccountList]{
-//            get {
-//                var lists: [AccountList]?
-//                if let data = userDefault.value(forKey: "accoutnLists") as? Data{
-//                    lists = try? PropertyListDecoder().decode([AccountList].self, from: data)
-//                }
-//                return lists ?? []
-//            }
-//            set {
-//                userDefault.set(try? PropertyListEncoder().encode(newValue), forKey: "accountLists")
-//            }
-//        }
-        
-//        print("what i got : ", accounts)
+        print("accountList at home page @ number of section : ", accountList)
+        UserDefaultFuncs.save(self.accountList)
+        displayAccountList = UserDefaultFuncs.get()
         
         switch(section){
         case 0:
-            return self.accountList.count
+            return self.displayAccountList!.count
         case 1:
             return 1
         default:
@@ -241,7 +225,7 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
         switch(indexPath.section){
         case 0:
-            cell.cellSettings(index: indexPath.row, accountList: accountList)
+            cell.cellSettings(index: indexPath.row, accountList: displayAccountList!)
             
             //tag for sending information
             cell.transferButton.tag = indexPath.item
