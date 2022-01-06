@@ -366,23 +366,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYC-tn-AhD">
-                                <rect key="frame" x="327" y="9" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="backToTransferButton:" destination="mW6-Yy-prj" eventType="touchUpInside" id="Qgk-5q-nkx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X1l-SM-Ahc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ns3-bq-eaf"/>
+                    <navigationItem key="navigationItem" id="ns3-bq-eaf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="7xQ-Kz-GGv">
+                            <connections>
+                                <action selector="backToTransferButton:" destination="mW6-Yy-prj" id="1BL-uT-cTu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="applyTrasferAccountButton" destination="Nha-lP-LbK" id="eLc-Ka-cuC"/>
-                        <outlet property="cancelButton" destination="UYC-tn-AhD" id="frN-Z9-pWo"/>
+                        <outlet property="cancelBarButton" destination="7xQ-Kz-GGv" id="0XT-uf-iyT"/>
                         <outlet property="collectionView" destination="TsZ-Qi-OYm" id="B9K-WZ-Yng"/>
                         <outlet property="putAccountTextField" destination="fgM-vF-DPI" id="bAg-Rk-cao"/>
                     </connections>
@@ -1041,31 +1038,6 @@
             </objects>
             <point key="canvasLocation" x="3814" y="-1071"/>
         </scene>
-        <!--Put Transfer Password View Controller-->
-        <scene sceneID="jmE-cR-SQe">
-            <objects>
-                <viewController id="mde-U9-s1b" customClass="PutTransferPasswordViewController" customModule="CastisBankTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hTm-gR-gnU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비번 치는 창 for 이체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54A-Cs-yYa">
-                                <rect key="frame" x="136" y="291" width="142" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="1Ej-5w-jAC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Hx1-ze-2jl"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1IN-an-91E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4507" y="-1446"/>
-        </scene>
         <!--Transfer Success View Controller-->
         <scene sceneID="prS-EW-snW">
             <objects>
@@ -1110,7 +1082,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAj-ni-Sxp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5264" y="-1071"/>
+            <point key="canvasLocation" x="4593" y="-1071"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

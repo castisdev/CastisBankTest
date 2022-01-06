@@ -10,7 +10,7 @@ import UIKit
 
 class SetAccountNumberViewController: UIViewController{
     
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var putAccountTextField: UITextField!
     @IBOutlet weak var applyTrasferAccountButton: UIButton!
     
@@ -38,16 +38,13 @@ class SetAccountNumberViewController: UIViewController{
     
     
     private func setConstraints(){
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
         putAccountTextField.translatesAutoresizingMaskIntoConstraints = false
         applyTrasferAccountButton.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            putAccountTextField.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 50),
+            putAccountTextField.topAnchor.constraint(equalTo: view.topAnchor , constant: 100),
             putAccountTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             putAccountTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             putAccountTextField.heightAnchor.constraint(equalToConstant: 50),
@@ -65,6 +62,7 @@ class SetAccountNumberViewController: UIViewController{
     }
     
     func displaySettings(){
+        self.cancelBarButton.title = "취소"
         putAccountTextField.placeholder = "입금할 계좌번호 입력(- 포함해서)"
         
         putAccountTextField.backgroundColor = .systemGray6
@@ -72,8 +70,6 @@ class SetAccountNumberViewController: UIViewController{
         putAccountTextField.layer.cornerRadius = 10
         putAccountTextField.textAlignment = .center
 
-
-        uikitFuncs.buttonSettings(button: cancelButton, title: "취소", fontSize: 17, tintColor: .black)
         uikitFuncs.buttonSettings(button: applyTrasferAccountButton, title: "확인", fontSize: 17, tintColor: .black)
         
         applyTrasferAccountButton.backgroundColor = .lightGray
@@ -81,8 +77,7 @@ class SetAccountNumberViewController: UIViewController{
     }
     
     @IBAction func backToTransferButton(_ sender: Any) {
-        
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

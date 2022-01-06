@@ -19,6 +19,7 @@ class HomePageViewController: UIViewController{
     
     let uikitFuncs = UIKitFuncs()
     let detailFuncs = DetailFuncs()
+    let colorChip = ColorChip()
     
     //MARK: cell information (from server, from edit order VC)
     let userName = UserInformation().user.userName
@@ -39,6 +40,7 @@ class HomePageViewController: UIViewController{
     
     var userDefault = UserDefaults.standard
     var displayAccountList: [AccountList]?
+    var cellColors = [UIColor]()
     
     
     //MARK: - VC life cycles
@@ -58,7 +60,7 @@ class HomePageViewController: UIViewController{
         }
         
         print("accountList at home page view did load : ", accountList)
-        
+
 
     }
     
@@ -290,14 +292,13 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 extension HomePageViewController: AccountListModelDelegate {
     func AccountListRetrieved(accounts: [AccountList]) {
         print("accounts retrieved from account list model!")
-//        print("retrieved accounts:", accounts)
         self.accountList = accounts
-//        print("after set account list at delegate function :", accountList)
+        
+        for _ in 0...accounts.count - 1 {
+            cellColors.append(colorChip.kakaoYello11)
+        }
         
         collectionView.reloadData()
-        
-//        print("after reload data at delegate function :", accountList)
-        
     }
 }
 

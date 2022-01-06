@@ -91,10 +91,6 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-//        func segmentValueChanged(_ sender: UISegmentedControl){
-//
-//        }
-        
         switch indexPath.section {
         case 0:
             cell.cellSettings(index: indexPath.row, selected: receivedInfo, cell.choiceSegmentControl)
@@ -105,7 +101,7 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
             
             cell.startDateTextField.addTarget(self, action: #selector(startDateChanged(_:)), for: .editingDidEnd)
             cell.endDateTextField.addTarget(self, action: #selector(endDateChanged(_:)), for: .editingDidEnd)
-
+            
             return cell
         case 1:
             confirmCell.cellSettings()
@@ -118,7 +114,7 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
   
     //check button action(with segment's changed value
     @IBAction func backToInfo(_ sender: Any) {
-        
+            
         delegate?.sendUpdate(selectedData: self.receivedInfo)
         delegate?.sendStartEnd(selectedPeriod: self.startEndDate)
         
@@ -127,7 +123,9 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
     
     //act when sement value changed
     @objc func segmentValueChanged(_ sender: UISegmentedControl){
+        
         self.receivedInfo[sender.tag] = filterModel[sender.tag].standards[sender.selectedSegmentIndex]
+        self.startEndDate[0] = filterModel[0].standards[sender.selectedSegmentIndex]
         
         
         print("-----------", receivedInfo)
@@ -136,15 +134,13 @@ extension SetFilterViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func startDateChanged(_ sender: UITextField){
-        self.startEndDate[1] = sender.text ?? "20210303"
-        
+        self.startEndDate[1] = sender.text ?? "19970501"
         print("-----------", receivedInfo)
         print("============", startEndDate)
     }
     
     @objc func endDateChanged(_ sender: UITextField){
-        self.startEndDate[2] = sender.text ?? "20220303"
-        
+        self.startEndDate[2] = sender.text ?? "19970901"
         print("-----------", receivedInfo)
         print("============", startEndDate)
     }

@@ -44,7 +44,9 @@ class SetFilterCell: UITableViewCell {
         uikitFuncs.labelSettings(label: barLabel, title: "-", size: 15, color: .black)
         
         self.startDateTextField.setDatePicker(target: self, selector: #selector(buttonDoneTappedForStartDate))
+        startDateTextField.placeholder = "시작 날짜"
         self.endDateTextField.setDatePicker(target: self, selector: #selector(buttonDoneTappedForEndDate))
+        endDateTextField.placeholder = "마지막 날짜"
     }
     
     func setConstraints() {
