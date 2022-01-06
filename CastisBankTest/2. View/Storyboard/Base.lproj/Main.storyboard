@@ -450,13 +450,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 설정된 계좌 번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ba-xV-bN2">
-                                <rect key="frame" x="130" y="99" width="146" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4gE-Ec-zE2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -474,7 +467,6 @@
                         <outlet property="applyAmountOfMoneyButton" destination="lDC-KQ-bNU" id="8PI-G0-eJH"/>
                         <outlet property="collectionView" destination="IXh-Zq-uWf" id="Bfc-aR-pzi"/>
                         <outlet property="goToHomeBarButton" destination="kxd-0s-nnT" id="qqb-L6-4F3"/>
-                        <outlet property="receiverAccountNameLabel" destination="9ba-xV-bN2" id="ImE-8b-R5K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmO-11-neP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -924,13 +916,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 설정된 계좌 번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWF-vU-ULw">
-                                <rect key="frame" x="134" y="80" width="146" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjx-X0-JbD">
                                 <rect key="frame" x="51" y="433" width="312" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -973,7 +958,6 @@
                         <outlet property="applyMemoButton" destination="KX4-5z-g68" id="ghg-kZ-riS"/>
                         <outlet property="goToHomeBarButton" destination="eVZ-0c-nbH" id="Vfc-v4-ciX"/>
                         <outlet property="historyMemoTextField" destination="nas-05-ScA" id="i1E-35-Uaj"/>
-                        <outlet property="selectedAccountNumberLabel" destination="SWF-vU-ULw" id="qCX-E4-4zI"/>
                         <outlet property="sendingAccountInfoButton" destination="fjx-X0-JbD" id="Dpu-mv-2hh"/>
                         <outlet property="sendingAmountLabel" destination="Hi5-gz-kNu" id="wXX-Sx-DQJ"/>
                     </connections>

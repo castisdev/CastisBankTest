@@ -42,7 +42,6 @@
 		3C95E548275883020007B483 /* SetSendingAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E547275883020007B483 /* SetSendingAmountViewController.swift */; };
 		3C95E54A275883130007B483 /* SetSendingMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E549275883130007B483 /* SetSendingMemoViewController.swift */; };
 		3C95E54C2758833D0007B483 /* SeekTransferConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E54B2758833D0007B483 /* SeekTransferConsentViewController.swift */; };
-		3C95E54E275883580007B483 /* PutTransferPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E54D275883580007B483 /* PutTransferPasswordViewController.swift */; };
 		3C95E550275883670007B483 /* TransferSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E54F275883670007B483 /* TransferSuccessViewController.swift */; };
 		3C95E555275895F10007B483 /*  MainAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E554275895F10007B483 /*  MainAccountCell.swift */; };
 		3C95E557275896060007B483 /* EditOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95E556275896060007B483 /* EditOrderCell.swift */; };
@@ -121,7 +120,6 @@
 		3C95E547275883020007B483 /* SetSendingAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSendingAmountViewController.swift; sourceTree = "<group>"; };
 		3C95E549275883130007B483 /* SetSendingMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetSendingMemoViewController.swift; sourceTree = "<group>"; };
 		3C95E54B2758833D0007B483 /* SeekTransferConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekTransferConsentViewController.swift; sourceTree = "<group>"; };
-		3C95E54D275883580007B483 /* PutTransferPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutTransferPasswordViewController.swift; sourceTree = "<group>"; };
 		3C95E54F275883670007B483 /* TransferSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSuccessViewController.swift; sourceTree = "<group>"; };
 		3C95E554275895F10007B483 /*  MainAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " MainAccountCell.swift"; sourceTree = "<group>"; };
 		3C95E556275896060007B483 /* EditOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOrderCell.swift; sourceTree = "<group>"; };
@@ -321,7 +319,6 @@
 				3C95E547275883020007B483 /* SetSendingAmountViewController.swift */,
 				3C95E549275883130007B483 /* SetSendingMemoViewController.swift */,
 				3C95E54B2758833D0007B483 /* SeekTransferConsentViewController.swift */,
-				3C95E54D275883580007B483 /* PutTransferPasswordViewController.swift */,
 				3C95E54F275883670007B483 /* TransferSuccessViewController.swift */,
 			);
 			path = TransferPageControllers;
@@ -603,7 +600,6 @@
 				3C2447AC2761E57A001D2215 /* AccountList.swift in Sources */,
 				38B226C42771B9AE00F7FDD7 /* TransferResult.swift in Sources */,
 				3CC5B4592768741B0000A9A3 /* AccountHistoryService.swift in Sources */,
-				3C95E54E275883580007B483 /* PutTransferPasswordViewController.swift in Sources */,
 				3C95E548275883020007B483 /* SetSendingAmountViewController.swift in Sources */,
 				3C95E540275882500007B483 /* AccountUseViewController.swift in Sources */,
 				3C95E53E275882240007B483 /* EditAccountOrderViewController.swift in Sources */,

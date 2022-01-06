@@ -53,11 +53,15 @@ class HomePageViewController: UIViewController{
         //collectionView size 설정
         collectionView.frame = view.bounds
         
-        if userDefault.object(forKey: "accountLists") != nil {
-            //MARK: receive cell information data from server(url)
-            accountModel.delegate = self
-            accountModel.getAccountList(user: userName)
-        }
+//        if userDefault.object(forKey: "accountLists") != nil {
+//            //MARK: receive cell information data from server(url)
+//            accountModel.delegate = self
+//            accountModel.getAccountList(user: userName)
+//        }
+        
+        //MARK: receive cell information data from server(url)
+        accountModel.delegate = self
+        accountModel.getAccountList(user: userName)
         
         print("accountList at home page view did load : ", accountList)
 
@@ -70,8 +74,6 @@ class HomePageViewController: UIViewController{
         setFlowLayout(view: collectionView)
         setNavigation()
         refresh()
-        
-        
     }
     
     //MARK: prepare devided by segue identifier
@@ -158,6 +160,8 @@ class HomePageViewController: UIViewController{
     @objc func updateUI(refresh: UIRefreshControl){
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0){
+//            accountModel.getAccountList(user: self.userName)
+            self.accountList = UserDefaultFuncs.get()
             self.collectionView.reloadData()
             refresh.endRefreshing()
         }
@@ -200,7 +204,8 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        print("accountList at home page @ number of section : ", accountList)
+        print("accountList at home page @ number of section : ", displayAccountList)
+        
         UserDefaultFuncs.save(self.accountList)
         displayAccountList = UserDefaultFuncs.get()
         

@@ -48,7 +48,7 @@ class SeekTransferConsentViewController: UIViewController {
         let moneyComment = "\(receiveInfo)에게 \(sendingAmount)원 \n 이체하시겠습니까?"
         let accountComment = "받는계좌: \(receivingAccountInfo[1])"
         
-        uikitFuns.labelSettings(label: moneyLabel, title: moneyComment, size: 20, color: .black)
+        uikitFuns.labelSettings(label: moneyLabel, title: moneyComment, size: 18, color: .black)
         moneyLabel.numberOfLines = 2
         moneyLabel.textAlignment = .center
         uikitFuns.labelSettings(label: accountLabel, title: accountComment, size: 15, color: .darkGray)

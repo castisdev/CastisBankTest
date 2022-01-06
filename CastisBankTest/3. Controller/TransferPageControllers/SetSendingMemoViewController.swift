@@ -9,7 +9,6 @@ import UIKit
 
 class SetSendingMemoViewController: UIViewController {
 
-    @IBOutlet weak var selectedAccountNumberLabel: UILabel!
     @IBOutlet weak var sendingAmountLabel: UILabel!
     @IBOutlet weak var sendingAccountInfoButton: UIButton!
     
@@ -31,10 +30,11 @@ class SetSendingMemoViewController: UIViewController {
         
         settings()
         setConstraints()
+        setNavigation()
         
         historyMemoTextField.delegate = self
         
-        self.title = selectedAccountInfo[0]
+//        self.title = selectedAccountInfo[0]
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -45,6 +45,18 @@ class SetSendingMemoViewController: UIViewController {
     }
     
     private func setNavigation(){
+        
+//        let attributedAccountNumber = NSMutableAttributedString(string: selectedAccountInfo[1], attributes: [
+//            .font: UIFont.systemFont(ofSize: 10),
+//            .foregroundColor = UIColor.lightGray
+//        ])
+        
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.text = "\(selectedAccountInfo[0])\n\(selectedAccountInfo[1])"
+        self.navigationItem.titleView = label
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
@@ -54,14 +66,14 @@ class SetSendingMemoViewController: UIViewController {
     }
     
     private func settings(){
-        uikitFuncs.labelSettings(label: self.selectedAccountNumberLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)
         
         let easySendingAmount = skills.makeMoneyAmountEasy(amount: Int(sendingAmount)!)
         uikitFuncs.labelSettings(label: self.sendingAmountLabel, title: easySendingAmount, size: 30, color: .black)
         
         let sendingAccountTitle = "\(sendingAccountInfo[0])(\(sendingAccountInfo[1]))"
         uikitFuncs.buttonSettings(button: self.sendingAccountInfoButton, title: sendingAccountTitle, fontSize: 17, tintColor: .black)
-        sendingAccountInfoButton.layer.cornerRadius = 10 
+        sendingAccountInfoButton.backgroundColor = .systemGray6
+        sendingAccountInfoButton.layer.cornerRadius = 10
         
         self.historyMemoTextField.placeholder = "메모 작성"
         self.historyMemoTextField.layer.cornerRadius = 10
@@ -72,24 +84,20 @@ class SetSendingMemoViewController: UIViewController {
     }
     
     private func setConstraints(){
-        self.selectedAccountNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         self.sendingAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         self.sendingAccountInfoButton.translatesAutoresizingMaskIntoConstraints = false
         self.historyMemoTextField.translatesAutoresizingMaskIntoConstraints = false
         self.applyMemoButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.selectedAccountNumberLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            self.selectedAccountNumberLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            self.sendingAmountLabel.topAnchor.constraint(equalTo: selectedAccountNumberLabel.bottomAnchor, constant: 100),
+            self.sendingAmountLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             self.sendingAmountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            self.sendingAmountLabel.topAnchor.constraint(equalTo: self.selectedAccountNumberLabel.bottomAnchor, constant: 50),
             
             self.sendingAccountInfoButton.topAnchor.constraint(equalTo: self.sendingAmountLabel.bottomAnchor, constant: 100),
             self.sendingAccountInfoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             self.sendingAccountInfoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             self.sendingAccountInfoButton.heightAnchor.constraint(equalToConstant: 50),
+            self.sendingAccountInfoButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
 
             self.historyMemoTextField.topAnchor.constraint(equalTo: self.sendingAccountInfoButton.bottomAnchor, constant: 20),
             self.historyMemoTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -123,7 +131,7 @@ class SetSendingMemoViewController: UIViewController {
 
 extension SetSendingMemoViewController: UITextFieldDelegate {
     @objc func keyboardWillShow(_ sender: Notification){
-        self.view.frame.origin.y = -150
+        self.view.frame.origin.y = -50
     }
     
     @objc func keyboardWillHide(_ sender: Notification){

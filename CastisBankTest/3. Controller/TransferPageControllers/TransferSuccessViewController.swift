@@ -22,7 +22,13 @@ class TransferSuccessViewController: UIViewController {
     let transferModel = TransferModel()
     var transferResult: TransferResult?
     
+    let accountListModel = AccountListModel()
+    var accountListResult: [AccountList]?
+    
     var transferInfo = ["보내는 계좌 번호", "받는 계좌 이름", "받는 계좌 번호", "송금 금액", "메모"]
+    
+    var savedAccountInfo: [AccountList]?
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +36,11 @@ class TransferSuccessViewController: UIViewController {
         otpModel.delegate = self
         print("-- user info !!", userInfo)
         otpModel.getOTP(userId: userInfo.userName, companyId: userInfo.companyId)
-         print("otp result at success view : ", otpResult)
         
         setConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     private func settings(){
@@ -79,6 +83,9 @@ class TransferSuccessViewController: UIViewController {
         ])
     }
     @IBAction func pushToRootButton(_ sender: Any) {
+        accountListModel.delegate = self
+        accountListModel.getAccountList(user: userInfo.userName)
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -99,5 +106,15 @@ extension TransferSuccessViewController: TransferDelegate{
         self.transferResult = transferResult
         
         settings()
+    }
+}
+
+extension TransferSuccessViewController: AccountListModelDelegate{
+    func AccountListRetrieved(accounts: [AccountList]) {
+        self.accountListResult = accounts
+        
+        UserDefaultFuncs.save(accountListResult)
+        self.savedAccountInfo = UserDefaultFuncs.get()
+        print("-- ^^ -- ^^ -- ^^ savedAccounInfo", savedAccountInfo)
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 
 class SetSendingAmountViewController: UIViewController {
     
-    @IBOutlet weak var receiverAccountNameLabel: UILabel!
     @IBOutlet weak var amountOfMoneyTextField: UITextField!
     @IBOutlet weak var accountNameOfSendingButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -31,8 +30,6 @@ class SetSendingAmountViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        self.title = selectedAccountInfo[0]
 
         settings()
         setConstraints()
@@ -45,13 +42,17 @@ class SetSendingAmountViewController: UIViewController {
     private func setNavigation(){
         navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.text = "\(selectedAccountInfo[0])\n\(selectedAccountInfo[1])"
+        self.navigationItem.titleView = label
     }
     
     private func settings(){
         //for no keyboard
         self.amountOfMoneyTextField.isUserInteractionEnabled = false
-        
-        uikitFuncs.labelSettings(label: self.receiverAccountNameLabel, title: selectedAccountInfo[1], size: 17, color: .darkGray)
         
         self.amountOfMoneyTextField.placeholder = "보낼 금액"
         self.amountOfMoneyTextField.borderStyle = .none
@@ -72,21 +73,17 @@ class SetSendingAmountViewController: UIViewController {
     }
     
     private func setConstraints(){
-        self.receiverAccountNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.amountOfMoneyTextField.translatesAutoresizingMaskIntoConstraints = false
         self.accountNameOfSendingButton.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.applyAmountOfMoneyButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            receiverAccountNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            receiverAccountNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+            amountOfMoneyTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             amountOfMoneyTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            amountOfMoneyTextField.topAnchor.constraint(equalTo: receiverAccountNameLabel.bottomAnchor, constant: 100),
             amountOfMoneyTextField.heightAnchor.constraint(equalToConstant: 50),
             
-            accountNameOfSendingButton.topAnchor.constraint(equalTo: amountOfMoneyTextField.bottomAnchor, constant: 100),
+            accountNameOfSendingButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             accountNameOfSendingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             accountNameOfSendingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             accountNameOfSendingButton.heightAnchor.constraint(equalToConstant: 50),
